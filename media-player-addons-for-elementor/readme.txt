@@ -4,7 +4,7 @@ Author URI: https://bplugins.com
 Contributors: bplugins,abuhayat, shehabulislam
 Tags: Elementor addon, media player, mp3 player, video player, youtube 
 Requires at least: 4.6
-Tested up to: 6.6.2
+Tested up to: 6.7.2
 Stable tag: 1.0.5
 Requires PHP: 7.1
 Donate link: https://www.buymeacoffee.com/abuhayat
