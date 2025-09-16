@@ -1,15 +1,16 @@
 <?php
+
 /**
  * Plugin Name: Media Player Addons for Elementor
  * Plugin URI:  https://elementoraddons.org/media-player-addons/
  * Description: Collection of media players to plaback of various media files such as .mp3, .mp4, .flv, .m3u8, .ogg, YouTube, Vimeo and moe....
- * Version:     1.0.5
- * Author:      bPlugins
+ * Version:     1.0.6
+ * Author:      bPlugins LLC
  * Author URI:  https://bPlugins.com
  * Text Domain: baddon
  */
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if (! defined('ABSPATH')) exit; // Exit if accessed directly
 
 /**
  * Main baddon wp Class
@@ -22,7 +23,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  * Any custom code should go inside Plugin Class in the plugin.php file.
  */
 
-final class baddon_main_element {
+final class baddon_main_element
+{
 
 	/**
 	 * Plugin Version
@@ -30,7 +32,7 @@ final class baddon_main_element {
 	 * @since 1.2.0
 	 * @var string The plugin version.
 	 */
-	const VERSION = '1.0.5';
+	const VERSION = '1.0.6';
 
 	/**
 	 * Minimum Elementor Version
@@ -54,20 +56,22 @@ final class baddon_main_element {
 	 * @since 1.0.0
 	 * @access public
 	 */
-	public function __construct() {
+	public function __construct()
+	{
 
 		// Load translation
-		add_action( 'init', array( $this, 'i18n' ) );
+		add_action('init', array($this, 'i18n'));
 
-		register_activation_hook( __FILE__, [$this, 'deactivate_pro_version'] );
+		register_activation_hook(__FILE__, [$this, 'deactivate_pro_version']);
 
 		// Init Plugin
-		add_action( 'plugins_loaded', array( $this, 'init' ) );
+		add_action('plugins_loaded', array($this, 'init'));
 	}
 
-	function deactivate_pro_version(){
-		if ( is_plugin_active( 'media-player-addons-pro/media-player-addons-pro.php' )) {
-			deactivate_plugins( 'media-player-addons-pro/media-player-addons-pro.php' );
+	function deactivate_pro_version()
+	{
+		if (is_plugin_active('media-player-addons-pro/media-player-addons-pro.php')) {
+			deactivate_plugins('media-player-addons-pro/media-player-addons-pro.php');
 		}
 	}
 
@@ -80,8 +84,9 @@ final class baddon_main_element {
 	 * @since 1.2.0
 	 * @access public
 	 */
-	public function i18n() {
-		load_plugin_textdomain( 'baddon', false, dirname( __FILE__ ) . "/languages" );
+	public function i18n()
+	{
+		load_plugin_textdomain('baddon', false, dirname(__FILE__) . "/languages");
 	}
 
 	/**
@@ -96,28 +101,29 @@ final class baddon_main_element {
 	 * @since 1.2.0
 	 * @access public
 	 */
-	public function init() {
+	public function init()
+	{
 
 		// Check if Elementor installed and activated
-		if ( ! did_action( 'elementor/loaded' ) ) {
-			add_action( 'admin_notices', array( $this, 'admin_notice_missing_main_plugin' ) );
+		if (! did_action('elementor/loaded')) {
+			add_action('admin_notices', array($this, 'admin_notice_missing_main_plugin'));
 			return;
 		}
 
 		// Check for required Elementor version
-		if ( ! version_compare( ELEMENTOR_VERSION, self::MINIMUM_ELEMENTOR_VERSION, '>=' ) ) {
-			add_action( 'admin_notices', array( $this, 'admin_notice_minimum_elementor_version' ) );
+		if (! version_compare(ELEMENTOR_VERSION, self::MINIMUM_ELEMENTOR_VERSION, '>=')) {
+			add_action('admin_notices', array($this, 'admin_notice_minimum_elementor_version'));
 			return;
 		}
 
 		// Check for required PHP version
-		if ( version_compare( PHP_VERSION, self::MINIMUM_PHP_VERSION, '<' ) ) {
-			add_action( 'admin_notices', array( $this, 'admin_notice_minimum_php_version' ) );
+		if (version_compare(PHP_VERSION, self::MINIMUM_PHP_VERSION, '<')) {
+			add_action('admin_notices', array($this, 'admin_notice_minimum_php_version'));
 			return;
 		}
 
 		// Once we get here, We have passed all validation checks so we can safely include our plugin
-		require_once( 'plugin.php' );
+		require_once('plugin.php');
 	}
 
 	/**
@@ -128,19 +134,20 @@ final class baddon_main_element {
 	 * @since 1.0.0
 	 * @access public
 	 */
-	public function admin_notice_missing_main_plugin() {
-		if ( isset( $_GET['activate'] ) ) {
-			unset( $_GET['activate'] );
+	public function admin_notice_missing_main_plugin()
+	{
+		if (isset($_GET['activate'])) {
+			unset($_GET['activate']);
 		}
 
 		$message = sprintf(
 			/* translators: 1: Plugin name 2: Elementor */
-			esc_html__( '"%1$s" requires "%2$s" to be installed and activated.', 'baddon' ),
-			'<strong>' . esc_html__( 'Media Player Addon', 'baddon' ) . '</strong>',
-			'<strong><a href="https://wordpress.org/plugins/elementor/">' . esc_html__( 'Elementor', 'baddon' ) . '</a></strong>'
+			esc_html__('"%1$s" requires "%2$s" to be installed and activated.', 'baddon'),
+			'<strong>' . esc_html__('Media Player Addon', 'baddon') . '</strong>',
+			'<strong><a href="https://wordpress.org/plugins/elementor/">' . esc_html__('Elementor', 'baddon') . '</a></strong>'
 		);
 
-		printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
+		printf('<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message);
 	}
 
 	/**
@@ -151,20 +158,21 @@ final class baddon_main_element {
 	 * @since 1.0.0
 	 * @access public
 	 */
-	public function admin_notice_minimum_elementor_version() {
-		if ( isset( $_GET['activate'] ) ) {
-			unset( $_GET['activate'] );
+	public function admin_notice_minimum_elementor_version()
+	{
+		if (isset($_GET['activate'])) {
+			unset($_GET['activate']);
 		}
 
 		$message = sprintf(
 			/* translators: 1: Plugin name 2: Elementor 3: Required Elementor version */
-			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'baddon' ),
-			'<strong>' . esc_html__( 'unlimited addon', 'baddon' ) . '</strong>',
-			'<strong>' . esc_html__( 'Elementor', 'baddon' ) . '</strong>',
+			esc_html__('"%1$s" requires "%2$s" version %3$s or greater.', 'baddon'),
+			'<strong>' . esc_html__('unlimited addon', 'baddon') . '</strong>',
+			'<strong>' . esc_html__('Elementor', 'baddon') . '</strong>',
 			self::MINIMUM_ELEMENTOR_VERSION
 		);
 
-		printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
+		printf('<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message);
 	}
 
 	/**
@@ -175,22 +183,26 @@ final class baddon_main_element {
 	 * @since 1.0.0
 	 * @access public
 	 */
-	public function admin_notice_minimum_php_version() {
-		if ( isset( $_GET['activate'] ) ) {
-			unset( $_GET['activate'] );
+	public function admin_notice_minimum_php_version()
+	{
+		if (isset($_GET['activate'])) {
+			unset($_GET['activate']);
 		}
 
 		$message = sprintf(
 			/* translators: 1: Plugin name 2: PHP 3: Required PHP version */
-			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'baddon' ),
-			'<strong>' . esc_html__( 'venus wp', 'baddon' ) . '</strong>',
-			'<strong>' . esc_html__( 'PHP', 'baddon' ) . '</strong>',
+			esc_html__('"%1$s" requires "%2$s" version %3$s or greater.', 'baddon'),
+			'<strong>' . esc_html__('venus wp', 'baddon') . '</strong>',
+			'<strong>' . esc_html__('PHP', 'baddon') . '</strong>',
 			self::MINIMUM_PHP_VERSION
 		);
 
-		printf( '<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message );
+		printf('<div class="notice notice-warning is-dismissible"><p>%1$s</p></div>', $message);
 	}
 }
+
+
+require_once('functions.php');
 
 // Instantiate baddon_main_element.
 new baddon_main_element();

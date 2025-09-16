@@ -232,6 +232,26 @@ class Bplayer_Video_Playlist extends Widget_Base {
 			$bplayer_opt['dark_mode'] = false; 
 		}
 		
+		// Sanitize each item in the media_source array
+if (!empty($settings['media_source']) && is_array($settings['media_source'])) {
+			foreach ($settings['media_source'] as $key => $item) {
+				if (isset($item['track_title'])) {
+					$settings['media_source'][$key]['track_title'] = sanitize_xss_input($item['track_title']);
+				}
+				if (isset($item['track_source'])) {
+					$settings['media_source'][$key]['track_source'] = esc_url($item['track_source']);
+				}
+				if (isset($item['track_poster'])) {
+					$settings['media_source'][$key]['track_poster'] = esc_url($item['track_poster']);
+				}
+				if (isset($item['track_artist_name'])) {
+					$settings['media_source'][$key]['track_artist_name'] = sanitize_xss_input($item['track_artist_name']);
+				}
+				if (isset($item['track_album'])) {
+					$settings['media_source'][$key]['track_album'] = sanitize_xss_input($item['track_album']);
+				}
+			}
+		}
 		$bplayer_opt['media_source'] = $settings['media_source'];
 	
 		?>

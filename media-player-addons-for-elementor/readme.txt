@@ -1,11 +1,11 @@
-=== Media Player Addons for Elementor - Media Player widget for WP ===
+=== Media Player Addons for Elementor – Audio and Video Widgets for Elementor ===
 Plugin Name: Media Player Addons for Elementor
 Author URI: https://bplugins.com
-Contributors: bplugins,abuhayat, shehabulislam
+Contributors: bplugins, shehabulislam
 Tags: Elementor addon, media player, mp3 player, video player, youtube 
-Requires at least: 4.6
-Tested up to: 6.7.2
-Stable tag: 1.0.5
+Requires at least: 4.5
+Tested up to: 6.5.5
+Stable tag: 1.0.6
 Requires PHP: 7.1
 Donate link: https://www.buymeacoffee.com/abuhayat
 License: GPLv2 or later
@@ -17,9 +17,8 @@ Collection of media players to playback of various media files such as .mp3, .mp
 
 Unleash the power of media on your website with the Media Player Addons for Elementor. This plugin is a comprehensive solution for embedding various media files such as .mp3, .mp4, .flv, .m3u8, .ogg, and more, including popular platforms like YouTube and Vimeo.
 
-**[See Live Demo](https://bplugins.com/products/media-player-addons-for-elementor/ "Demo")** 
-
-
+**[See Live Demo](https://links.bplugins.com/mpa "Demo")** 
+**[Buy The Pro](https://links.bplugins.com/mpa-buy "Buy Pro version")** 
 
 ===Why Media Player Addons?===
 Media Player Addons come with 10 extra media player widgets that provide you with amazing features and additional media support.
@@ -72,6 +71,9 @@ Like that plugin? Hate it? Want a new feature?  [Send your feedback](mailto: sup
 🔥 **[3D Viewer](https://3d-viewer.bplugins.com/)** – Display interactive 3D models on the webs.
 
 == Changelog ==
+
+= 1.0.6  - 16 Sep, 2025 =
+* Fixed: Vulnerability Issue
 
 = 1.0.3  - 17 Sep, 2023 =
 * Fixed Deprecated issue

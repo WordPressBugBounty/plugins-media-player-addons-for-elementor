@@ -1,10 +1,11 @@
 <?php
+
 namespace BMianAddon\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if (! defined('ABSPATH')) exit; // Exit if accessed directly
 
 /**
  * Elementor Hello World
@@ -13,7 +14,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class Bplayer_Playlist extends Widget_Base {
+class Bplayer_Playlist extends Widget_Base
+{
 
 	/**
 	 * Retrieve the widget name.
@@ -24,7 +26,8 @@ class Bplayer_Playlist extends Widget_Base {
 	 *
 	 * @return string Widget name.
 	 */
-	public function get_name() {
+	public function get_name()
+	{
 		return 'bplayer-playlist';
 	}
 
@@ -37,8 +40,9 @@ class Bplayer_Playlist extends Widget_Base {
 	 *
 	 * @return string Widget title.
 	 */
-	public function get_title() {
-		return esc_html__( 'Advanced Audio Playlist Player', 'baddon' );
+	public function get_title()
+	{
+		return esc_html__('Advanced Audio Playlist Player', 'baddon');
 	}
 
 	/**
@@ -50,7 +54,8 @@ class Bplayer_Playlist extends Widget_Base {
 	 *
 	 * @return string Widget icon.
 	 */
-	public function get_icon() {
+	public function get_icon()
+	{
 		return 'bl_icon fas fa-music';
 	}
 
@@ -68,8 +73,9 @@ class Bplayer_Playlist extends Widget_Base {
 	 *
 	 * @return array Widget categories.
 	 */
-	public function get_categories() {
-		return [ 'baddon' ];
+	public function get_categories()
+	{
+		return ['baddon'];
 	}
 
 	/**
@@ -83,8 +89,9 @@ class Bplayer_Playlist extends Widget_Base {
 	 *
 	 * @return array Widget scripts dependencies.
 	 */
-	public function get_script_depends() {
-		return [ 'bplayer-script', 'bplayer-playlist'];
+	public function get_script_depends()
+	{
+		return ['bplayer-script', 'bplayer-playlist'];
 	}
 
 	/**
@@ -96,11 +103,12 @@ class Bplayer_Playlist extends Widget_Base {
 	 *
 	 * @access protected
 	 */
-	protected function register_controls() {
+	protected function register_controls()
+	{
 		$this->start_controls_section(
 			'section_content',
 			[
-				'label' 	=> esc_html__( 'Advanced Audio Playlist Settings', 'baddon' ),
+				'label' 	=> esc_html__('Advanced Audio Playlist Settings', 'baddon'),
 				'tab' 		=> \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -108,7 +116,7 @@ class Bplayer_Playlist extends Widget_Base {
 		$this->add_control(
 			'track_options',
 			[
-				'label' 	=> esc_html__( 'Track Options', 'baddon' ),
+				'label' 	=> esc_html__('Track Options', 'baddon'),
 				'type' 		=> \Elementor\Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -117,26 +125,28 @@ class Bplayer_Playlist extends Widget_Base {
 		$repeater->add_control(
 			'track_title',
 			[
-				'label' 		=> esc_html__( 'Track Title', 'baddon' ),
+				'label' 		=> esc_html__('Track Title', 'baddon'),
 				'type' 			=> Controls_Manager::TEXT,
-				'placeholder'	=> esc_attr__('Input Song Title here','baddon'),
+				'placeholder'	=> esc_attr__('Input Song Title here', 'baddon'),
 				'label_block'	=> true,
 			]
 		);
+
 		$repeater->add_control(
 			'track_source',
 			[
-				'label' 		=> esc_html__( 'Track Source', 'baddon' ),
+				'label' 		=> esc_html__('Track Source', 'baddon'),
 				'type' 			=> Controls_Manager::MEDIA,
 				'media_type' 	=> 'audio',
-				'description'	=> esc_html__('Upload or Paste Your MP3 Music here','baddon'),
+				'description'	=> esc_html__('Upload or Paste Your MP3 Music here', 'baddon'),
 				'label_block'	=> true,
 			]
 		);
+
 		$repeater->add_control(
 			'track_poster',
 			[
-				'label' 		=> esc_html__( 'Track Poster', 'baddon' ),
+				'label' 		=> esc_html__('Track Poster', 'baddon'),
 				'type' 			=> Controls_Manager::MEDIA,
 				'default' 		=> [
 					'url' 		=> \Elementor\Utils::get_placeholder_image_src(),
@@ -147,25 +157,25 @@ class Bplayer_Playlist extends Widget_Base {
 		$repeater->add_control(
 			'track_artist_name',
 			[
-				'label' 		=> esc_html__( 'Singer Name', 'baddon' ),
+				'label' 		=> esc_html__('Singer Name', 'baddon'),
 				'type' 			=> Controls_Manager::TEXT,
-				'placeholder'	=> esc_attr__('Input singer name her','baddon'),
+				'placeholder'	=> esc_attr__('Input singer name her', 'baddon'),
 				'label_block'	=> true,
 			]
 		);
 		$repeater->add_control(
 			'track_album',
 			[
-				'label' 		=> esc_html__( 'Track Album', 'baddon' ),
+				'label' 		=> esc_html__('Track Album', 'baddon'),
 				'type' 			=> Controls_Manager::TEXTAREA,
-				'placeholder'	=> esc_attr__('Input Song\'s Album here','baddon'),
+				'placeholder'	=> esc_attr__('Input Song\'s Album here', 'baddon'),
 				'label_block'	=> true,
 			]
 		);
 		$this->add_control(
 			'media_source',
 			[
-				'label' 		=> esc_html__( 'Playlist', 'baddon' ),
+				'label' 		=> esc_html__('Playlist', 'baddon'),
 				'type' 			=> Controls_Manager::REPEATER,
 				'fields' 		=> $repeater->get_controls(),
 				'title_field' 	=> '{{{ track_title }}}',
@@ -173,11 +183,11 @@ class Bplayer_Playlist extends Widget_Base {
 		);
 
 		// Player Mode and Player Size Options
-		
+
 		$this->add_control(
 			'player_options',
 			[
-				'label' 		=> esc_html__( 'Player Options', 'baddon' ),
+				'label' 		=> esc_html__('Player Options', 'baddon'),
 				'type' 			=> \Elementor\Controls_Manager::HEADING,
 				'separator' 	=> 'after',
 			]
@@ -186,10 +196,10 @@ class Bplayer_Playlist extends Widget_Base {
 		$this->add_control(
 			'bplayer_size',
 			[
-				'label' 		=> esc_html__( 'Player Size', 'baddon' ),
+				'label' 		=> esc_html__('Player Size', 'baddon'),
 				'type' 			=> Controls_Manager::SWITCHER,
-				'label_on' 		=> esc_attr__( 'Wide', 'baddon' ),
-				'label_off' 	=> esc_attr__( 'Narrow', 'baddon' ),
+				'label_on' 		=> esc_attr__('Wide', 'baddon'),
+				'label_off' 	=> esc_attr__('Narrow', 'baddon'),
 				'return_value' 	=> 'yes',
 				'default' 		=> 'false',
 				'show_label'	=> true,
@@ -203,23 +213,22 @@ class Bplayer_Playlist extends Widget_Base {
 		$this->add_control(
 			'dark_mode',
 			[
-				'label' 		=> esc_html__( 'Mode', 'baddon' ),
+				'label' 		=> esc_html__('Mode', 'baddon'),
 				'type' 			=> Controls_Manager::SWITCHER,
-				'label_on' 		=> esc_attr__( 'Dark', 'baddon' ),
-				'label_off' 	=> esc_attr__( 'Light', 'baddon' ),
+				'label_on' 		=> esc_attr__('Dark', 'baddon'),
+				'label_off' 	=> esc_attr__('Light', 'baddon'),
 				'return_value' 	=> 'yes',
 				'default' 		=> 'yes',
 				'show_label'	=> true,
 				'dynamic'		=> [
 					'active'	=> true
 				],
-				'description'	=> esc_html__( 'Choose Player Mode', 'baddon' ),
+				'description'	=> esc_html__('Choose Player Mode', 'baddon'),
 			]
 		);
 
 
 		$this->end_controls_section();
-
 	}
 
 	/**
@@ -231,31 +240,51 @@ class Bplayer_Playlist extends Widget_Base {
 	 *
 	 * @access protected
 	 */
-	protected function render() {
+	protected function render()
+	{
 		$settings = $this->get_settings_for_display();
 		$bplayer_settings = $this->get_settings();
 
 		$bplayer_opt	= [];
 
 		//player Size control
-		if('yes' === $settings['bplayer_size'] ){
+		if ('yes' === $settings['bplayer_size']) {
 			$bplayer_opt['bplayer_size'] = true;
-		}else{
-			$bplayer_opt['bplayer_size'] = false; 
+		} else {
+			$bplayer_opt['bplayer_size'] = false;
 		}
 		//player Mode control
-		if('yes' === $settings['dark_mode'] ){
+		if ('yes' === $settings['dark_mode']) {
 			$bplayer_opt['dark_mode'] = true;
-		}else{
-			$bplayer_opt['dark_mode'] = false; 
+		} else {
+			$bplayer_opt['dark_mode'] = false;
 		}
-		
-		$bplayer_opt['media_source'] = $settings['media_source'];
-	
-		?>
-		<div id="app" data-settings='<?php echo wp_json_encode( $bplayer_opt ); ?>'></div>
-		
-		<?php
-	}
 
+		// Sanitize each item in the media_source array
+		if (!empty($settings['media_source']) && is_array($settings['media_source'])) {
+			foreach ($settings['media_source'] as $key => $item) {
+				if (isset($item['track_title'])) {
+					$settings['media_source'][$key]['track_title'] = sanitize_xss_input($item['track_title']);
+				}
+				if (isset($item['track_source'])) {
+					$settings['media_source'][$key]['track_source'] = $item['track_source'];
+				}
+				if (isset($item['track_poster'])) {
+					$settings['media_source'][$key]['track_poster'] = $item['track_poster'];
+				}
+				if (isset($item['track_artist_name'])) {
+					$settings['media_source'][$key]['track_artist_name'] = sanitize_xss_input($item['track_artist_name']);
+				}
+				if (isset($item['track_album'])) {
+					$settings['media_source'][$key]['track_album'] = sanitize_xss_input($item['track_album']);
+				}
+			}
+		}
+		$bplayer_opt['media_source'] = $settings['media_source'];
+
+?>
+		<div id="app" data-settings='<?php echo wp_json_encode($bplayer_opt); ?>'></div>
+
+<?php
+	}
 }

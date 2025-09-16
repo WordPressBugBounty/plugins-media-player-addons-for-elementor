@@ -1,10 +1,11 @@
 <?php
+
 namespace BMianAddon\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 
-if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+if (! defined('ABSPATH')) exit; // Exit if accessed directly
 
 /**
  * Elementor Hello World
@@ -13,7 +14,8 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class Bplayer_Video extends Widget_Base {
+class Bplayer_Video extends Widget_Base
+{
 
 	/**
 	 * Retrieve the widget name.
@@ -24,7 +26,8 @@ class Bplayer_Video extends Widget_Base {
 	 *
 	 * @return string Widget name.
 	 */
-	public function get_name() {
+	public function get_name()
+	{
 		return 'bplayer-video';
 	}
 
@@ -37,8 +40,9 @@ class Bplayer_Video extends Widget_Base {
 	 *
 	 * @return string Widget title.
 	 */
-	public function get_title() {
-		return esc_html__( 'Advanced Video Player', 'baddon' );
+	public function get_title()
+	{
+		return esc_html__('Advanced Video Player', 'baddon');
 	}
 
 	/**
@@ -50,7 +54,8 @@ class Bplayer_Video extends Widget_Base {
 	 *
 	 * @return string Widget icon.
 	 */
-	public function get_icon() {
+	public function get_icon()
+	{
 		return 'bl_icon fas fa-film';
 	}
 
@@ -68,8 +73,9 @@ class Bplayer_Video extends Widget_Base {
 	 *
 	 * @return array Widget categories.
 	 */
-	public function get_categories() {
-		return [ 'baddon' ];
+	public function get_categories()
+	{
+		return ['baddon'];
 	}
 
 	/**
@@ -83,8 +89,9 @@ class Bplayer_Video extends Widget_Base {
 	 *
 	 * @return array Widget scripts dependencies.
 	 */
-	public function get_script_depends() {
-		return [ 'bplayer-script', 'bplayer-main'];
+	public function get_script_depends()
+	{
+		return ['bplayer-script', 'bplayer-main'];
 	}
 
 	/**
@@ -96,11 +103,12 @@ class Bplayer_Video extends Widget_Base {
 	 *
 	 * @access protected
 	 */
-	protected function register_controls() {
+	protected function register_controls()
+	{
 		$this->start_controls_section(
 			'section_content',
 			[
-				'label' 	=> esc_html__( 'Advanced Video Player Settings', 'baddon' ),
+				'label' 	=> esc_html__('Advanced Video Player Settings', 'baddon'),
 				'tab' 		=> Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -108,7 +116,7 @@ class Bplayer_Video extends Widget_Base {
 		$this->add_control(
 			'track_options',
 			[
-				'label' 		=> esc_html__( 'Video Options', 'baddon' ),
+				'label' 		=> esc_html__('Video Options', 'baddon'),
 				'type' 			=> \Elementor\Controls_Manager::HEADING,
 				'separator' 	=> 'before',
 			]
@@ -116,19 +124,19 @@ class Bplayer_Video extends Widget_Base {
 		$this->add_control(
 			'track_source',
 			[
-				'label' 		=> esc_html__( 'Video Source', 'baddon' ),
+				'label' 		=> esc_html__('Video Source', 'baddon'),
 				'type' 			=> Controls_Manager::MEDIA,
 				'media_type' 	=> 'video',
-				'description'	=> esc_html__('Upload Your Video here','baddon'),
+				'description'	=> esc_html__('Upload Your Video here', 'baddon'),
 				'label_block'	=> true,
 			]
 		);
 		$this->add_control(
 			'track_title',
 			[
-				'label' 		=> esc_html__( 'Video Title', 'baddon' ),
+				'label' 		=> esc_html__('Video Title', 'baddon'),
 				'type' 			=> Controls_Manager::TEXT,
-				'placeholder'	=> esc_attr__('Input Song Title here','baddon'),
+				'placeholder'	=> esc_attr__('Input Song Title here', 'baddon'),
 				'label_block'	=> true,
 			]
 		);
@@ -136,7 +144,7 @@ class Bplayer_Video extends Widget_Base {
 		$this->add_control(
 			'track_poster',
 			[
-				'label' 		=> esc_html__( 'Video Thumbnail', 'baddon' ),
+				'label' 		=> esc_html__('Video Thumbnail', 'baddon'),
 				'type' 			=> Controls_Manager::MEDIA,
 				'default' 		=> [
 					'url' 		=> \Elementor\Utils::get_placeholder_image_src(),
@@ -147,28 +155,28 @@ class Bplayer_Video extends Widget_Base {
 		$this->add_control(
 			'track_artist_name',
 			[
-				'label' 		=> esc_html__( 'Singer Name', 'baddon' ),
+				'label' 		=> esc_html__('Singer Name', 'baddon'),
 				'type' 			=> Controls_Manager::TEXT,
-				'placeholder'	=> esc_attr__('Input singer name her','baddon'),
+				'placeholder'	=> esc_attr__('Input singer name her', 'baddon'),
 				'label_block'	=> true,
 			]
 		);
 		$this->add_control(
 			'track_album',
 			[
-				'label' 		=> esc_html__( 'Album Name', 'baddon' ),
+				'label' 		=> esc_html__('Album Name', 'baddon'),
 				'type' 			=> Controls_Manager::TEXTAREA,
-				'placeholder'	=> esc_attr__('Input Song\'s Album here','baddon'),
+				'placeholder'	=> esc_attr__('Input Song\'s Album here', 'baddon'),
 				'label_block'	=> true,
 			]
 		);
 
 		// Player Mode and Player Size Options
-		
+
 		$this->add_control(
 			'player_options',
 			[
-				'label' 		=> esc_html__( 'Player Options', 'baddon' ),
+				'label' 		=> esc_html__('Player Options', 'baddon'),
 				'type' 			=> \Elementor\Controls_Manager::HEADING,
 				'separator' 	=> 'after',
 			]
@@ -178,21 +186,19 @@ class Bplayer_Video extends Widget_Base {
 		$this->add_control(
 			'dark_mode',
 			[
-				'label' 		=> esc_html__( 'Mode', 'baddon' ),
+				'label' 		=> esc_html__('Mode', 'baddon'),
 				'type' 			=> Controls_Manager::SWITCHER,
-				'label_on' 		=> esc_attr__( 'Dark', 'baddon' ),
-				'label_off' 	=> esc_attr__( 'Light', 'baddon' ),
+				'label_on' 		=> esc_attr__('Dark', 'baddon'),
+				'label_off' 	=> esc_attr__('Light', 'baddon'),
 				'return_value' 	=> 'yes',
 				'default' 		=> 'yes',
 				'show_label'	=> true,
 				'dynamic'		=> [
 					'active'	=> true
 				],
-				'description'	=> esc_html__( 'Choose Player Mode', 'baddon' ),
+				'description'	=> esc_html__('Choose Player Mode', 'baddon'),
 			]
 		);
-
-
 	}
 
 	/**
@@ -204,30 +210,29 @@ class Bplayer_Video extends Widget_Base {
 	 *
 	 * @access protected
 	 */
-	protected function render() {
+	protected function render()
+	{
 		$settings = $this->get_settings_for_display();
 
 		$bplayer_opt	= [];
 
 		//player Mode control
-		if('yes' === $settings['dark_mode'] ){
+		if ('yes' === $settings['dark_mode']) {
 			$bplayer_opt['dark_mode'] = true;
-		}else{
-			$bplayer_opt['dark_mode'] = false; 
+		} else {
+			$bplayer_opt['dark_mode'] = false;
 		}
 
-		$bplayer_opt['track_title'] 		= $settings['track_title'];
+		$bplayer_opt['track_title'] 		= sanitize_xss_input($settings['track_title']);
 		$bplayer_opt['track_source'] 		= $settings['track_source'];
 		$bplayer_opt['track_poster'] 		= $settings['track_poster'];
-		$bplayer_opt['track_artist_name'] 	= $settings['track_artist_name'];
-		$bplayer_opt['track_album'] 		= $settings['track_album'];
+		$bplayer_opt['track_artist_name'] 	= sanitize_xss_input($settings['track_artist_name']);
+		$bplayer_opt['track_album'] 		= sanitize_xss_input($settings['track_album']);
 
-		?>
+?>
 
-		<div id="app" data-settings='<?php echo wp_json_encode( $bplayer_opt ); ?>'></div>
-		
-		<?php
+		<div id="app" data-settings='<?php echo wp_json_encode($bplayer_opt); ?>'></div>
+
+<?php
 	}
-
-
 }
