@@ -4,7 +4,7 @@
  * Plugin Name: Media Player Addons for Elementor
  * Plugin URI:  https://elementoraddons.org/media-player-addons/
  * Description: Collection of media players to plaback of various media files such as .mp3, .mp4, .flv, .m3u8, .ogg, YouTube, Vimeo and moe....
- * Version:     1.0.6
+ * Version:     1.0.7
  * Author:      bPlugins LLC
  * Author URI:  https://bPlugins.com
  * Text Domain: baddon
@@ -32,7 +32,7 @@ final class baddon_main_element
 	 * @since 1.2.0
 	 * @var string The plugin version.
 	 */
-	const VERSION = '1.0.6';
+	const VERSION = '1.0.7';
 
 	/**
 	 * Minimum Elementor Version

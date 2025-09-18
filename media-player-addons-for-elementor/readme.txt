@@ -5,7 +5,7 @@ Contributors: bplugins, shehabulislam
 Tags: Elementor addon, media player, mp3 player, video player, youtube 
 Requires at least: 4.5
 Tested up to: 6.5.5
-Stable tag: 1.0.6
+Stable tag: 1.0.7
 Requires PHP: 7.1
 Donate link: https://www.buymeacoffee.com/abuhayat
 License: GPLv2 or later
@@ -70,7 +70,15 @@ Like that plugin? Hate it? Want a new feature?  [Send your feedback](mailto: sup
 
 🔥 **[3D Viewer](https://3d-viewer.bplugins.com/)** – Display interactive 3D models on the webs.
 
+== Frequently Asked Questions ==
+
+= Where do I report security bugs found in this plugin? =
+Please report security bugs found in the source code of the Media Player Addons for Elementor – Media Player widget for WP plugin through the [Patchstack Vulnerability Disclosure Program](https://patchstack.com/database/vdp/9e5fc6a6-0dd9-4755-8425-774be96555ed). The Patchstack team will assist you with verification, CVE assignment, and notify the developers of this plugin.
+
 == Changelog ==
+
+= 1.0.7  - 18 Sep, 2025 =
+* Fixed: Video Playlist PHP Error
 
 = 1.0.6  - 16 Sep, 2025 =
 * Fixed: Vulnerability Issue
