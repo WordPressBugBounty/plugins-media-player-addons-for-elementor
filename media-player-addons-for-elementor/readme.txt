@@ -1,29 +1,52 @@
 === Media Player Addons for Elementor – Audio and Video Widgets for Elementor ===
 Plugin Name: Media Player Addons for Elementor
 Author URI: https://bplugins.com
-Contributors: bplugins, shehabulislam
+Contributors: bplugins, shehabulislam, hazrath, freemius
 Tags: Elementor addon, media player, mp3 player, video player, youtube 
 Requires at least: 4.5
-Tested up to: 6.5.5
-Stable tag: 1.0.7
+Tested up to: 6.9
+Stable tag: 1.1.1
 Requires PHP: 7.1
 Donate link: https://www.buymeacoffee.com/abuhayat
-License: GPLv2 or later
+License: GPLv2 or later 
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Collection of media players to playback of various media files such as .mp3, .mp4, .flv, .m3u8, .ogg, YouTube, Vimeo, and more...
+Extend Elementor with powerful, customizable media players for audio, video, streaming & playlists.
 
 == Description ==
 
-Unleash the power of media on your website with the Media Player Addons for Elementor. This plugin is a comprehensive solution for embedding various media files such as .mp3, .mp4, .flv, .m3u8, .ogg, and more, including popular platforms like YouTube and Vimeo.
+[**Media Player Addons for Elementor**](https://bplugins.com/products/media-player-addons-for-elementor/) is a comprehensive WordPress plugin that adds 12 advanced media player widgets to the Elementor page builder. It enables you to embed and customize audio and video content — including support for popular formats (.mp3, .mp4, .flv, .ogg, .webm), live streaming (HLS, DASH), playlists, picture-in-picture video, captions, and more — without any coding.
+ 
+Whether you’re building a media-rich blog, music site, podcast page, or video gallery, this plugin enhances Elementor with responsive and feature-rich media playback.
 
-**[See Live Demo](https://links.bplugins.com/mpa "Demo")** 
-**[Buy The Pro](https://links.bplugins.com/mpa-buy "Buy Pro version")** 
+=== Check our overview and demos 👇 ===
+[Media Player Addons for Elementor](https://bplugins.com/products/media-player-addons-for-elementor/) | [**Pricing**](https://bplugins.com/products/media-player-addons-for-elementor/pricing/) | [**Support**](https://bplugins.com/support/) | [**Demo**](https://bplugins.com/products/media-player-addons-for-elementor/#demos)
 
-===Why Media Player Addons?===
-Media Player Addons come with 10 extra media player widgets that provide you with amazing features and additional media support.
+=== Why Media Player Addons for Elementor Is a Game-Changer? ===
+* **Media Players Shouldn’t Be Complicated** - Most media solutions force you into complex setups, third-party dashboards, or custom code just to play audio or video. Media Player Addons for Elementor works directly inside Elementor—drag, drop, and publish in minutes. No learning curve. No technical hassle.
+* **Media Platforms Can Be Costly** - Many video and audio platforms charge monthly fees, even if you only use them occasionally. With Media Player Addons for Elementor, you can build powerful audio and video experiences right inside WordPress—without recurring platform costs.
+* **Media Platforms Can Be Costly** - Instead of juggling multiple plugins for audio, video, playlists, and streams, you get everything in one place.
+* **Most Media Players Lock You In** - Third-party video services often keep your content, analytics, and branding inside their ecosystem. That means limited customization and zero ownership. Media Player Addons for Elementor is fully WordPress-native. Your media stays on your site, under your domain, with your rules.
 
-== Features ==
+=== Check our overview video of Media Player Addons 👇 ===
+https://www.youtube.com/watch?v=G8w1cCDg-xQ
+
+== Available Widgets ==
+
+* **HTML5 Audio Player** - A lightweight custom audio player for MP3 and web audio with full styling control.
+* **HTML5 Video Player** - Play local or hosted MP4/WebM videos with customizable controls and responsive design.
+* **YouTube Video Player** - Embed YouTube videos with enhanced controls, branding options, and distraction-free playback.
+* **Vimeo Video Player** - Display Vimeo videos with customizable layouts and premium-style viewing experience.
+* **Art Video Player** - A stylish cinematic player designed for creative video showcases and visual storytelling.
+* **dPlayer Video Player** - A modern, feature-packed video player with subtitles, thumbnails, hotkeys, and playback controls.
+* **Advanced Audio Player** - High-end audio playback with waveform visualizer, album art, track metadata, and custom branding.
+* **Advanced Video Player** - Professional video player supporting captions, overlays, call-to-actions, highlights, and more.
+* **Advanced Audio Playlist** - Build interactive audio playlists with track info, filters, and responsive layouts.
+* **Advanced Video Playlist** - Create organized video playlists ideal for courses, tutorials, and series content.
+* **Audio Playlist Player** - Simple, clean playlist player for multiple audio tracks with smooth navigation.
+* **Classic Audio Playlist** - Traditional playlist layout for audio files with familiar browser-style controls(PRO).
+
+== Key Features ==
 
 * Fully customizable: Make each player look how you want with the markup you want.
 * All In One: Added a few popular media player libraries including Plyr.io, cPlayer, and VideoJS
@@ -38,27 +61,74 @@ Media Player Addons come with 10 extra media player widgets that provide you wit
 * Optimized for Mobile: Players added using this addon are friendly which means it will perfectly in any mobile device with different sizes.
 * Maximum Options: Each Player has a maximum collection of options to fit your needs. Each option is well documented and labeled so that you can manage them easily.
 
+=== Easy Integration ===
+
+Simply install the plugin, navigate to your Elementor editor, and drag any media player widget to your page. Upload your video or audio file or link to an existing video or audio, customize the settings, and publish. No coding required!
 
 == Installation ==
 
 This section describes how to install the plugin and get it working.
 
-Note: This plugin works with Elementor. Make sure you have [Elementor](https://wordpress.org/plugins/elementor/) installed.
+Note : This plugin works with Elementor. Make sure you have [Elementor](https://wordpress.org/plugins/elementor/) installed.
 
-e.g.
+Method 1: Automatic Installation (Recommended)
 
-1. Upload the plugin files to the `/wp-content/plugins/plugin-name` directory, or install the plugin through the WordPress plugins screen directly.
+1. Log in to your WordPress Administration Panel.
 
-2. Activate the plugin through the 'Plugins' screen in WordPress.
+2. Navigate to Plugins > Add New.
 
-= Usage = 
+3. In the search field, type "Media Player Addons For Elementor" and click Search Plugins.
 
-- Online document: https://elementoraddons.org/docs/documentation/
+4. Once located, click the "Install Now" button next to the plugin.
 
-= Feedback = 
-Like that plugin? Hate it? Want a new feature?  [Send your feedback](mailto: support@bplugins.com "Send feedback")  
+5. After the installation is complete, click the "Activate" button.
 
-= ⭐ Checkout our other WordPress Plugins- = 
+Method 2: Manual Installation via Upload
+
+1. Download the plugin's .zip file to your computer.
+
+2. Log in to your WordPress Administration Panel.
+
+3. Go to Plugins > Add New.
+
+4. Click the "Upload Plugin" button at the top of the page.
+
+5. Click "Choose File", select the plugin's .zip file you downloaded, and then click "Install Now".
+
+6. After the installation is complete, click the "Activate Plugin" button.
+
+== Frequently Asked Questions ==
+
+= Does this plugin require Elementor? =
+Yes. Media Player Addons works as an extension to Elementor, so Elementor must be installed and active.
+
+= Does it work with Elementor Free or do I need Elementor Pro? =
+The plugin works with the free version of Elementor. Elementor Pro is optional.
+
+= Will my audio and video files remain hosted on my own website? =
+Yes. Your media stays on your domain and is not sent to third-party platforms unless you embed YouTube, Vimeo, or similar services.
+
+= Does it support YouTube, Vimeo, and self-hosted media at the same time? =
+Yes. The plugin supports a mix of hosted media, third-party streaming, and playlist combinations.
+
+= Does it work on mobile and tablets? =
+Yes. All players are responsive and scale automatically for mobile devices.
+
+= Does the plugin slow down my website? =
+No. Players load only when used on the page and are optimized for performance.
+
+= Why won’t autoplay work in my browser? =
+Modern browsers block autoplay depending on sound settings and user behavior. Muted autoplay works more consistently.
+
+= Will it work with Elementor free version? =  
+Yes, the plugin works with both Elementor Free and Elementor Pro.
+
+= Where can I get support? =  
+Our support team is always ready to help!  
+Visit: https://bplugins.com/support/
+
+=== ⭐ Check out our featured WordPress Plugins ===
+
 
 🔥 **[Html5 Audio Player](https://audioplayerwp.com/)** – Best audio player plugin for WordPress.
 
@@ -70,12 +140,51 @@ Like that plugin? Hate it? Want a new feature?  [Send your feedback](mailto: sup
 
 🔥 **[3D Viewer](https://3d-viewer.bplugins.com/)** – Display interactive 3D models on the webs.
 
-== Frequently Asked Questions ==
+===🤝 Join the bPlugins community today! ===
+Join a growing community of web creators, designers, developers, and WordPress users who are building amazing sites with bPlugins. Be part of the movement that's making website design faster, more powerful, and more intuitive.
 
-= Where do I report security bugs found in this plugin? =
-Please report security bugs found in the source code of the Media Player Addons for Elementor – Media Player widget for WP plugin through the [Patchstack Vulnerability Disclosure Program](https://patchstack.com/database/vdp/9e5fc6a6-0dd9-4755-8425-774be96555ed). The Patchstack team will assist you with verification, CVE assignment, and notify the developers of this plugin.
+Stay connected and get the latest updates:
+
+👉 [Our Official Facebook Page](https://www.facebook.com/bPluginsLLC/)
+👉 [Follow us on Twitter](https://x.com/b_plugins/)
+👉 [Connect in our Linkedin](https://www.linkedin.com/company/bplugins)
+👉 [Follow us on YouTube](https://www.youtube.com/@bplugins)
+👉 [Our Official Support](https://bplugins.com/support/)
+
+== Screenshots ==
+
+1. Addons List
+2. HTML5 Audio Player
+3. HTML5 and Advance Audio Player
+4. Vimeo Player
+5. Advance Audio Playlist
+6. dPlayer
+7. YouTube Player
+8. Player Control Settings
+9. Classic Audio Playlist
 
 == Changelog ==
+
+= 1.1.1  - 31 Jan, 2026 =
+* Update: New Feature for Vimeo Video Player
+* Update: New Feature for YouTube Video Player
+
+= 1.1.0  - 06 Jan, 2026 =
+* Release: New Feature for Classic Audio Playlist
+
+= 1.0.11  - 05 Jan, 2026 =
+* Fixed: Fixed Dashboard JS Error
+
+= 1.0.10  - 01 Jan, 2026 =
+* Fixed: Fixed Advance Player Missing Issue
+* Fixed: Fixed Audio Player JS Error
+* Update: Add New Feature of Advance Audio Player
+
+= 1.0.9  - 15 Dec, 2025 =
+* Fixed: Fix Video Player Style Error
+
+= 1.0.8  - 29 Nov, 2025 =
+* Fixed: Fix Audio Playlist JS Error
 
 = 1.0.7  - 18 Sep, 2025 =
 * Fixed: Video Playlist PHP Error
@@ -91,7 +200,13 @@ Please report security bugs found in the source code of the Media Player Addons 
 * Fixed Advanced Player issue
 
 = 1.0.1 =
-* Added new blocks. (dPlayer)
+* Added new Addon. (dPlayer)
 
 = 1.0.0 =
 * Initial release
+
+== Upgrade Notice ==
+
+= 1.1.1  - 31 Jan, 2026 =
+* Update: New Feature for Vimeo Video Player
+* Update: New Feature for YouTube Video Player

@@ -40,7 +40,7 @@ class b_art_addon extends Widget_Base {
 	 * @return string Widget title.
 	 */
 	public function get_title() {
-		return esc_html__( 'Art Player', 'baddon' );
+		return esc_html__( 'Art Player', 'media-player-addons-for-elementor' );
 	}
 
 	/**
@@ -53,7 +53,7 @@ class b_art_addon extends Widget_Base {
 	 * @return string Widget icon.
 	 */
 	public function get_icon() {
-		return 'bl_icon far fa-play-circle';
+		return 'bl_icon far fa-play-circle eicon-dot-circle-o';
 	}
 
 	/**
@@ -71,11 +71,11 @@ class b_art_addon extends Widget_Base {
 	 * @return array Widget categories.
 	 */
 	public function get_categories() {
-		return [ 'baddon' ];
+		return [ 'media-player-addons-for-elementor' ];
 	}
 
     public function get_script_depends() {
-        return [ 'artplayer-js', 'main-js'];
+        return [ 'artplayer-js', 'art-main-js', 'elementor-frontend' ];
     }
 	protected function register_controls() {
 
@@ -86,7 +86,7 @@ class b_art_addon extends Widget_Base {
         $this->start_controls_section(
             '_ssection_images',
             [
-                'label' => __( 'Art Player Content Settings', 'baddon' ),
+                'label' => __( 'Art Player Content Settings', 'media-player-addons-for-elementor' ),
                
             ]
         );
@@ -94,10 +94,10 @@ class b_art_addon extends Widget_Base {
         $this->add_control(
         'choo_source',
         [
-            'label'         => __( 'Multiple Quality', 'baddon' ),
+            'label'         => __( 'Multiple Quality', 'media-player-addons-for-elementor' ),
             'type'          => Controls_Manager::SWITCHER,
-            'label_on'      => __( 'yes', 'b-addon' ),
-            'label_off'     => __( 'no', 'b-addon' ),
+            'label_on'      => __( 'yes','media-player-addons-for-elementor' ),
+            'label_off'     => __( 'no','media-player-addons-for-elementor' ),
             'return_value'  => 'yes',
             'default'       => '',
         ]
@@ -106,12 +106,12 @@ class b_art_addon extends Widget_Base {
        $this->add_control(
             'srrc_type',
             [
-                'label' => esc_html__( 'Source From', 'baddon' ),
+                'label' => esc_html__( 'Source From', 'media-player-addons-for-elementor' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'uploaad',
                 'options' => [
-                    'uploaad' => esc_html__( 'Media Library', 'baddon' ),
-                    'liink' => esc_html__( 'Video File Link', 'baddon' ),
+                    'uploaad' => esc_html__( 'Media Library', 'media-player-addons-for-elementor' ),
+                    'liink' => esc_html__( 'Video File Link', 'media-player-addons-for-elementor' ),
                 ],
 
                  'condition' => [
@@ -123,7 +123,7 @@ class b_art_addon extends Widget_Base {
        $this->add_control(
             'vxideoos_upload',
             [
-                'label' => esc_html__( 'Upload Video', 'baddon' ),
+                'label' => esc_html__( 'Upload Video', 'media-player-addons-for-elementor' ),
                 'type' => Controls_Manager::MEDIA,
                 'dynamic' => [
                     'active' => true,
@@ -142,10 +142,10 @@ class b_art_addon extends Widget_Base {
         $this->add_control(
             'vxideoos_link',
             [
-                'label' => esc_html__( 'Video Link', 'baddon' ),
+                'label' => esc_html__( 'Video Link', 'media-player-addons-for-elementor' ),
                 'label_block' => true,
                 'type' => Controls_Manager::TEXT,
-                'placeholder' => esc_html__( 'https://your-link.com', 'baddon' ),
+                'placeholder' => esc_html__( 'https://your-link.com', 'media-player-addons-for-elementor' ),
                 'show_external' => false,
                'default' => 'https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4',
                 'condition' => [
@@ -163,19 +163,19 @@ class b_art_addon extends Widget_Base {
         $repeater->add_control(
             'sxrc_type',
             [
-                'label' => esc_html__( 'Video Source', 'baddon' ),
+                'label' => esc_html__( 'Video Source', 'media-player-addons-for-elementor' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'upload',
                 'options' => [
-                    'upload' => esc_html__( 'Upload Video', 'baddon' ),
-                    'link' => esc_html__( 'Put Video Link', 'baddon' ),
+                    'upload' => esc_html__( 'Upload Video', 'media-player-addons-for-elementor' ),
+                    'link' => esc_html__( 'Put Video Link', 'media-player-addons-for-elementor' ),
                 ],
             ]
         );
         $repeater->add_control(
             'vxideoos_upload',
             [
-                'label' => esc_html__( 'Upload Video', 'baddon' ),
+                'label' => esc_html__( 'Upload Video', 'media-player-addons-for-elementor' ),
                 'type' => Controls_Manager::MEDIA,
                 'dynamic' => [
                     'active' => true,
@@ -193,10 +193,10 @@ class b_art_addon extends Widget_Base {
         $repeater->add_control(
             'vxideoos_link',
             [
-                'label' => esc_html__( 'Video Link', 'baddon' ),
+                'label' => esc_html__( 'Video Link', 'media-player-addons-for-elementor' ),
                 'label_block' => true,
                 'type' => Controls_Manager::TEXT,
-                'placeholder' => esc_html__( 'https://your-link.com', 'baddon' ),
+                'placeholder' => esc_html__( 'https://your-link.com', 'media-player-addons-for-elementor' ),
                 'default' => 'https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4',
                 'condition' => [
                     'sxrc_type'    =>  'link',
@@ -207,7 +207,7 @@ class b_art_addon extends Widget_Base {
         $repeater->add_control(
             'vxideo_size',
             [
-                'label' => esc_html__( 'Video Size', 'baddon' ),
+                'label' => esc_html__( 'Video Size', 'media-player-addons-for-elementor' ),
                 'type' => Controls_Manager::TEXT,
              
             ]
@@ -216,7 +216,7 @@ class b_art_addon extends Widget_Base {
         $this->add_control(
             'vxideo_list',
             [
-                'label' => esc_html__( 'Video List', 'baddon' ),
+                'label' => esc_html__( 'Video List', 'media-player-addons-for-elementor' ),
                 'type' => Controls_Manager::REPEATER,
                 'fields' => $repeater->get_controls(),
                   'condition' => [
@@ -228,10 +228,10 @@ class b_art_addon extends Widget_Base {
        $this->add_control(
             'custom_poster_art',
             [
-                'label' => esc_html__( 'Add Video Poster', 'baddon' ),
+                'label' => esc_html__( 'Add Video Poster', 'media-player-addons-for-elementor' ),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'baddon' ),
-                'label_off' => esc_html__( 'No', 'baddon' ),
+                'label_on' => esc_html__( 'Yes', 'media-player-addons-for-elementor' ),
+                'label_off' => esc_html__( 'No', 'media-player-addons-for-elementor' ),
                 'return_value' => 'true',
                 'default' => '',
                 'separator' => 'before',
@@ -241,7 +241,7 @@ class b_art_addon extends Widget_Base {
         $this->add_control(
             'bar_img',
             [
-                'label' => esc_html__( 'Video Poster', 'baddon' ),
+                'label' => esc_html__( 'Video Poster', 'media-player-addons-for-elementor' ),
                 'type' =>Controls_Manager::MEDIA,
                 'default' => [
                     'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -254,10 +254,10 @@ class b_art_addon extends Widget_Base {
         $this->add_control(
             'custom_poster_artt',
             [
-                'label' => esc_html__( 'Add Album Poster', 'baddon' ),
+                'label' => esc_html__( 'Add Album Poster', 'media-player-addons-for-elementor' ),
                 'type' => Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'baddon' ),
-                'label_off' => esc_html__( 'No', 'baddon' ),
+                'label_on' => esc_html__( 'Yes', 'media-player-addons-for-elementor' ),
+                'label_off' => esc_html__( 'No', 'media-player-addons-for-elementor' ),
                 'return_value' => 'true',
                 'default' => '',
                 'separator' => 'before',
@@ -267,7 +267,7 @@ class b_art_addon extends Widget_Base {
         $this->add_control(
             'video_album_poster',
             [
-                'label' => esc_html__( 'Album Poster', 'baddon' ),
+                'label' => esc_html__( 'Album Poster', 'media-player-addons-for-elementor' ),
                 'type' =>Controls_Manager::MEDIA,
                 'default' => [
                     'url' => \Elementor\Utils::get_placeholder_image_src(),
@@ -284,7 +284,7 @@ class b_art_addon extends Widget_Base {
        $this->start_controls_section(
         '_sxubc_settings',
         [
-            'label' => __( 'Art Player Subtitle Settings', 'baddon' ),
+            'label' => __( 'Art Player Subtitle Settings', 'media-player-addons-for-elementor' ),
            
         ]
     );
@@ -292,19 +292,19 @@ class b_art_addon extends Widget_Base {
         $this->add_control(
             'sxrc_typed',
             [
-                'label' => esc_html__( 'Subtitle Source', 'baddon' ),
+                'label' => esc_html__( 'Subtitle Source', 'media-player-addons-for-elementor' ),
                 'type' => Controls_Manager::SELECT,
                 'default' => 'uploadds',
                 'options' => [
-                    'uploadds' => esc_html__( 'Upload Subtitle', 'baddon' ),
-                    'linkks' => esc_html__( 'Put Subtitle Link', 'baddon' ),
+                    'uploadds' => esc_html__( 'Upload Subtitle', 'media-player-addons-for-elementor' ),
+                    'linkks' => esc_html__( 'Put Subtitle Link', 'media-player-addons-for-elementor' ),
                 ],
             ]
         );
         $this->add_control(
             'sxubtitle_upload',
             [
-                'label' => esc_html__( 'Upload Subtitle', 'baddon' ),
+                'label' => esc_html__( 'Upload Subtitle', 'media-player-addons-for-elementor' ),
                
                 'type' => Controls_Manager::MEDIA,
                 'dynamic' => [
@@ -322,10 +322,10 @@ class b_art_addon extends Widget_Base {
         $this->add_control(
             'sxubtitle_link',
             [
-                'label' => esc_html__( 'Subtitle Link', 'baddon' ),
+                'label' => esc_html__( 'Subtitle Link', 'media-player-addons-for-elementor' ),
                 'label_block' => true,
                 'type' => Controls_Manager::TEXT,
-                'placeholder' => esc_html__( 'https://your-link.com', 'baddon' ),
+                'placeholder' => esc_html__( 'https://your-link.com', 'media-player-addons-for-elementor' ),
 
                 'condition' => [
                     'sxrc_typed'    =>  'linkks',
@@ -337,7 +337,7 @@ class b_art_addon extends Widget_Base {
             'sub_bg',
             [
                 'type' => Controls_Manager::COLOR,
-                'label' =>esc_html__('Player Subtitle Color', 'baddon'),
+                'label' =>esc_html__('Player Subtitle Color', 'media-player-addons-for-elementor'),
                 'default'   =>  '#00b3ff',
             ]
         );
@@ -348,7 +348,7 @@ class b_art_addon extends Widget_Base {
      $this->start_controls_section(
             'artt_color',
             [
-                'label' => __( 'Art Player Color Settings', 'baddon' ),
+                'label' => __( 'Art Player Color Settings', 'media-player-addons-for-elementor' ),
          
             ]
         );
@@ -356,7 +356,7 @@ class b_art_addon extends Widget_Base {
      $this->add_control(
         'vd_color',
         [
-            'label' => __( 'Player Color', 'baddon' ),
+            'label' => __( 'Player Color', 'media-player-addons-for-elementor' ),
             'type' => Controls_Manager::COLOR,
             'default' => 'red',
         ]
@@ -368,24 +368,129 @@ class b_art_addon extends Widget_Base {
        $this->start_controls_section(
             'artt_plyr',
             [
-                'label' => __( 'Art Player Button Settings', 'baddon' ),
+                'label' => __( 'Art Player Button Settings', 'media-player-addons-for-elementor' ),
          
             ]
         );
         $this->add_control(
-            'art_one',
-            [
-                'label' => __( 'This Option Only For Pro Version', 'baddon' ),
-                'label_block' => true,
-                'type' => Controls_Manager::RAW_HTML,
-                'raw' => __( '<div class="pro_ads_img">
-               <img src="'.plugins_url('assets/sc/art_control.png', dirname(__FILE__)).'" />
-               </div>', 'baddon' ),
-               
-            ]
-        );
+		'vd_pip',
+		[
+			'label' => __( 'Pip', 'media-player-addons-for-elementor' ),
+			'type' => Controls_Manager::SWITCHER,
+			'label_on' => __( 'on', 'media-player-addons-for-elementor' ),
+			'label_off' => __( 'off', 'media-player-addons-for-elementor' ),
+			'return_value' => 'yes',
+			'default' => 'yes',
+		]
+	);
+
+         $this->add_control(
+		'vd_muted',
+		[
+			'label' => __( 'Muted', 'media-player-addons-for-elementor' ),
+			'type' => Controls_Manager::SWITCHER,
+			'label_on' => __( 'on', 'media-player-addons-for-elementor' ),
+			'label_off' => __( 'off', 'media-player-addons-for-elementor' ),
+			'return_value' => 'yes',
+			'default' => '',
+		]
+	);
+
+          $this->add_control(
+		'vd_settings',
+		[
+			'label' => __( 'Settings', 'media-player-addons-for-elementor' ),
+			'type' => Controls_Manager::SWITCHER,
+			'label_on' => __( 'on', 'media-player-addons-for-elementor' ),
+			'label_off' => __( 'off', 'media-player-addons-for-elementor' ),
+			'return_value' => 'yes',
+			'default' => 'yes',
+		]
+	);
+
+        $this->add_control(
+		'vd_camera',
+		[
+			'label' => __( 'Screenshot', 'media-player-addons-for-elementor' ),
+			'type' => Controls_Manager::SWITCHER,
+			'label_on' => __( 'on', 'media-player-addons-for-elementor' ),
+			'label_off' => __( 'off', 'media-player-addons-for-elementor' ),
+			'return_value' => 'yes',
+			'default' => 'yes',
+		]
+	);
+
+         $this->add_control(
+		'vd_full_screen',
+		[
+			'label' => __( 'Fullscreen', 'media-player-addons-for-elementor' ),
+			'type' => Controls_Manager::SWITCHER,
+			'label_on' => __( 'on', 'media-player-addons-for-elementor' ),
+			'label_off' => __( 'off', 'media-player-addons-for-elementor' ),
+			'return_value' => 'yes',
+			'default' => 'yes',
+		]
+	);
+
+       $this->add_control(
+		'vd_full_web',
+		[
+			'label' => __( 'Fullscreen Web', 'media-player-addons-for-elementor' ),
+			'type' => Controls_Manager::SWITCHER,
+			'label_on' => __( 'on', 'media-player-addons-for-elementor' ),
+			'label_off' => __( 'off', 'media-player-addons-for-elementor' ),
+			'return_value' => 'yes',
+			'default' => 'yes',
+		]
+	);
+
+        $this->add_control(
+		'vd_auto_p',
+		[
+			'label' => __( 'Auto Play', 'media-player-addons-for-elementor' ),
+			'type' => Controls_Manager::SWITCHER,
+			'label_on' => __( 'on', 'media-player-addons-for-elementor' ),
+			'label_off' => __( 'off', 'media-player-addons-for-elementor' ),
+			'return_value' => 'yes',
+			'default' => '',
+		]
+	);
       $this->end_controls_section();
 	}
+
+    public function is_premium() 
+    {
+        return function_exists('mpafe_fs') && mpafe_fs()->can_use_premium_code();
+    }
+
+    public function add_control($name, $args = [], $options = [])
+    {
+        // Check if this is a premium control and user doesn't have premium access
+        if (!$this->is_premium() && in_array($name, $this->premium_controls())) {
+            // Append _locked to control name
+            $name = $name . '_locked';
+
+            // Add Pro label and locked class
+            $args['label'] = $args['label'] . " <span class='fs_pro_control_label'>Pro</span>";
+            $args['classes'] = isset($args['classes']) ? $args['classes'] . ' fs-locked' : 'fs-locked';
+        }
+
+        parent::add_control($name, $args, $options);
+    }
+
+    public function premium_controls()
+    {
+        return [
+           'vd_auto_p',
+           'vd_full_web',
+           'vd_full_screen',
+		   'vd_camera',
+		   'vd_settings',
+		   'vd_muted',
+		   'vd_pip',
+		   'vd_color',
+        ];
+    }
 	/**
 	 * Render the widget output on the frontend.
 	 *
@@ -449,6 +554,13 @@ class b_art_addon extends Widget_Base {
           $settings['vxideo_list'] = $vxideo_list;
           //vedio swith settings
 		  $controls = [];
+          $controls['vd_pip'] = $vd_pip == 'yes' ? 'yes' : 'no'; 
+		  $controls['vd_muted'] = $vd_muted == 'yes' ? 'yes' : 'no'; 
+		  $controls['vd_settings'] = $vd_settings == 'yes' ? 'yes' : 'no'; 
+		  $controls['vd_camera'] = $vd_camera == 'yes' ? 'yes' : 'no'; 
+		  $controls['vd_full_screen'] = $vd_full_screen == 'yes' ? 'yes' : 'no'; 
+		  $controls['vd_full_web'] = $vd_full_web == 'yes' ? 'yes' : 'no'; 
+          $controls['vd_auto_p'] = $vd_auto_p == 'yes' ? 'yes' : 'no'; 
           $controls['multiple_quality'] = $multiple_quality == 'yes' ? 'yes' : 'no'; 
 
 

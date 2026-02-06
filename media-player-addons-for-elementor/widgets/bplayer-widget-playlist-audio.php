@@ -42,7 +42,7 @@ class Bplayer_Playlist extends Widget_Base
 	 */
 	public function get_title()
 	{
-		return esc_html__('Advanced Audio Playlist Player', 'baddon');
+		return esc_html__('Audio Playlist Player', 'media-player-addons-for-elementor');
 	}
 
 	/**
@@ -56,7 +56,7 @@ class Bplayer_Playlist extends Widget_Base
 	 */
 	public function get_icon()
 	{
-		return 'bl_icon fas fa-music';
+		return 'bl_icon fas fa-music eicon-kit-details';
 	}
 
 	/**
@@ -75,7 +75,7 @@ class Bplayer_Playlist extends Widget_Base
 	 */
 	public function get_categories()
 	{
-		return ['baddon'];
+		return ['media-player-addons-for-elementor'];
 	}
 
 	/**
@@ -91,7 +91,7 @@ class Bplayer_Playlist extends Widget_Base
 	 */
 	public function get_script_depends()
 	{
-		return ['bplayer-script', 'bplayer-playlist'];
+		return ['bplayer-script', 'bplayer-audio-playlist', 'elementor-frontend'];
 	}
 
 	/**
@@ -108,7 +108,7 @@ class Bplayer_Playlist extends Widget_Base
 		$this->start_controls_section(
 			'section_content',
 			[
-				'label' 	=> esc_html__('Advanced Audio Playlist Settings', 'baddon'),
+				'label' 	=> esc_html__('Advanced Audio Playlist Settings', 'media-player-addons-for-elementor'),
 				'tab' 		=> \Elementor\Controls_Manager::TAB_CONTENT,
 			]
 		);
@@ -116,7 +116,7 @@ class Bplayer_Playlist extends Widget_Base
 		$this->add_control(
 			'track_options',
 			[
-				'label' 	=> esc_html__('Track Options', 'baddon'),
+				'label' 	=> esc_html__('Track Options', 'media-player-addons-for-elementor'),
 				'type' 		=> \Elementor\Controls_Manager::HEADING,
 				'separator' => 'before',
 			]
@@ -125,9 +125,9 @@ class Bplayer_Playlist extends Widget_Base
 		$repeater->add_control(
 			'track_title',
 			[
-				'label' 		=> esc_html__('Track Title', 'baddon'),
+				'label' 		=> esc_html__('Track Title', 'media-player-addons-for-elementor'),
 				'type' 			=> Controls_Manager::TEXT,
-				'placeholder'	=> esc_attr__('Input Song Title here', 'baddon'),
+				'placeholder'	=> esc_attr__('Input Song Title here', 'media-player-addons-for-elementor'),
 				'label_block'	=> true,
 			]
 		);
@@ -135,10 +135,10 @@ class Bplayer_Playlist extends Widget_Base
 		$repeater->add_control(
 			'track_source',
 			[
-				'label' 		=> esc_html__('Track Source', 'baddon'),
+				'label' 		=> esc_html__('Track Source', 'media-player-addons-for-elementor'),
 				'type' 			=> Controls_Manager::MEDIA,
 				'media_type' 	=> 'audio',
-				'description'	=> esc_html__('Upload or Paste Your MP3 Music here', 'baddon'),
+				'description'	=> esc_html__('Upload or Paste Your MP3 Music here', 'media-player-addons-for-elementor'),
 				'label_block'	=> true,
 			]
 		);
@@ -146,7 +146,7 @@ class Bplayer_Playlist extends Widget_Base
 		$repeater->add_control(
 			'track_poster',
 			[
-				'label' 		=> esc_html__('Track Poster', 'baddon'),
+				'label' 		=> esc_html__('Track Poster', 'media-player-addons-for-elementor'),
 				'type' 			=> Controls_Manager::MEDIA,
 				'default' 		=> [
 					'url' 		=> \Elementor\Utils::get_placeholder_image_src(),
@@ -157,25 +157,25 @@ class Bplayer_Playlist extends Widget_Base
 		$repeater->add_control(
 			'track_artist_name',
 			[
-				'label' 		=> esc_html__('Singer Name', 'baddon'),
+				'label' 		=> esc_html__('Singer Name', 'media-player-addons-for-elementor'),
 				'type' 			=> Controls_Manager::TEXT,
-				'placeholder'	=> esc_attr__('Input singer name her', 'baddon'),
+				'placeholder'	=> esc_attr__('Input singer name her', 'media-player-addons-for-elementor'),
 				'label_block'	=> true,
 			]
 		);
 		$repeater->add_control(
 			'track_album',
 			[
-				'label' 		=> esc_html__('Track Album', 'baddon'),
+				'label' 		=> esc_html__('Track Album', 'media-player-addons-for-elementor'),
 				'type' 			=> Controls_Manager::TEXTAREA,
-				'placeholder'	=> esc_attr__('Input Song\'s Album here', 'baddon'),
+				'placeholder'	=> esc_attr__('Input Song\'s Album here', 'media-player-addons-for-elementor'),
 				'label_block'	=> true,
 			]
 		);
 		$this->add_control(
 			'media_source',
 			[
-				'label' 		=> esc_html__('Playlist', 'baddon'),
+				'label' 		=> esc_html__('Playlist', 'media-player-addons-for-elementor'),
 				'type' 			=> Controls_Manager::REPEATER,
 				'fields' 		=> $repeater->get_controls(),
 				'title_field' 	=> '{{{ track_title }}}',
@@ -187,7 +187,7 @@ class Bplayer_Playlist extends Widget_Base
 		$this->add_control(
 			'player_options',
 			[
-				'label' 		=> esc_html__('Player Options', 'baddon'),
+				'label' 		=> esc_html__('Player Options', 'media-player-addons-for-elementor'),
 				'type' 			=> \Elementor\Controls_Manager::HEADING,
 				'separator' 	=> 'after',
 			]
@@ -196,37 +196,57 @@ class Bplayer_Playlist extends Widget_Base
 		$this->add_control(
 			'bplayer_size',
 			[
-				'label' 		=> esc_html__('Player Size', 'baddon'),
+				'label' 		=> esc_html__('Player Size', 'media-player-addons-for-elementor'),
 				'type' 			=> Controls_Manager::SWITCHER,
-				'label_on' 		=> esc_attr__('Wide', 'baddon'),
-				'label_off' 	=> esc_attr__('Narrow', 'baddon'),
+				'label_on' 		=> esc_attr__('Wide', 'media-player-addons-for-elementor'),
+				'label_off' 	=> esc_attr__('Narrow', 'media-player-addons-for-elementor'),
 				'return_value' 	=> 'yes',
 				'default' 		=> 'false',
 				'show_label'	=> true,
 				'dynamic'		=> [
 					'active'	=> true
 				],
-				'description'	=> esc_html__('Choose Player Size', 'baddon')
+				'description'	=> esc_html__('Choose Player Size', 'media-player-addons-for-elementor')
 			]
 		);
 
 		$this->add_control(
 			'dark_mode',
 			[
-				'label' 		=> esc_html__('Mode', 'baddon'),
+				'label' 		=> esc_html__('Mode', 'media-player-addons-for-elementor'),
 				'type' 			=> Controls_Manager::SWITCHER,
-				'label_on' 		=> esc_attr__('Dark', 'baddon'),
-				'label_off' 	=> esc_attr__('Light', 'baddon'),
+				'label_on' 		=> esc_attr__('Dark', 'media-player-addons-for-elementor'),
+				'label_off' 	=> esc_attr__('Light', 'media-player-addons-for-elementor'),
 				'return_value' 	=> 'yes',
 				'default' 		=> 'yes',
 				'show_label'	=> true,
 				'dynamic'		=> [
 					'active'	=> true
 				],
-				'description'	=> esc_html__('Choose Player Mode', 'baddon'),
+				'description'	=> esc_html__('Choose Player Mode', 'media-player-addons-for-elementor'),
 			]
 		);
 
+		$this->add_responsive_control(
+			'player_width',
+			[
+				'label'      => __( 'Width', 'your-plugin-textdomain' ),
+				'type'       => \Elementor\Controls_Manager::SLIDER,
+				'size_units' => [ '%', 'px', 'vw' ],
+				'range'      => [
+					'%'  => [ 'min' => 10, 'max' => 100 ],
+					'px' => [ 'min' => 100, 'max' => 2000 ],
+					'vw' => [ 'min' => 10, 'max' => 100 ],
+				],
+				'default'    => [
+					'size' => 100,
+					'unit' => '%',
+				],
+				'selectors'  => [
+					'{{WRAPPER}} c-player' => 'width: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
 
 		$this->end_controls_section();
 	}
