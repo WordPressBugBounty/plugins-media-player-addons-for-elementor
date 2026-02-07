@@ -5,7 +5,7 @@ Contributors: bplugins, shehabulislam, hazrath, freemius
 Tags: Elementor addon, media player, mp3 player, video player, youtube 
 Requires at least: 4.5
 Tested up to: 6.9
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 Requires PHP: 7.1
 Donate link: https://www.buymeacoffee.com/abuhayat
 License: GPLv2 or later 
@@ -165,6 +165,10 @@ Stay connected and get the latest updates:
 
 == Changelog ==
 
+= 1.1.2  - 07 Feb, 2026 =
+* Release: New Widget Video Player Playlist
+* Add: Classic Video Player Playlist Widget
+
 = 1.1.1  - 31 Jan, 2026 =
 * Update: New Feature for Vimeo Video Player
 * Update: New Feature for YouTube Video Player
@@ -204,9 +208,3 @@ Stay connected and get the latest updates:
 
 = 1.0.0 =
 * Initial release
-
-== Upgrade Notice ==
-
-= 1.1.1  - 31 Jan, 2026 =
-* Update: New Feature for Vimeo Video Player
-* Update: New Feature for YouTube Video Player

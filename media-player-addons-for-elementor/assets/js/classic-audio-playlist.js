@@ -313,7 +313,6 @@
         const playerEl = container.querySelector('.player');
         const colorActive = playPauseBtn.getAttribute('data-color') || '#F7F7F7';
         const backgroundActive = playPauseBtn.getAttribute('data-background') || 'linear-gradient(90deg, #6a5acd, #00d4ff);';
-        console.log(backgroundActive);
 
         const SEEK_TIME = 5;
 
