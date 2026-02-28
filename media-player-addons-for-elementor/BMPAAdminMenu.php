@@ -58,7 +58,10 @@ if(!class_exists("MPAFEAdminMenu")) {
 				data-info='<?php echo esc_attr( wp_json_encode( [
 					'version' => BMPA_VERSION,
 					'nonce' => wp_create_nonce( 'bptb_admin_nonce' ),
+					'licenseActiveNonce' => wp_create_nonce( 'bPlLicenseActivation' ),
+					'action' => 'bptbGetBlocks',
 					'isPremium' => mpafeIsPremium(),
+					'hasPro' => MPAFE_HAS_PRO,
 					'pricingUrl' => admin_url('admin.php?page=media-player-addons-for-elementor#/pricing'),
 				] ) ); ?>'
 			></div>

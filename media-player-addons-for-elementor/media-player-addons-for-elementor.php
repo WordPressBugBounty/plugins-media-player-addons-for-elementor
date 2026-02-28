@@ -4,7 +4,7 @@
  * Plugin Name: Media Player Addons for Elementor – Audio and Video Widgets for Elementor
  * Plugin URI:  https://elementoraddons.org/media-player-addons/
  * Description: Collection of media players to plaback of various media files such as .mp3, .mp4, .flv, .m3u8, .ogg, YouTube, Vimeo and moe....
- * Version:     1.1.2
+ * Version:     1.1.3
  * Author:      bPlugins LLC
  * Author URI:  https://bPlugins.com
  * License: GPLv2 or later
@@ -19,7 +19,7 @@ if ( !defined( 'ABSPATH' ) ) {
 if ( function_exists( 'mpafe_fs' ) ) {
     mpafe_fs()->set_basename( false, __FILE__ );
 } else {
-    define( 'BMPA_VERSION', ( isset( $_SERVER['HTTP_HOST'] ) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.1.2' ) );
+    define( 'BMPA_VERSION', ( isset( $_SERVER['HTTP_HOST'] ) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.1.3' ) );
     define( 'BMPA_DIR_URL', plugin_dir_url( __FILE__ ) );
     define( 'BMPA_DIR_PATH', plugin_dir_path( __FILE__ ) );
     define( 'MPAFE_HAS_PRO', plugin_basename( __FILE__ ) === "media-player-addons-for-elementor-pro/media-player-addons-for-elementor.php" );
@@ -30,20 +30,21 @@ if ( function_exists( 'mpafe_fs' ) ) {
                 // Include Freemius SDK.
                 require_once dirname( __FILE__ ) . '/freemius/start.php';
                 $mpafe_fs = fs_dynamic_init( array(
-                    'id'             => '20796',
-                    'slug'           => 'media-player-addons-for-elementor',
-                    'premium_slug'   => 'media-player-addons-for-elementor-pro',
-                    'type'           => 'plugin',
-                    'public_key'     => 'pk_83e08cd3a331120bb1ecaa8211496',
-                    'is_premium'     => false,
-                    'premium_suffix' => 'Pro',
-                    'has_addons'     => false,
-                    'has_paid_plans' => true,
-                    'menu'           => array(
+                    'id'               => '20796',
+                    'slug'             => 'media-player-addons-for-elementor',
+                    'premium_slug'     => 'media-player-addons-for-elementor-pro',
+                    'type'             => 'plugin',
+                    'public_key'       => 'pk_83e08cd3a331120bb1ecaa8211496',
+                    'is_premium'       => false,
+                    'premium_suffix'   => 'Pro',
+                    'has_addons'       => false,
+                    'has_paid_plans'   => true,
+                    'menu'             => array(
                         'slug'       => 'media-player-addons-for-elementor',
                         'first-path' => 'admin.php?page=media-player-addons-for-elementor',
                     ),
-                    'is_live'        => true,
+                    'is_live'          => true,
+                    'is_org_compliant' => true,
                 ) );
             }
             return $mpafe_fs;
@@ -60,6 +61,9 @@ if ( function_exists( 'mpafe_fs' ) ) {
 
     require_once 'functions.php';
     require_once 'BMPAAdminMenu.php';
+    if ( MPAFE_HAS_PRO ) {
+        require_once 'LicenseActivation.php';
+    }
     require_once 'freemius-extend/index.php';
     FreemiusExtend::instance( mpafe_fs(), [
         'upgradeUrl' => admin_url( 'admin.php?page=media-player-addons-for-elementor#/pricing' ),
@@ -85,7 +89,7 @@ if ( function_exists( 'mpafe_fs' ) ) {
          * @since 1.2.0
          * @var string The plugin version.
          */
-        const VERSION = '1.1.2';
+        const VERSION = '1.1.3';
 
         /**
          * Minimum Elementor Version

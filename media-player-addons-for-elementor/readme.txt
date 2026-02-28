@@ -4,8 +4,9 @@ Author URI: https://bplugins.com
 Contributors: bplugins, shehabulislam, hazrath, freemius
 Tags: Elementor addon, media player, mp3 player, video player, youtube 
 Requires at least: 4.5
+Version: 1.1.3
 Tested up to: 6.9
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 Requires PHP: 7.1
 Donate link: https://www.buymeacoffee.com/abuhayat
 License: GPLv2 or later 
@@ -164,6 +165,9 @@ Stay connected and get the latest updates:
 9. Classic Audio Playlist
 
 == Changelog ==
+
+= 1.1.3  - 28 Feb, 2026 =
+* Release: New Admin Dashboard
 
 = 1.1.2  - 07 Feb, 2026 =
 * Release: New Widget Video Player Playlist
