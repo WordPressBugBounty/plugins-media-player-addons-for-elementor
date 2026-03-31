@@ -2388,6 +2388,9 @@
   font-weight: 500;
   list-style-type: none;
   color: var(--bpl-dashboard-content-color, #1B2E4B);
+  margin-bottom: 8px;
+}
+.bPlDashboardChangelog .changelog .list li {
   margin-bottom: 5px;
 }
 .bPlDashboardChangelog .changelog .time {

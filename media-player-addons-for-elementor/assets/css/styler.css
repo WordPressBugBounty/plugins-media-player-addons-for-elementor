@@ -1473,3 +1473,329 @@
 .container-video-playlist input:checked+.slider:before {
   transform: translateX(21px);
 }
+
+.card-audio-playlist {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-audio-playlist i {
+  width: 100%;
+  text-shadow: -4px -4px 6px #18191b,
+              4px 4px 6px #34373d;
+}
+
+.card-audio-playlist .app-container {
+  position: relative;
+  background-color: #26282c;
+  border-radius: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5),
+    2px 2px 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  overflow:hidden;
+  box-sizing: border-box;
+  padding-bottom:20px;
+  max-width:400px;
+  width: 100%;
+  font-size: 15px;
+  color: white;
+}
+.card-audio-playlist #uiWrap {
+  position: relative;
+  padding:0 40px;
+  box-sizing: border-box;
+  z-index:3;
+  margin-top:-60px;
+}
+.card-audio-playlist #albumArt {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  margin-bottom:-100px;
+}
+.card-audio-playlist #fade {
+  position: relative;
+  z-index: 2;
+  width:100%;
+  height:100px;
+  background: linear-gradient(180deg, rgba(38,40,44,0) 0%, rgba(38,40,44,1) 82%);
+}
+.card-audio-playlist #trackTitle {
+  font-size: 1.7rem;
+}
+
+.card-audio-playlist button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 1em;
+  font-weight: 400;
+  border: none;
+  border-radius: 60px;
+  height: 2.5rem;
+  width: 2.5rem;
+  background: #26282c;
+  box-shadow: 4px 4px 8px #18191b,
+              -4px -4px 8px #34373d;
+}
+
+.card-audio-playlist button:hover {
+  box-shadow: 2px 2px 5px #18191b,
+              -2px -2px 5px #34373d;
+}
+
+.card-audio-playlist button:active {
+  background: #26282c;
+  box-shadow: inset 2px 2px 5px #18191b,
+              inset -2px -2px 5px #34373d;
+}
+
+.card-audio-playlist .audio-controls {
+  text-align: center;
+}
+
+.card-audio-playlist #playPauseBtnPlaylist {
+  height: 60px;
+  width: 60px;
+  margin: 0 20px 20px;
+}
+
+.card-audio-playlist #shuffleBtn.active,
+.card-audio-playlist #loopBtn.active {
+  color: rgba(0, 146, 172, 1);
+}
+
+.card-audio-playlist #volume {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  padding: 0;
+  top:10px;
+  left:10px;
+  z-index:3;
+  background-color:rgba(0,0,0,0);
+
+}
+ 
+.card-audio-playlist #volume-bar {
+  position: relative;
+  width: 100px;
+  transform: translateY(-3px);
+  opacity:0;
+  transition: all 0.3s ease-out;
+  transition-delay: 1000ms;
+}
+.card-audio-playlist #volume:hover #volume-bar, .card-audio-playlist #volume:active #volume-bar {
+  opacity:1;
+  transition: all 0.3s ease-out;
+}
+.card-audio-playlist .muted {
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.card-audio-playlist #muteBtn {
+  box-shadow: none;
+  background: none;
+  font-size:0.8em;
+}
+
+.card-audio-playlist #volumeSlider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  margin: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  background: rgba(0, 0, 0, 0.6);
+  outline: none;
+  border-radius: 10px;
+}
+
+.card-audio-playlist .volume-indicator {
+  position: absolute;
+  height: 5px;
+  width: 0;
+  background: white;
+  border-radius: 5px;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+}
+
+.card-audio-playlist #volumeSlider::-webkit-slider-thumb {
+  position: relative;
+  -webkit-appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+  background: white;
+}
+
+.card-audio-playlist #volumeSlider::-moz-range-thumb {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+  background: white;
+}
+
+.card-audio-playlist #volumeSlider::-ms-thumb {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+  background: white;
+}
+
+.card-audio-playlist .seek-bar {
+  position: relative;
+  height: 40px;
+}
+
+.card-audio-playlist #seekSlider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  margin: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  background: rgba(0, 0, 0, 0.2);
+  outline: none;
+  border-radius: 10px;
+}
+
+.card-audio-playlist .buffering-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 5px;
+  border-radius: 10px;
+  background: rgba(0, 146, 172, 1);
+  width: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.4;
+}
+
+.card-audio-playlist .seek-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 5px;
+  background: rgba(0, 146, 172, 1);
+  border-radius: 10px;
+  pointer-events: none;
+  z-index: 1;
+  width: 0;
+}
+
+.card-audio-playlist #seekSlider::-webkit-slider-thumb {
+  position: relative;
+  -webkit-appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+  background: rgba(0, 146, 172, 1);
+  box-shadow: 4px 4px 8px #18191b,
+              -4px -4px 8px #34373d;
+}
+
+.card-audio-playlist #seekSlider::-moz-range-thumb {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+  background: rgba(0, 146, 172, 1);
+  box-shadow: 4px 4px 8px #18191b,
+              -4px -4px 8px #34373d;
+}
+
+.card-audio-playlist #seekSlider::-ms-thumb {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2;
+  background: rgba(0, 146, 172, 1);
+  box-shadow: 4px 4px 8px #18191b,
+              -4px -4px 8px #34373d;
+}
+
+.card-audio-playlist #seekSlider::-webkit-slider-thumb:hover {
+  box-shadow: 2px 2px 5px #18191b,
+              -2px -2px 5px #34373d;
+}
+
+.card-audio-playlist #volumeSlider::-moz-range-thumb:hover {
+  box-shadow: 2px 2px 5px #18191b,
+              -2px -2px 5px #34373d;
+}
+
+.card-audio-playlist #volumeSlider::-ms-thumb:hover {
+  box-shadow: 2px 2px 5px #18191b,
+              -2px -2px 5px #34373d;
+}
+
+.card-audio-playlist #seekSlider::-moz-range-thumb:hover {
+  box-shadow: 2px 2px 5px #18191b,
+              -2px -2px 5px #34373d;
+}
+
+.card-audio-playlist #seekSlider::-ms-thumb:hover {
+  box-shadow: 2px 2px 5px #18191b,
+              -2px -2px 5px #34373d;
+}
+
+.card-audio-playlist #currentTime, .card-audio-playlist #trackTime {
+  position: absolute;
+  top: -30px;
+  font-size: 0.7em;
+}
+
+.card-audio-playlist #currentTime {
+  left: 0;
+}
+
+.card-audio-playlist #trackTime {
+  right: 0;
+}
+
+.card-audio-playlist #likeBtn {
+  box-shadow: none;
+  background: none;
+  margin: 10px 20px;
+  transition:all 200ms cubic-bezier(.17,-0.99,.61,1.73);
+}
+.card-audio-playlist #likeBtn:hover {
+  transform:scale(1.3);
+  transition:all 200ms cubic-bezier(.17,-0.99,.61,1.73);
+}
+.card-audio-playlist #loopBtn, .card-audio-playlist #shuffleBtn {
+  box-shadow: none;
+  background: none;
+  margin: 0 10px;
+  font-size: 0.9rem;
+}

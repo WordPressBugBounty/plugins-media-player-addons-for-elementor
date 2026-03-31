@@ -581,9 +581,7 @@ const Block = ({
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
     className: "blockTitle"
   }, title), isBlockPremium && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
-    href: "#pricing",
-    target: "_blank",
-    rel: "noopener noreferrer"
+    href: "#pricing"
   }, "Get Pro")), isLinks && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, demo && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("a", {
     className: "actionBtn",
     href: demo,
@@ -668,20 +666,20 @@ const BlocksCard = props => {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
     if (status === 'loading') {
       setToast({
-        message: 'Loading blocks...',
+        message: 'Loading...',
         type: 'loading'
       });
       setIsSaving(true);
     } else if (status === 'success') {
       setToast({
-        message: 'Blocks saved successfully!',
+        message: 'Saved successfully!',
         type: 'success'
       });
       setIsSaving(false);
       setTimeout(() => setToast(null), 3000);
     } else if (status === 'error') {
       setToast({
-        message: 'Failed to save blocks',
+        message: 'Failed to save',
         type: 'error'
       });
       setIsSaving(false);
@@ -838,20 +836,20 @@ const Blocks = props => {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
     if (status === 'loading') {
       setToast({
-        message: 'Loading blocks...',
+        message: 'Loading...',
         type: 'loading'
       });
       setIsSaving(true);
     } else if (status === 'success') {
       setToast({
-        message: 'Blocks saved successfully!',
+        message: 'Saved successfully!',
         type: 'success'
       });
       setIsSaving(false);
       setTimeout(() => setToast(null), 3000);
     } else if (status === 'error') {
       setToast({
-        message: 'Failed to save blocks',
+        message: 'Failed to save',
         type: 'error'
       });
       setIsSaving(false);
@@ -1158,7 +1156,7 @@ const Demos = props => {
   } = demoInfo;
   const [activeDemo, setActiveDemo] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(demos[0]);
   const [activeIndex, setActiveIndex] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0);
-  const [isLoading, setIsLoading] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
+  const [isLoading, setIsLoading] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true);
   const [activeItem, setActiveItem] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(demoInfo.demos[0].children?.[0] || demoInfo.demos[0]);
   const [expandedId, setExpandedId] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(demoInfo.demos[0].title);
   const [searchQuery, setSearchQuery] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
@@ -1253,7 +1251,6 @@ const Demos = props => {
     } = item;
     const hasChildren = children && children.length > 0;
     const isExpanded = expandedId === title;
-    console.log(typeof icon);
     return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       key: index,
       className: "demoItem"
@@ -1330,7 +1327,6 @@ const Demos = props => {
   }), activeItem.type === 'iframe' ? (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("iframe", {
     src: activeItem.url,
     title: `${activeItem.title} Demo`,
-    loading: isLoading,
     onLoad: () => setIsLoading(false),
     sandbox: "allow-scripts allow-same-origin allow-popups allow-forms"
   }) : (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
@@ -14418,6 +14414,13 @@ const docsURL = `https://bplugins.com/docs/media-player-addons-for-elementor/wid
   demo: `${demoLink}/classic-video-player-playlist/`,
   // docs: `${docsURL}`,
   isPremium: true
+}, {
+  name: `bmp_card_audio_playlist`,
+  title: 'Card Audio Playlist',
+  icon: _blocksIcon__WEBPACK_IMPORTED_MODULE_0__.cardAudioPlaylistIcon,
+  demo: `${demoLink}/card-audio-playlist/`,
+  // docs: `${docsURL}`,
+  isPremium: true
 }]);
 
 /***/ }),
@@ -14437,6 +14440,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   advanceVideoPlayerIcon: () => (/* binding */ advanceVideoPlayerIcon),
 /* harmony export */   artPlayerIcon: () => (/* binding */ artPlayerIcon),
 /* harmony export */   audioPlaylistIcon: () => (/* binding */ audioPlaylistIcon),
+/* harmony export */   cardAudioPlaylistIcon: () => (/* binding */ cardAudioPlaylistIcon),
 /* harmony export */   classicAudioPlaylistIcon: () => (/* binding */ classicAudioPlaylistIcon),
 /* harmony export */   classicVideoPlaylistIcon: () => (/* binding */ classicVideoPlaylistIcon),
 /* harmony export */   dPlayerIcon: () => (/* binding */ dPlayerIcon),
@@ -14638,6 +14642,19 @@ const classicVideoPlaylistIcon = (0,react__WEBPACK_IMPORTED_MODULE_0__.createEle
 }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("g", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
   d: "M17 3V1H2v2h15zm0 4V5H2v2h15zM6 11V9H2v2h4zm2-2h9c.55 0 1 .45 1 1v8c0 .55-.45 1-1 1H8c-.55 0-1-.45-1-1v-8c0-.55.45-1 1-1zm3 7l3.33-2L11 12v4zm-5-1v-2H2v2h4zm0 4v-2H2v2h4z"
 })));
+const cardAudioPlaylistIcon = (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  width: "800px",
+  height: "800px",
+  viewBox: "0 0 24 24",
+  fill: "none",
+  xmlns: "http://www.w3.org/2000/svg"
+}, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M21 7V19C21 20.1046 20.1046 21 19 21H7M9 8.5V11.5L12 10L9 8.5ZM17 15V5C17 3.89543 16.1046 3 15 3H5C3.89543 3 3 3.89543 3 5V15C3 16.1046 3.89543 17 5 17H15C16.1046 17 17 16.1046 17 15Z",
+  stroke: "#000000",
+  strokeWidth: "2",
+  strokeLinecap: "round",
+  strokeLinejoin: "round"
+}));
 
 /***/ }),
 
@@ -14701,6 +14718,10 @@ const dashboardInfo = info => {
     },
     proFeatures: ['Full markup, style, and behavior control.', 'Toggle fullscreen, PiP, and settings.', 'Custom player colors to match your brand.', 'Build and embed playlists with Elementor.', 'Support for HLS and DASH streaming.', 'Add captions and subtitles to your videos.', 'Picture-in-Picture (PiP) support.', 'Classic Audio Playlist – Traditional playlist layout for audio files with familiar browser-style controls.', 'Classic Video Playlist – Traditional playlist layout for video files with familiar browser-style controls.', 'Regular updates with new features and improvements.'],
     changelogs: [{
+      version: '1.1.4  - 31 Mar, 2026',
+      type: 'new',
+      list: ['Release: New Widget Card Style Audio Player Playlist', 'Update: SDK Version 2.13.1']
+    }, {
       version: '1.1.3  - 28 Feb, 2026',
       type: 'new',
       list: ['Release: New Admin Dashboard']
@@ -14848,6 +14869,13 @@ const demoInfo = {
     category: '',
     type: 'iframe',
     url: 'https://elementor.bplugins.com/demo/classic-video-player-playlist/'
+  }, {
+    icon: _blocksIcon__WEBPACK_IMPORTED_MODULE_0__.cardAudioPlaylistIcon,
+    title: 'Card Style Audio Player Playlist',
+    description: '',
+    category: '',
+    type: 'iframe',
+    url: 'https://elementor.bplugins.com/demo/card-audio-playlist/'
   }]
 };
 const pricingInfo = {
