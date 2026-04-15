@@ -7,6 +7,21 @@ if(!class_exists("MPAFEAdminMenu")) {
 			add_action( 'admin_menu', [ $this, 'mpafeAdminMenu' ] );
 			add_action( 'admin_enqueue_scripts', [$this, 'mpafeAdminEnqueueScripts'] );
 			add_action('wp_ajax_bptbGetBlocks', [ $this, 'mpafeGetBlocks' ]);
+			add_action('admin_head', [ $this, 'mpafeIconImgSizeStyle' ]);
+		}
+
+		public function mpafeIconImgSizeStyle() {
+			$screen = get_current_screen();
+				echo '
+				<style>
+					.fs-submenu-item.media-player-addons-for-elementor.pricing.upgrade-mode {
+						background: #146ef5;
+						border-radius: 3px;
+						color: #fff;
+						display: inline-block;
+						padding: 9px 20px 9px 18px;
+					}
+				</style>';
 		}
 	
 		public function mpafeAdminMenu() {

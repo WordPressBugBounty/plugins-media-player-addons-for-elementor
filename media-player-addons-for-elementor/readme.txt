@@ -3,10 +3,10 @@ Plugin Name: Media Player Addons for Elementor
 Author URI: https://bplugins.com
 Contributors: bplugins, shehabulislam, hazrath, freemius
 Tags: Elementor addon, media player, mp3 player, video player, youtube 
-Requires at least: 4.9
-Version: 1.1.4
+Requires at least: 5.0
+Version: 1.1.5
 Tested up to: 6.9
-Stable tag: 1.1.4
+Stable tag: 1.1.5
 Requires PHP: 7.1
 Donate link: https://www.buymeacoffee.com/abuhayat
 License: GPLv2 or later 
@@ -16,7 +16,7 @@ Extend Elementor with powerful, customizable media players for audio, video, str
 
 == Description ==
 
-[**Media Player Addons for Elementor**](https://bplugins.com/products/media-player-addons-for-elementor/) is a comprehensive WordPress plugin that adds 12 advanced media player widgets to the Elementor page builder. It enables you to embed and customize audio and video content — including support for popular formats (.mp3, .mp4, .flv, .ogg, .webm), live streaming (HLS, DASH), playlists, picture-in-picture video, captions, and more — without any coding.
+[**Media Player Addons for Elementor**](https://bplugins.com/products/media-player-addons-for-elementor/) is a comprehensive WordPress plugin that adds 15 advanced media player widgets to the Elementor page builder. It enables you to embed and customize audio and video content — including support for popular formats (.mp3, .mp4, .flv, .ogg, .webm), live streaming (HLS, DASH), playlists, picture-in-picture video, captions, and more — without any coding.
  
 Whether you’re building a media-rich blog, music site, podcast page, or video gallery, this plugin enhances Elementor with responsive and feature-rich media playback.
 
@@ -45,7 +45,10 @@ https://www.youtube.com/watch?v=G8w1cCDg-xQ
 * **Advanced Audio Playlist** - Build interactive audio playlists with track info, filters, and responsive layouts.
 * **Advanced Video Playlist** - Create organized video playlists ideal for courses, tutorials, and series content.
 * **Audio Playlist Player** - Simple, clean playlist player for multiple audio tracks with smooth navigation.
-* **Classic Audio Playlist** - Traditional playlist layout for audio files with familiar browser-style controls(PRO).
+* **Classic Audio Playlist(Pro)** - Traditional playlist layout for audio files with familiar browser-style controls.
+* **Classic Video Playlist(Pro)** - Traditional playlist layout for video files with familiar browser-style controls.
+* **Modern Audio Playlist(Pro)** - Modern playlist layout for audio files with familiar browser-style controls.
+* **Card Audio Playlist(Pro)** - Card playlist layout for audio files with familiar browser-style controls.
 
 == Key Features ==
 
@@ -165,6 +168,9 @@ Stay connected and get the latest updates:
 9. Classic Audio Playlist
 
 == Changelog ==
+
+= 1.1.5  - 15 Apr, 2026 =
+* Release: New Widget Modern Audio Player Playlist
 
 = 1.1.4  - 31 Mar, 2026 =
 * Release: New Widget Card Style Audio Player Playlist

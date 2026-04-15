@@ -14056,8 +14056,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Welcome__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Welcome */ "./src/admin/Components/Welcome.js");
 /* harmony import */ var _utils_blocks__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../utils/blocks */ "./src/admin/utils/blocks.js");
 /* harmony import */ var _utils_data__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../utils/data */ "./src/admin/utils/data.js");
-/* harmony import */ var _bpl_tools_hooks_useWPAjax__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../../../bpl-tools/hooks/useWPAjax */ "../bpl-tools/hooks/useWPAjax.js");
-
+/* harmony import */ var _useBlockSettings__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./useBlockSettings */ "./src/admin/Components/useBlockSettings.js");
 
 
 
@@ -14079,37 +14078,11 @@ const App = props => {
     nonce,
     status: externalStatus
   } = props;
-  const [internalStatus, setInternalStatus] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
   const {
-    data = [],
-    saveData,
-    refetch,
-    isLoading,
-    error
-  } = (0,_bpl_tools_hooks_useWPAjax__WEBPACK_IMPORTED_MODULE_12__["default"])(action, {
-    _wpnonce: nonce
-  }, true);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    if (nonce && action) {
-      refetch();
-    }
-  }, [nonce, action]);
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
-    if (!isLoading && data) {
-      setInternalStatus('success');
-    }
-  }, [data, isLoading]);
-  const saveToBackend = updatedBlocksName => {
-    setInternalStatus('loading');
-    saveData({
-      _wpnonce: nonce,
-      data: JSON.stringify(updatedBlocksName)
-    }).then(() => {
-      setInternalStatus('success');
-    }).catch(() => {
-      setInternalStatus('error');
-    });
-  };
+    data,
+    internalStatus,
+    saveToBackend
+  } = (0,_useBlockSettings__WEBPACK_IMPORTED_MODULE_12__["default"])(action, nonce);
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.HashRouter, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Routes, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Route, {
     path: "/",
     element: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Layout__WEBPACK_IMPORTED_MODULE_8__["default"], {
@@ -14303,6 +14276,67 @@ const Welcome = props => {
 
 /***/ }),
 
+/***/ "./src/admin/Components/useBlockSettings.js":
+/*!**************************************************!*\
+  !*** ./src/admin/Components/useBlockSettings.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _bpl_tools_hooks_useWPAjax__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../bpl-tools/hooks/useWPAjax */ "../bpl-tools/hooks/useWPAjax.js");
+
+
+const useBlocksSettings = (action, nonce) => {
+  const [internalStatus, setInternalStatus] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const {
+    data = [],
+    saveData,
+    refetch,
+    isLoading
+  } = (0,_bpl_tools_hooks_useWPAjax__WEBPACK_IMPORTED_MODULE_1__["default"])(action, {
+    _wpnonce: nonce
+  }, true);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    if (nonce && action) {
+      refetch();
+    }
+  }, [nonce, action]);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    if (!isLoading && data) {
+      setInternalStatus('');
+    }
+  }, [data, isLoading]);
+  const saveToBackend = async updatedBlocksName => {
+    try {
+      setInternalStatus('loading');
+      const response = await saveData({
+        _wpnonce: nonce,
+        data: JSON.stringify(updatedBlocksName)
+      });
+      setInternalStatus('success');
+      return response;
+    } catch (error) {
+      console.error('Save failed:', error);
+      setInternalStatus('error');
+    }
+  };
+  return {
+    data,
+    internalStatus,
+    saveToBackend,
+    isLoading
+  };
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useBlocksSettings);
+
+/***/ }),
+
 /***/ "./src/admin/dashboard.scss":
 /*!**********************************!*\
   !*** ./src/admin/dashboard.scss ***!
@@ -14337,89 +14371,95 @@ const docsURL = `https://bplugins.com/docs/media-player-addons-for-elementor/wid
   name: `bmp_youtube_video_player`,
   title: 'YouTube Video Player',
   icon: _blocksIcon__WEBPACK_IMPORTED_MODULE_0__.youTubeIcon,
-  demo: `${demoLink}/youtube-video-player/`
-  // docs: `${docsURL}`,
+  demo: `${demoLink}/youtube-video-player/`,
+  docs: `${docsURL}`
 }, {
   name: `bmp_vimeo_video_player`,
   title: 'Vimeo Video Player',
   icon: _blocksIcon__WEBPACK_IMPORTED_MODULE_0__.VimeoIcon,
-  demo: `${demoLink}/vimeo-video-player/`
-  // docs: `${docsURL}`,
+  demo: `${demoLink}/vimeo-video-player/`,
+  docs: `${docsURL}`
 }, {
   name: `bmp_html5_audio_player`,
   title: 'HTML5 Audio Player',
   icon: _blocksIcon__WEBPACK_IMPORTED_MODULE_0__.html5AudioIcon,
-  demo: `${demoLink}/html5-audio-player/`
-  // docs: `${docsURL}`,
+  demo: `${demoLink}/html5-audio-player/`,
+  docs: `${docsURL}`
 }, {
   name: `bmp_html5_video_player`,
   title: 'HTML5 Video Player',
   icon: _blocksIcon__WEBPACK_IMPORTED_MODULE_0__.html5videoIcon,
-  demo: `${demoLink}/html5-video-player/`
-  // docs: `${docsURL}`,
+  demo: `${demoLink}/html5-video-player/`,
+  docs: `${docsURL}`
 }, {
   name: `bmp_art_video_player`,
   title: 'Art Player',
   icon: _blocksIcon__WEBPACK_IMPORTED_MODULE_0__.artPlayerIcon,
-  demo: `${demoLink}/art-player-video-player/`
-  // docs: `${docsURL}`,
+  demo: `${demoLink}/art-player-video-player/`,
+  docs: `${docsURL}`
 }, {
   name: `bmp_advance_audio_player`,
   title: 'Advance Audio Player',
   icon: _blocksIcon__WEBPACK_IMPORTED_MODULE_0__.advanceAudioPlayerIcon,
-  demo: `${demoLink}/advance-audio-player/`
-  // docs: `${docsURL}`,
+  demo: `${demoLink}/advance-audio-player/`,
+  docs: `${docsURL}`
 }, {
   name: `bmp_advance_video_player`,
   title: 'Advance Video Player',
   icon: _blocksIcon__WEBPACK_IMPORTED_MODULE_0__.advanceVideoPlayerIcon,
-  demo: `${demoLink}/advance-video-player/`
-  // docs: `${docsURL}`,
+  demo: `${demoLink}/advance-video-player/`,
+  docs: `${docsURL}`
 }, {
   name: `bmp_dplayer_video_player`,
   title: 'dPlayer',
   icon: _blocksIcon__WEBPACK_IMPORTED_MODULE_0__.dPlayerIcon,
-  demo: `${demoLink}/dplayer-video-player/`
-  // docs: `${docsURL}`,
+  demo: `${demoLink}/dplayer-video-player/`,
+  docs: `${docsURL}`
 }, {
   name: `bmp_audio_player_playlist`,
   title: 'Audio Player Playlist',
   icon: _blocksIcon__WEBPACK_IMPORTED_MODULE_0__.audioPlaylistIcon,
-  demo: `${demoLink}/audio-player-playlist/`
-  // docs: `${docsURL}`,
+  demo: `${demoLink}/audio-player-playlist/`,
+  docs: `${docsURL}`
 }, {
   name: `bmp_video_player_playlist`,
   title: 'Video Player Playlist',
   icon: _blocksIcon__WEBPACK_IMPORTED_MODULE_0__.videoPlaylistIcon,
-  demo: `${demoLink}/advance-video-player-playlist/`
-  // docs: `${docsURL}`,
+  demo: `${demoLink}/advance-video-player-playlist/`,
+  docs: `${docsURL}`
 }, {
   name: `bmp_advance_audio_player_playlist`,
   title: 'Advance Audio Playlist',
   icon: _blocksIcon__WEBPACK_IMPORTED_MODULE_0__.advanceAudioPlaylistIcon,
   demo: `${demoLink}/advance-audio-playlist/`,
-  // docs: `${docsURL}`,
-  isPremium: true
+  docs: `${docsURL}`
 }, {
   name: `bmp_classic_audio_player_playlist`,
   title: 'Classic Audio Playlist',
   icon: _blocksIcon__WEBPACK_IMPORTED_MODULE_0__.classicAudioPlaylistIcon,
   demo: `${demoLink}/classic-audio-playlist-light/`,
-  // docs: `${docsURL}`,
+  docs: `${docsURL}`,
   isPremium: true
 }, {
   name: `bmp_classic_video_player_playlist`,
   title: 'Classic Video Playlist',
   icon: _blocksIcon__WEBPACK_IMPORTED_MODULE_0__.classicVideoPlaylistIcon,
   demo: `${demoLink}/classic-video-player-playlist/`,
-  // docs: `${docsURL}`,
+  docs: `${docsURL}`,
   isPremium: true
 }, {
   name: `bmp_card_audio_playlist`,
   title: 'Card Audio Playlist',
   icon: _blocksIcon__WEBPACK_IMPORTED_MODULE_0__.cardAudioPlaylistIcon,
   demo: `${demoLink}/card-audio-playlist/`,
-  // docs: `${docsURL}`,
+  docs: `${docsURL}`,
+  isPremium: true
+}, {
+  name: `bmp_modern_audio_playlist`,
+  title: 'Modern Audio Playlist',
+  icon: _blocksIcon__WEBPACK_IMPORTED_MODULE_0__.modernAudioPlaylistIcon,
+  demo: `${demoLink}/modern-audio-playlist/`,
+  docs: `${docsURL}`,
   isPremium: true
 }]);
 
@@ -14446,6 +14486,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   dPlayerIcon: () => (/* binding */ dPlayerIcon),
 /* harmony export */   html5AudioIcon: () => (/* binding */ html5AudioIcon),
 /* harmony export */   html5videoIcon: () => (/* binding */ html5videoIcon),
+/* harmony export */   modernAudioPlaylistIcon: () => (/* binding */ modernAudioPlaylistIcon),
 /* harmony export */   videoPlaylistIcon: () => (/* binding */ videoPlaylistIcon),
 /* harmony export */   youTubeIcon: () => (/* binding */ youTubeIcon)
 /* harmony export */ });
@@ -14655,6 +14696,15 @@ const cardAudioPlaylistIcon = (0,react__WEBPACK_IMPORTED_MODULE_0__.createElemen
   strokeLinecap: "round",
   strokeLinejoin: "round"
 }));
+const modernAudioPlaylistIcon = (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  fill: "#000000",
+  width: "800px",
+  height: "800px",
+  viewBox: "0 0 24 24",
+  xmlns: "http://www.w3.org/2000/svg"
+}, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "M18,22a4,4,0,0,0,4-4V3a1,1,0,0,0-2,0V14.556A3.959,3.959,0,0,0,18,14a4,4,0,0,0,0,8Zm0-6a2,2,0,1,1-2,2A2,2,0,0,1,18,16Zm-6-1.5H3a1,1,0,0,1,0-2h9a1,1,0,0,1,0,2ZM11,19a1,1,0,0,1,0,2H3a1,1,0,0,1,0-2ZM17,8H3A1,1,0,0,1,3,6H17a1,1,0,0,1,0,2Z"
+}));
 
 /***/ }),
 
@@ -14688,7 +14738,7 @@ const dashboardInfo = info => {
   return {
     name: `Media Player Addons for Elementor${proSuffix}`,
     displayName: `Media Player Addons for Elementor${proSuffix} - Audio and Video Widgets for Elementor.`,
-    description: 'Media Player Addons for Elementor is a comprehensive WordPress plugin that adds 12 advanced media player widgets to the Elementor page builder. It enables you to embed and customize audio and video content — including support for popular formats (.mp3, .mp4, .flv, .ogg, .webm), live streaming (HLS, DASH), playlists, picture-in-picture video, captions, and more — without any coding.',
+    description: 'Media Player Addons for Elementor is a comprehensive WordPress plugin that adds 15 advanced media player widgets to the Elementor page builder. It enables you to embed and customize audio and video content — including support for popular formats (.mp3, .mp4, .flv, .ogg, .webm), live streaming (HLS, DASH), playlists, picture-in-picture video, captions, and more — without any coding.',
     slug,
     version,
     isPremium,
@@ -14708,7 +14758,7 @@ const dashboardInfo = info => {
     pages: {
       org: `https://wordpress.org/plugins/${slug}/`,
       landing: `https://bplugins.com/products/${slug}/`,
-      // docs: `https://bplugins.com/docs/${slug}/`,
+      docs: `https://bplugins.com/docs/${slug}/`,
       pricing: `https://bplugins.com/products/${slug}/pricing`
     },
     freemius: {
@@ -14718,6 +14768,10 @@ const dashboardInfo = info => {
     },
     proFeatures: ['Full markup, style, and behavior control.', 'Toggle fullscreen, PiP, and settings.', 'Custom player colors to match your brand.', 'Build and embed playlists with Elementor.', 'Support for HLS and DASH streaming.', 'Add captions and subtitles to your videos.', 'Picture-in-Picture (PiP) support.', 'Classic Audio Playlist – Traditional playlist layout for audio files with familiar browser-style controls.', 'Classic Video Playlist – Traditional playlist layout for video files with familiar browser-style controls.', 'Regular updates with new features and improvements.'],
     changelogs: [{
+      version: '1.1.5  - 15 Apr, 2026',
+      type: 'new',
+      list: ['Release: New Widget Modern Audio Player Playlist']
+    }, {
       version: '1.1.4  - 31 Mar, 2026',
       type: 'new',
       list: ['Release: New Widget Card Style Audio Player Playlist', 'Update: SDK Version 2.13.1']
@@ -14876,6 +14930,13 @@ const demoInfo = {
     category: '',
     type: 'iframe',
     url: 'https://elementor.bplugins.com/demo/card-audio-playlist/'
+  }, {
+    icon: _blocksIcon__WEBPACK_IMPORTED_MODULE_0__.modernAudioPlaylistIcon,
+    title: 'Modern Audio Player Playlist',
+    description: '',
+    category: '',
+    type: 'iframe',
+    url: 'https://elementor.bplugins.com/demo/modern-audio-playlist/'
   }]
 };
 const pricingInfo = {

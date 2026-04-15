@@ -82,6 +82,7 @@ class b_Addon {
 		wp_register_script( 'classic-playlist-player', plugins_url( '/assets/js/classic-audio-playlist.js', __FILE__ ), ['jquery', 'elementor-frontend'], false, true );
 		wp_register_script( 'classic-video-playlist', plugins_url( '/assets/js/classic-video-playlist.js', __FILE__ ), ['jquery', 'elementor-frontend'], false, true );
 		wp_register_script( 'card-audio-playlist', plugins_url( '/assets/js/card-audio-playlist.js', __FILE__ ), ['jquery', 'elementor-frontend'], false, true );
+		wp_register_script( 'modern-audio-playlist', plugins_url( '/assets/js/modern-audio-playlist.js', __FILE__ ), ['jquery', 'elementor-frontend'], false, true );
 
 	}
 	
@@ -172,9 +173,13 @@ class b_Addon {
 			if ( !in_array( 'bmp_card_audio_playlist', $active_widgets, true ) ) {
 				require_once( __DIR__ . '/widgets/b-card-audio-playlist.php' );
 			}
+			if ( !in_array( 'bmp_modern_audio_playlist', $active_widgets, true ) ) {
+				require_once( __DIR__ . '/widgets/b-modern-audio-playlist.php' );
+			}
 		} else {
 			//register lock widget for non pro users
 			require_once( __DIR__ . '/widgets/b-placeholder-widget.php' );
+			
 		}
 
 	}
@@ -249,12 +254,16 @@ class b_Addon {
 			if ( !in_array( 'bmp_card_audio_playlist', $active_widgets, true ) ) {
 				\Elementor\Plugin::instance()->widgets_manager->register( new Widgets\Card_Audio_Playlist() );
 			}
+			if ( !in_array( 'bmp_modern_audio_playlist', $active_widgets, true ) ) {
+				\Elementor\Plugin::instance()->widgets_manager->register( new Widgets\Modern_Audio_Playlist() );
+			}
 
 		} else {
 			//register lock widget for non pro users
 			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\B_Lock_Widget('Classic Audio Playlist', 'classic-audio-playlist', 'classic-audio-playlist') );
 			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\B_Lock_Widget('Classic Video Playlist', 'classic-video-playlist', 'classic-video-playlist') );
 			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\B_Lock_Widget('Card Audio Playlist', 'card-audio-playlist', 'card-audio-playlist-icon') );
+			\Elementor\Plugin::instance()->widgets_manager->register_widget_type( new Widgets\B_Lock_Widget('Modern Audio Playlist', 'modern-audio-playlist', 'modern-audio-playlist-icon') );
 		}
 
 	}
