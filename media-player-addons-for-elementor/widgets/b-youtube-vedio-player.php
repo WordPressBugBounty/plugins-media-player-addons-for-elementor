@@ -1,5 +1,5 @@
 <?php
-namespace BMianAddon\Widgets;
+namespace MPAFE\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class b_youtube_vedio extends Widget_Base {
+class mpafe_youtube_vedio extends Widget_Base {
 
 	/**
 	 * Retrieve the widget name.
@@ -74,7 +74,7 @@ class b_youtube_vedio extends Widget_Base {
 
 
 	public function get_script_depends() {
-		return [ 'plyr-js', 'youtube-player', 'elementor-frontend'];
+		return [ 'mpafe-plyr-js', 'mpafe-youtube-player', 'elementor-frontend'];
 	}
 
 	/**
@@ -126,79 +126,6 @@ class b_youtube_vedio extends Widget_Base {
 				'tab'   => Controls_Manager::TAB_STYLE,
             ]
         );
-
-		$this->add_control(
-            'alll_bg',
-            [
-                'type' => Controls_Manager::COLOR,
-                'label' =>esc_html__('Player Total Background Color', 'media-player-addons-for-elementor'),
-                'default'   =>  '#00b3ff',
-            ]
-        );
-
-		$this->add_control(
-            'plrr_range_bggg',
-            [
-                'type' => Controls_Manager::COLOR,
-                'label' =>esc_html__('Range Thumb Background', 'media-player-addons-for-elementor'),
-                'default'   =>  '#ffff',
-            ]
-        );
-
-        $this->add_control(
-			'tooltip_teext',
-			[
-				'type' => Controls_Manager::COLOR,
-				'label' =>esc_html__('Tooltip Text Color', 'media-player-addons-for-elementor'),
-				'default'   =>  '#000',
-			]
-		);
-
-        $this->add_control(
-			'tooltip_bgg',
-			[
-				'type' => Controls_Manager::COLOR,
-				'label' =>esc_html__('Tooltip Background Color', 'media-player-addons-for-elementor'),
-				'default'   =>  '#ffff',
-			]
-		);
-
-       $this->add_control(
-			'v_r_t_b_p',
-			[
-				'type' => Controls_Manager::COLOR,
-				'label' =>esc_html__('Video Range Track Background', 'media-player-addons-for-elementor'),
-				'default'   =>  '#7A7979',
-			]
-		);
-
-		$this->add_control( 
-			'v_c_c_h_h',
-			[
-				'type' => Controls_Manager::COLOR,
-				'label' =>esc_html__('Video Control Color Hover', 'media-player-addons-for-elementor'),
-				'default'   =>  '#ffff',
-			]
-		);
-
-
-		$this->add_control( 
-			'p_c_t_c',
-			[
-				'type' => Controls_Manager::COLOR,
-				'label' =>esc_html__('Captions Text Color', 'media-player-addons-for-elementor'),
-				'default'   =>  '#fff',
-			]
-		);
-
-		$this->add_control( 
-			'v_c_c_all',
-			[
-				'type' => Controls_Manager::COLOR,
-				'label' =>esc_html__('Player All Icon Color', 'media-player-addons-for-elementor'),
-				'default'   =>  '#ffff',
-			]
-		);
   
     
     $this->end_controls_section();
@@ -233,17 +160,6 @@ class b_youtube_vedio extends Widget_Base {
 				'default' => 'no',
 			]
 		);
-         $this->add_control(
-			'rewindd',
-			[
-				'label' => __( 'Rewind', 'media-player-addons-for-elementor' ),
-				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-				'label_off' => __( 'no', 'media-player-addons-for-elementor' ),
-				'return_value' => 'yes',
-				'default' => 'no',
-			]
-		);
 
         $this->add_control(
 			'playy',
@@ -256,28 +172,7 @@ class b_youtube_vedio extends Widget_Base {
 				'default' => 'yes',
 			]
 		);
-		$this->add_control(
-			'autoplay_enabled',
-			[
-				'label' => __( 'Autoplay', 'media-player-addons-for-elementor' ),
-				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-				'label_off' => __( 'no', 'media-player-addons-for-elementor' ),
-				'return_value' => 'yes',
-				'default' => 'no',
-			]
-		);
-        $this->add_control(
-			'fast-forwardd',
-			[
-				'label' => __( 'Fast-Forward', 'media-player-addons-for-elementor' ),
-				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-				'label_off' => __( 'no', 'media-player-addons-for-elementor' ),
-				'return_value' => 'yes',
-				'default' => 'no',
-			]
-		);
+
 
         $this->add_control(
 			'progresss',
@@ -291,180 +186,19 @@ class b_youtube_vedio extends Widget_Base {
 			]
 		);
 
-      	$this->add_control(
-			'current-timee',
-			[
-				'label' => __( 'Current-Time', 'media-player-addons-for-elementor' ),
-				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-				'label_off' => __( 'no', 'media-player-addons-for-elementor' ),
-				'return_value' => 'yes',
-				'default' => 'no',
-			]
-		);
-        $this->add_control(
-			'durationn',
-			[
-				'label' => __( 'Duration', 'media-player-addons-for-elementor' ),
-				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-				'label_off' => __( 'no', 'media-player-addons-for-elementor' ),
-				'return_value' => 'yes',
-				'default' => 'no',
-			]
-		);
-        $this->add_control(
-			'mutee',
-			[
-				'label' => __( 'Mute', 'media-player-addons-for-elementor' ),
-				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-				'label_off' => __( 'no', 'media-player-addons-for-elementor' ),
-				'return_value' => 'yes',
-				'default' => 'yes',
-			]
-		);
-
-        $this->add_control(
-			'volumee',
-			[
-				'label' => __( 'Volume', 'media-player-addons-for-elementor' ),
-				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-				'label_off' => __( 'no', 'media-player-addons-for-elementor' ),
-				'return_value' => 'yes',
-				'default' => 'yes',
-			]
-		);
-         
-
-
-		$this->add_control(
-			'settingss',
-			[
-				'label' => __( 'Settings', 'media-player-addons-for-elementor' ),
-				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-				'label_off' => __( 'no', 'media-player-addons-for-elementor' ),
-				'return_value' => 'yes',
-				'default' => 'no',
-			]
-		);
-
-      	$this->add_control(
-			'fullscreenn',
-			[
-				'label' => __( 'Fullscreen', 'media-player-addons-for-elementor' ),
-				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-				'label_off' => __( 'no', 'media-player-addons-for-elementor' ),
-				'return_value' => 'yes',
-				'default' => 'no',
-			]
-		);
-
 		$this->end_controls_section();
 		//Others settings
 
     	$this->start_controls_section(
-        'se_ttabb', [
-            'label' =>esc_html__( 'Video player Other Settings', 'media-player-addons-for-elementor' ),
-        ]
-    );
+			'se_ttabb', [
+				'label' =>esc_html__( 'Video player Other Settings', 'media-player-addons-for-elementor' ),
+			]
+		);
 
-    	$this->add_control(
-			'p_c_i_s_azim',
-			[
-				'label' 		=> esc_html__( 'Player Control Icon Size', 'media-player-addons-for-elementor' ),
-				'type' 			=> Controls_Manager::SLIDER,
-				'size_units' 	=>['px'],
-				'range' 		=> 
-				[
-					'px' => [
-						'min' 	=> 0,
-						'max' 	=> 20,
-						'step' 	=> 1,
-					],
-				
-				],
-				'default' => [
-					'unit' => 'px',
-					'size' => 18,
-				],
-			]
-		);
-        $this->add_control(
-			'p_r_t_h_az',
-			[
-				'label' 		=> esc_html__( 'Player Range Thumb Size', 'media-player-addons-for-elementor' ),
-				'type' 			=> Controls_Manager::SLIDER,
-				'size_units' 	=>['px'],
-				'range' 		=> 
-				[
-					'px' => [
-						'min' 	=> 0,
-						'max' 	=> 15,
-						'step' 	=> 1,
-					],
-				
-				],
-				'default' => [
-					'unit' => 'px',
-					'size' => 15,
-				],
-			]
-		);
-    
         $this->end_controls_section();
 
 	}
-	public function is_premium() 
-    {
-        return function_exists('mpafe_fs') && mpafe_fs()->can_use_premium_code();
-    }
 
-    public function add_control($name, $args = [], $options = [])
-    {
-        // Check if this is a premium control and user doesn't have premium access
-        if (!$this->is_premium() && in_array($name, $this->premium_controls())) {
-            // Append _locked to control name
-            $name = $name . '_locked';
-
-            // Add Pro label and locked class
-            $args['label'] = $args['label'] . " <span class='fs_pro_control_label'>Pro</span>";
-            $args['classes'] = isset($args['classes']) ? $args['classes'] . ' fs-locked' : 'fs-locked';
-        }
-
-        parent::add_control($name, $args, $options);
-    }
-
-    public function premium_controls()
-    {
-        return [
-           'p_c_i_s_azim',
-           'p_r_t_h_az',
-           'rewind',
-		   'p_r_t_h_az',
-		   'rewindd',
-		   'fast-forwardd',
-		   'current-timee',
-		   'mutee',
-		   'durationn',
-		   'fullscreenn',
-		   'settingss',
-		   'alll_bg',
-		   'plrr_range_bggg',
-		   'tooltip_teext',
-		   'tooltip_bgg',
-		   'v_r_t_b_p',
-		   'v_c_c_h_h',
-		   'v_c_c_all',
-		   'p_c_i_s_azim',
-		   'p_r_t_h_az',
-		   'p_c_t_c',
-		   'autoplay_enabled',
-        ];
-    }
 	/**
 	 * Render the widget output on the frontend.
 	 *

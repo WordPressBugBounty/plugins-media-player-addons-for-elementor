@@ -1,5 +1,5 @@
 <?php
-namespace BMianAddon\Widgets;
+namespace MPAFE\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class b_html5_audio extends Widget_Base {
+class mpafe_html5_audio extends Widget_Base {
 
 	/**
 	 * Retrieve the widget name.
@@ -74,7 +74,7 @@ class b_html5_audio extends Widget_Base {
 
 	
 	public function get_script_depends() {
-		return [ 'plyr-js', 'hls', 'html5-audio-player', 'elementor-frontend' ];
+		return [ 'mpafe-plyr-js', 'mpafe-hls', 'mpafe-html5-audio-player', 'elementor-frontend' ];
 	}
 
 	/**
@@ -146,100 +146,6 @@ class b_html5_audio extends Widget_Base {
 				'tab' => Controls_Manager::TAB_STYLE,
             ]
         );
-		 
-
-		$this->add_control(
-		        'a_plyr_bg',
-		        [
-		            'type' => Controls_Manager::COLOR,
-		            'label' =>esc_html__('Player Background', 'media-player-addons-for-elementor'),
-		            'default'   =>  '#ffff',
-		        ]
-		    );
-
-		   $this->add_control(
-		        'a_plyr_c_c',
-		        [
-		            'type' => Controls_Manager::COLOR,
-		            'label' =>esc_html__('Audio Control Color', 'media-player-addons-for-elementor'),
-		            'default'   =>  '#4a5764',
-		        ]
-		    );
-
-          $this->add_control(
-            'a_all_color',
-            array(
-                'label' => esc_html__( 'Progressbar Range Color', 'media-player-addons-for-elementor' ),
-                'type'  => Controls_Manager::COLOR,
-                'default'   =>  '#00b3ff',
-         
-            )
-        );
-
-          $this->add_control(
-            'a_r_t_a_s_c',
-            array(
-                'label' => esc_html__('Range Thumb Active Shadow color', 'media-player-addons-for-elementor' ),
-                'type'  => Controls_Manager::COLOR,
-                'default'   =>  '#00b3ff',
-         
-            )
-        );
-
-     $this->add_control(
-            'plr_rang_bg',
-            array(
-                'label' => esc_html__('Range Track Background', 'media-player-addons-for-elementor' ),
-                'type'  => Controls_Manager::COLOR,
-                'default'   =>  '#CBD1D8',
-         
-            )
-        );
-
-
-         $this->add_control(
-        'audio_rang_a',
-        [
-            'type' => Controls_Manager::COLOR,
-            'label' =>esc_html__('Audio Range Track Background', 'media-player-addons-for-elementor'),
-            'default'   =>  '#ffff',
-        ]
-    );
-
-         $this->add_control(
-        'plyr_tooltip_bg',
-        [
-            'type' => Controls_Manager::COLOR,
-            'label' =>esc_html__('Tooltip Background', 'media-player-addons-for-elementor'),
-            'default'   =>  '#ffff',
-        ]
-    );
-         $this->add_control(
-        'plyr_tooltip_c',
-        [
-            'type' => Controls_Manager::COLOR,
-            'label' =>esc_html__('Tooltip Color', 'media-player-addons-for-elementor'),
-            'default'   =>  '#000',
-        ]
-    );
-
-         $this->add_control(
-        'a_c_b_h',
-        [
-            'type' => Controls_Manager::COLOR,
-            'label' =>esc_html__('Audio Control Background Hover', 'media-player-addons-for-elementor'),
-            'default'   =>  '#1ABAFF',
-        ]
-    );
-
-           $this->add_control(
-        'a_c_l_c_h',
-        [
-            'type' => Controls_Manager::COLOR,
-            'label' =>esc_html__('Control Color Hover', 'media-player-addons-for-elementor'),
-            'default'   =>  '#ffff',
-        ]
-    );
 
         $this->end_controls_section();
         
@@ -298,96 +204,9 @@ class b_html5_audio extends Widget_Base {
 		]
 	);
 
-          $this->add_control(
-			'a_volume',
-			[
-				'label' => __( 'Volume', 'media-player-addons-for-elementor' ),
-				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-				'label_off' => __( 'no', 'media-player-addons-for-elementor' ),
-				'return_value' => 'yes',
-				'default' => 'yes',
-			]
-		);
-
-		$this->add_control(
-			'a_settings',
-			[
-				'label' => __( 'Settings', 'media-player-addons-for-elementor' ),
-				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-				'label_off' => __( 'no', 'media-player-addons-for-elementor' ),
-				'return_value' => 'yes',
-				'default' => 'yes',
-			]
-		);   
-
-		$this->add_control(
-			'a_download',
-			[
-				'label' => __( 'Download', 'media-player-addons-for-elementor' ),
-				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-				'label_off' => __( 'no', 'media-player-addons-for-elementor' ),
-				'return_value' => 'yes',
-				'default' => 'yes',
-			]
-		);
-
-		$this->add_control(
-			'a_mute',
-			[
-				'label' => __( 'Mute', 'media-player-addons-for-elementor' ),
-				'type' => Controls_Manager::SWITCHER,
-				'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-				'label_off' => __( 'no', 'media-player-addons-for-elementor' ),
-				'return_value' => 'yes',
-				'default' => 'yes',
-			]
-		);
 
      $this->end_controls_section();
 	}
-
-	public function is_premium() 
-    {
-        return function_exists('mpafe_fs') && mpafe_fs()->can_use_premium_code();
-    }
-
-    public function add_control($name, $args = [], $options = [])
-    {
-        // Check if this is a premium control and user doesn't have premium access
-        if (!$this->is_premium() && in_array($name, $this->premium_controls())) {
-            // Append _locked to control name
-            $name = $name . '_locked';
-
-            // Add Pro label and locked class
-            $args['label'] = $args['label'] . " <span class='fs_pro_control_label'>Pro</span>";
-            $args['classes'] = isset($args['classes']) ? $args['classes'] . ' fs-locked' : 'fs-locked';
-        }
-
-        parent::add_control($name, $args, $options);
-    }
-
-    public function premium_controls()
-    {
-        return [
-           'a_plyr_c_c',
-           'a_plyr_bg',
-           'audio_rang_a',
-           'a_all_color',
-		   'a_r_t_a_s_c',
-		   'plr_rang_bg',
-		   'plyr_tooltip_bg',
-		   'plyr_tooltip_c',
-		   'a_c_b_h',
-		   'a_c_l_c_h',
-           'a_time',
-           'a_settings',
-           'a_download',
-           'a_mute',
-        ];
-    }
 
 	/**
 	 * Render the widget output on the frontend.

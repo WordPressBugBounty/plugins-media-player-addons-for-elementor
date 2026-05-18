@@ -1,6 +1,6 @@
 <?php
 
-namespace BMianAddon\Widgets;
+namespace MPAFE\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -14,7 +14,7 @@ if (! defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class Bplayer_Video extends Widget_Base
+class mpafe_Bplayer_Video extends Widget_Base
 {
 
 	/**
@@ -202,7 +202,7 @@ class Bplayer_Video extends Widget_Base
 		$this->add_responsive_control(
 			'player_width',
 			[
-				'label'      => __( 'Width', 'your-plugin-textdomain' ),
+				'label'      => __( 'Width', 'media-player-addons-for-elementor' ),
 				'type'       => \Elementor\Controls_Manager::SLIDER,
 				'size_units' => [ '%', 'px', 'vw' ],
 				'range'      => [
@@ -222,7 +222,7 @@ class Bplayer_Video extends Widget_Base
 		$this->add_responsive_control(
 			'player_height',
 			[
-				'label'      => __( 'Height', 'your-plugin-textdomain' ),
+				'label'      => __( 'Height', 'media-player-addons-for-elementor' ),
 				'type'       => \Elementor\Controls_Manager::SLIDER,
 				'size_units' => [ '%', 'px', 'vw' ],
 				'range'      => [
@@ -241,34 +241,6 @@ class Bplayer_Video extends Widget_Base
 		);
 	}
 
-	public function is_premium() 
-    {
-        return function_exists('mpafe_fs') && mpafe_fs()->can_use_premium_code();
-    }
-
-    public function add_control($name, $args = [], $options = [])
-    {
-        // Check if this is a premium control and user doesn't have premium access
-        if (!$this->is_premium() && in_array($name, $this->premium_controls())) {
-            // Append _locked to control name
-            $name = $name . '_locked';
-
-            // Add Pro label and locked class
-            $args['label'] = $args['label'] . " <span class='fs_pro_control_label'>Pro</span>";
-            $args['classes'] = isset($args['classes']) ? $args['classes'] . ' fs-locked' : 'fs-locked';
-        }
-
-        parent::add_control($name, $args, $options);
-    }
-
-    public function premium_controls()
-    {
-        return [
-           'player_height',
-           'player_width',
-           'dark_mode',
-        ];
-    }
 
 	/**
 	 * Render the widget output on the frontend.
@@ -298,11 +270,11 @@ class Bplayer_Video extends Widget_Base
 			$bplayer_opt['dark_mode'] = false;
 		}
 
-		$bplayer_opt['track_title'] 		= sanitize_xss_input($settings['track_title']);
+		$bplayer_opt['track_title'] 		= mpafe_sanitize_xss_input($settings['track_title']);
 		$bplayer_opt['track_source'] 		= $settings['track_source'];
 		$bplayer_opt['track_poster'] 		= $settings['track_poster'];
-		$bplayer_opt['track_artist_name'] 	= sanitize_xss_input($settings['track_artist_name']);
-		$bplayer_opt['track_album'] 		= sanitize_xss_input($settings['track_album']);
+		$bplayer_opt['track_artist_name'] 	= mpafe_sanitize_xss_input($settings['track_artist_name']);
+		$bplayer_opt['track_album'] 		= mpafe_sanitize_xss_input($settings['track_album']);
 
 ?>
 

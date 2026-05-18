@@ -1,11 +1,12 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) exit;
 
-if (!function_exists('html_escapee')) {
+if (!function_exists('mpafe_html_escapee')) {
 
-    function html_escapee($value)
+    function mpafe_html_escapee($value)
     {
         if (is_array($value)) {
-            return array_map('html_escapee', $value);
+            return array_map('mpafe_html_escapee', $value);
         }
 
         if ($value instanceof Stringable) {
@@ -28,7 +29,7 @@ if (!function_exists('html_escapee')) {
     }
 }
 
-if (!function_exists('sanitize_xss_input')) {
+if (!function_exists('mpafe_sanitize_xss_input')) {
     /**
      * Sanitizes input to prevent XSS attacks by removing potentially malicious content
      * such as script tags, event handlers, and other dangerous HTML attributes.
@@ -36,14 +37,14 @@ if (!function_exists('sanitize_xss_input')) {
      * @param string $input The input string to sanitize
      * @return string The sanitized input
      */
-    function sanitize_xss_input($input)
+    function mpafe_sanitize_xss_input($input)
     {
         if (!is_string($input)) {
             return '';
         }
 
         // Remove all HTML tags and encode special characters
-        $sanitized = htmlspecialchars(strip_tags($input), ENT_QUOTES | ENT_HTML5, 'UTF-8', false);
+        $sanitized = htmlspecialchars(wp_strip_all_tags($input), ENT_QUOTES | ENT_HTML5, 'UTF-8', false);
 
         // Remove potentially dangerous attributes and event handlers
         $dangerous_patterns = [

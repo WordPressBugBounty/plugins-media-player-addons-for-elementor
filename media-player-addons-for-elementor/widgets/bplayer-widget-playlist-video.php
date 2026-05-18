@@ -1,5 +1,5 @@
 <?php
-namespace BMianAddon\Widgets;
+namespace MPAFE\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class Bplayer_Video_Playlist extends Widget_Base {
+class mpafe_Bplayer_Video_Playlist extends Widget_Base {
 
 	/**
 	 * Retrieve the widget name.
@@ -84,7 +84,7 @@ class Bplayer_Video_Playlist extends Widget_Base {
 	 * @return array Widget scripts dependencies.
 	 */
 	public function get_script_depends() {
-		return [ 'bplayer-script', 'bplayer-playlist', 'elementor-frontend' ];
+		return [ 'mpafe-bplayer-script', 'mpafe-bplayer-playlist', 'elementor-frontend' ];
 	}
 
 	/**
@@ -186,97 +186,11 @@ class Bplayer_Video_Playlist extends Widget_Base {
 			]
 		);
 
-		$this->add_control(
-			'dark_mode',
-			[
-				'label' 		=> esc_html__( 'Mode', 'media-player-addons-for-elementor' ),
-				'type' 			=> Controls_Manager::SWITCHER,
-				'label_on' 		=> esc_attr__( 'Dark', 'media-player-addons-for-elementor' ),
-				'label_off' 	=> esc_attr__( 'Light', 'media-player-addons-for-elementor' ),
-				'return_value' 	=> 'yes',
-				'default' 		=> 'yes',
-				'show_label'	=> true,
-				'dynamic'		=> [
-					'active'	=> true
-				],
-				'description'	=> esc_html__( 'Choose Player Mode', 'media-player-addons-for-elementor' ),
-			]
-		);
-
-		$this->add_responsive_control(
-			'player_width',
-			[
-				'label'      => __( 'Width', 'your-plugin-textdomain' ),
-				'type'       => \Elementor\Controls_Manager::SLIDER,
-				'size_units' => [ '%', 'px', 'vw' ],
-				'range'      => [
-					'%'  => [ 'min' => 10, 'max' => 100 ],
-					'px' => [ 'min' => 100, 'max' => 2000 ],
-					'vw' => [ 'min' => 10, 'max' => 100 ],
-				],
-				'default'    => [
-					'size' => 100,
-					'unit' => '%',
-				],
-				'selectors'  => [
-					'{{WRAPPER}} c-player' => 'width: {{SIZE}}{{UNIT}};',
-				],
-			]
-		);
-		$this->add_responsive_control(
-			'player_height',
-			[
-				'label'      => __( 'Height', 'your-plugin-textdomain' ),
-				'type'       => \Elementor\Controls_Manager::SLIDER,
-				'size_units' => [ '%', 'px', 'vw' ],
-				'range'      => [
-					'%'  => [ 'min' => 10, 'max' => 100 ],
-					'px' => [ 'min' => 100, 'max' => 2000 ],
-					'vw' => [ 'min' => 10, 'max' => 100 ],
-				],
-				'default'    => [
-					'size' => 350,
-					'unit' => 'px',
-				],
-				'selectors'  => [
-					'{{WRAPPER}} .cp-poster' => 'height: {{SIZE}}{{UNIT}};',
-				],
-			]
-		);
-
-
 		$this->end_controls_section();
 
 	}
 
-	public function is_premium() 
-    {
-        return function_exists('mpafe_fs') && mpafe_fs()->can_use_premium_code();
-    }
 
-    public function add_control($name, $args = [], $options = [])
-    {
-        // Check if this is a premium control and user doesn't have premium access
-        if (!$this->is_premium() && in_array($name, $this->premium_controls())) {
-            // Append _locked to control name
-            $name = $name . '_locked';
-
-            // Add Pro label and locked class
-            $args['label'] = $args['label'] . " <span class='fs_pro_control_label'>Pro</span>";
-            $args['classes'] = isset($args['classes']) ? $args['classes'] . ' fs-locked' : 'fs-locked';
-        }
-
-        parent::add_control($name, $args, $options);
-    }
-
-    public function premium_controls()
-    {
-        return [
-           'player_height',
-           'player_width',
-           'dark_mode',
-        ];
-    }
 
 	/**
 	 * Render the widget output on the frontend.
@@ -305,7 +219,7 @@ class Bplayer_Video_Playlist extends Widget_Base {
 		if (!empty($settings['media_source']) && is_array($settings['media_source'])) {
 			foreach ($settings['media_source'] as $key => $item) {
 				if (isset($item['track_title'])) {
-					$settings['media_source'][$key]['track_title'] = sanitize_xss_input($item['track_title']);
+					$settings['media_source'][$key]['track_title'] = mpafe_sanitize_xss_input($item['track_title']);
 				}
 				if (isset($item['track_source'])) {
 					$settings['media_source'][$key]['track_source'] = $item['track_source'];
@@ -314,10 +228,10 @@ class Bplayer_Video_Playlist extends Widget_Base {
 					$settings['media_source'][$key]['track_poster'] = $item['track_poster'];
 				}
 				if (isset($item['track_artist_name'])) {
-					$settings['media_source'][$key]['track_artist_name'] = sanitize_xss_input($item['track_artist_name']);
+					$settings['media_source'][$key]['track_artist_name'] = mpafe_sanitize_xss_input($item['track_artist_name']);
 				}
 				if (isset($item['track_album'])) {
-					$settings['media_source'][$key]['track_album'] = sanitize_xss_input($item['track_album']);
+					$settings['media_source'][$key]['track_album'] = mpafe_sanitize_xss_input($item['track_album']);
 				}
 			}
 		}

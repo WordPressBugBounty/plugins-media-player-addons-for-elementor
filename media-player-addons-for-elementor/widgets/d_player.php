@@ -1,5 +1,5 @@
 <?php
-namespace BMianAddon\Widgets;
+namespace MPAFE\Widgets;
 use Elementor\Modules\DynamicTags\Module as TagsModule;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class d_player extends Widget_Base {
+class mpafe_d_player extends Widget_Base {
 
 	/**
 	 * Retrieve the widget name.
@@ -73,7 +73,7 @@ class d_player extends Widget_Base {
 	}
 
     public function get_script_depends() {
-        return [ 'dplayermin-js', 'd-player-main-js', 'elementor-frontend'];
+        return [ 'mpafe-dplayermin-js', 'mpafe-d-player-main-js', 'elementor-frontend'];
     }
 	/**
 	 * Register the widget controls.
@@ -279,161 +279,11 @@ class d_player extends Widget_Base {
                    
                 ]
          );
-       $this->add_control(
-            'custom_logo_d',
-            [
-                'label' => esc_html__( 'Add player Logo', 'media-player-addons-for-elementor' ),
-                'type' =>Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'media-player-addons-for-elementor' ),
-                'label_off' => esc_html__( 'No', 'media-player-addons-for-elementor' ),
-                'return_value' => 'true',
-                'default' => '',
-                'separator' => 'before',
-            ]
-        );
 
-        $this->add_control(
-            'd_logo',
-            [
-                'label' => esc_html__( 'Player Logo For Video', 'media-player-addons-for-elementor' ),
-                'type' =>Controls_Manager::MEDIA,
-                'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
-                ],
-                'condition' => [
-                    'custom_logo_d'    =>  'true',
-                ]
-            ]
-        );
-
-           $this->add_control(
-            'custom_banner_d',
-            [
-                'label' => esc_html__( 'Add Player Banner', 'media-player-addons-for-elementor' ),
-                'type' =>Controls_Manager::SWITCHER,
-                'label_on' => esc_html__( 'Yes', 'media-player-addons-for-elementor' ),
-                'label_off' => esc_html__( 'No', 'media-player-addons-for-elementor' ),
-                'return_value' => 'true',
-                'default' => '',
-                'separator' => 'before',
-            ]
-        );
-
-        $this->add_control(
-            'banner',
-            [
-                'label' => esc_html__( 'Add Banner For Video', 'media-player-addons-for-elementor' ),
-                'type' =>Controls_Manager::MEDIA,
-                'default' => [
-                    'url' => \Elementor\Utils::get_placeholder_image_src(),
-                ],
-                'condition' => [
-                    'custom_banner_d'    =>  'true',
-                ]
-            ]
-        );
-
-        $this->add_control(
-            'auto_play',
-            [
-            'label' => __( 'Auto Play', 'media-player-addons-for-elementor' ),
-            'type' => \Elementor\Controls_Manager::SWITCHER,
-            'description' => __( 'Choose a option whatever you want - Show / Hide
-', 'media-player-addons-for-elementor' ),
-                'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-                'label_off' => __( 'no', 'media-player-addons-for-elementor' ),
-                'return_value' => 'yes',
-                'default' => 'no',
-            ]
-        );
-
-        $this->add_control(
-            'video_loop',
-            [
-            'label' => __( 'Video Loop', 'media-player-addons-for-elementor' ),
-            'type' => \Elementor\Controls_Manager::SWITCHER,
-            'description' => __( 'Choose a option whatever you want - Show / Hide
-', 'media-player-addons-for-elementor' ),
-                'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-                'label_off' => __( 'no', 'media-player-addons-for-elementor' ),
-                'return_value' => 'yes',
-                'default' => 'no',
-            ]
-        );
-
-          $this->add_control(
-            'player_theme',
-            [
-            'label' => __( 'Player Theme Color', 'media-player-addons-for-elementor' ),
-            'type' => \Elementor\Controls_Manager::COLOR,
-            'default'   =>  '#e74c3c',
-            'description' => __( 'Choose The player Color
-', 'media-player-addons-for-elementor' ),
-                'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-                'label_off' => __( 'no', 'media-player-addons-for-elementor' ),
-                'return_value' => 'yes',
-                'default' => 'no',
-            ]
-        );
-
-  $this->add_control(
-            'p_font',
-            [
-                'label'         => esc_html__( 'Player Font Size', 'media-player-addons-for-elementor' ),
-                'type'          => Controls_Manager::SLIDER,
-                'size_units'    =>['px'],
-                'range'         => 
-                [
-                    'px' => [
-                        'min'   => 0,
-                        'max'   => 30,
-                        'step'  => 1,
-                    ],
-                
-                ],
-                'default' => [
-                    'unit' => 'px',
-                    'size' => 25,
-                ],
-            ]
-        );
         
      $this->end_controls_section();
 
 	}
-
-    public function is_premium() 
-    {
-        return function_exists('mpafe_fs') && mpafe_fs()->can_use_premium_code();
-    }
-
-    public function add_control($name, $args = [], $options = [])
-    {
-        // Check if this is a premium control and user doesn't have premium access
-        if (!$this->is_premium() && in_array($name, $this->premium_controls())) {
-            // Append _locked to control name
-            $name = $name . '_locked';
-
-            // Add Pro label and locked class
-            $args['label'] = $args['label'] . " <span class='fs_pro_control_label'>Pro</span>";
-            $args['classes'] = isset($args['classes']) ? $args['classes'] . ' fs-locked' : 'fs-locked';
-        }
-
-        parent::add_control($name, $args, $options);
-    }
-
-    public function premium_controls()
-    {
-        return [
-           'custom_logo_d',
-           'custom_banner_d',
-           'banner',
-           'auto_play',
-           'video_loop',
-           'player_theme',
-           'p_font',
-        ];
-    }
 
 	/**
 	 * Render the widget output on the frontend.

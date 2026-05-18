@@ -1,5 +1,5 @@
 <?php
-namespace BMianAddon\Widgets;
+namespace MPAFE\Widgets;
 use Elementor\Modules\DynamicTags\Module as TagsModule;
 
 
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class b_art_addon extends Widget_Base {
+class mpafe_art_addon extends Widget_Base {
 
 	/**
 	 * Retrieve the widget name.
@@ -75,7 +75,7 @@ class b_art_addon extends Widget_Base {
 	}
 
     public function get_script_depends() {
-        return [ 'artplayer-js', 'art-main-js', 'elementor-frontend' ];
+        return [ 'mpafe-artplayer-js', 'mpafe-art-main-js', 'elementor-frontend' ];
     }
 	protected function register_controls() {
 
@@ -353,15 +353,6 @@ class b_art_addon extends Widget_Base {
             ]
         );
 
-     $this->add_control(
-        'vd_color',
-        [
-            'label' => __( 'Player Color', 'media-player-addons-for-elementor' ),
-            'type' => Controls_Manager::COLOR,
-            'default' => 'red',
-        ]
-    );
-
     $this->end_controls_section();
 
 
@@ -372,125 +363,10 @@ class b_art_addon extends Widget_Base {
          
             ]
         );
-        $this->add_control(
-		'vd_pip',
-		[
-			'label' => __( 'Pip', 'media-player-addons-for-elementor' ),
-			'type' => Controls_Manager::SWITCHER,
-			'label_on' => __( 'on', 'media-player-addons-for-elementor' ),
-			'label_off' => __( 'off', 'media-player-addons-for-elementor' ),
-			'return_value' => 'yes',
-			'default' => 'yes',
-		]
-	);
 
-         $this->add_control(
-		'vd_muted',
-		[
-			'label' => __( 'Muted', 'media-player-addons-for-elementor' ),
-			'type' => Controls_Manager::SWITCHER,
-			'label_on' => __( 'on', 'media-player-addons-for-elementor' ),
-			'label_off' => __( 'off', 'media-player-addons-for-elementor' ),
-			'return_value' => 'yes',
-			'default' => '',
-		]
-	);
-
-          $this->add_control(
-		'vd_settings',
-		[
-			'label' => __( 'Settings', 'media-player-addons-for-elementor' ),
-			'type' => Controls_Manager::SWITCHER,
-			'label_on' => __( 'on', 'media-player-addons-for-elementor' ),
-			'label_off' => __( 'off', 'media-player-addons-for-elementor' ),
-			'return_value' => 'yes',
-			'default' => 'yes',
-		]
-	);
-
-        $this->add_control(
-		'vd_camera',
-		[
-			'label' => __( 'Screenshot', 'media-player-addons-for-elementor' ),
-			'type' => Controls_Manager::SWITCHER,
-			'label_on' => __( 'on', 'media-player-addons-for-elementor' ),
-			'label_off' => __( 'off', 'media-player-addons-for-elementor' ),
-			'return_value' => 'yes',
-			'default' => 'yes',
-		]
-	);
-
-         $this->add_control(
-		'vd_full_screen',
-		[
-			'label' => __( 'Fullscreen', 'media-player-addons-for-elementor' ),
-			'type' => Controls_Manager::SWITCHER,
-			'label_on' => __( 'on', 'media-player-addons-for-elementor' ),
-			'label_off' => __( 'off', 'media-player-addons-for-elementor' ),
-			'return_value' => 'yes',
-			'default' => 'yes',
-		]
-	);
-
-       $this->add_control(
-		'vd_full_web',
-		[
-			'label' => __( 'Fullscreen Web', 'media-player-addons-for-elementor' ),
-			'type' => Controls_Manager::SWITCHER,
-			'label_on' => __( 'on', 'media-player-addons-for-elementor' ),
-			'label_off' => __( 'off', 'media-player-addons-for-elementor' ),
-			'return_value' => 'yes',
-			'default' => 'yes',
-		]
-	);
-
-        $this->add_control(
-		'vd_auto_p',
-		[
-			'label' => __( 'Auto Play', 'media-player-addons-for-elementor' ),
-			'type' => Controls_Manager::SWITCHER,
-			'label_on' => __( 'on', 'media-player-addons-for-elementor' ),
-			'label_off' => __( 'off', 'media-player-addons-for-elementor' ),
-			'return_value' => 'yes',
-			'default' => '',
-		]
-	);
       $this->end_controls_section();
 	}
 
-    public function is_premium() 
-    {
-        return function_exists('mpafe_fs') && mpafe_fs()->can_use_premium_code();
-    }
-
-    public function add_control($name, $args = [], $options = [])
-    {
-        // Check if this is a premium control and user doesn't have premium access
-        if (!$this->is_premium() && in_array($name, $this->premium_controls())) {
-            // Append _locked to control name
-            $name = $name . '_locked';
-
-            // Add Pro label and locked class
-            $args['label'] = $args['label'] . " <span class='fs_pro_control_label'>Pro</span>";
-            $args['classes'] = isset($args['classes']) ? $args['classes'] . ' fs-locked' : 'fs-locked';
-        }
-
-        parent::add_control($name, $args, $options);
-    }
-
-    public function premium_controls()
-    {
-        return [
-           'vd_auto_p',
-           'vd_full_web',
-           'vd_full_screen',
-		   'vd_camera',
-		   'vd_settings',
-		   'vd_muted',
-		   'vd_pip',
-		   'vd_color',
-        ];
-    }
 	/**
 	 * Render the widget output on the frontend.
 	 *
@@ -565,7 +441,7 @@ class b_art_addon extends Widget_Base {
 
 
 	?>
-    <div class="artplayer-app" id='aaa<?php echo uniqid();?>' data-controls ='<?php echo wp_json_encode($controls);?>'data-settings='<?php echo wp_json_encode($settings) ?>'>
+    <div class="artplayer-app" id='aaa<?php echo esc_attr(uniqid());?>' data-controls ='<?php echo wp_json_encode($controls);?>'data-settings='<?php echo wp_json_encode($settings) ?>'>
      </div>
 	<?php
 	}

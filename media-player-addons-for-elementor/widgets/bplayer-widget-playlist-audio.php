@@ -1,6 +1,6 @@
 <?php
 
-namespace BMianAddon\Widgets;
+namespace MPAFE\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -14,7 +14,7 @@ if (! defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class Bplayer_Playlist extends Widget_Base
+class mpafe_Bplayer_Playlist extends Widget_Base
 {
 
 	/**
@@ -91,7 +91,7 @@ class Bplayer_Playlist extends Widget_Base
 	 */
 	public function get_script_depends()
 	{
-		return ['bplayer-script', 'bplayer-audio-playlist', 'elementor-frontend'];
+		return ['mpafe-bplayer-script', 'mpafe-bplayer-audio-playlist', 'elementor-frontend'];
 	}
 
 	/**
@@ -230,7 +230,7 @@ class Bplayer_Playlist extends Widget_Base
 		$this->add_responsive_control(
 			'player_width',
 			[
-				'label'      => __( 'Width', 'your-plugin-textdomain' ),
+				'label'      => __( 'Width', 'media-player-addons-for-elementor' ),
 				'type'       => \Elementor\Controls_Manager::SLIDER,
 				'size_units' => [ '%', 'px', 'vw' ],
 				'range'      => [
@@ -284,7 +284,7 @@ class Bplayer_Playlist extends Widget_Base
 		if (!empty($settings['media_source']) && is_array($settings['media_source'])) {
 			foreach ($settings['media_source'] as $key => $item) {
 				if (isset($item['track_title'])) {
-					$settings['media_source'][$key]['track_title'] = sanitize_xss_input($item['track_title']);
+					$settings['media_source'][$key]['track_title'] = mpafe_sanitize_xss_input($item['track_title']);
 				}
 				if (isset($item['track_source'])) {
 					$settings['media_source'][$key]['track_source'] = $item['track_source'];
@@ -293,10 +293,10 @@ class Bplayer_Playlist extends Widget_Base
 					$settings['media_source'][$key]['track_poster'] = $item['track_poster'];
 				}
 				if (isset($item['track_artist_name'])) {
-					$settings['media_source'][$key]['track_artist_name'] = sanitize_xss_input($item['track_artist_name']);
+					$settings['media_source'][$key]['track_artist_name'] = mpafe_sanitize_xss_input($item['track_artist_name']);
 				}
 				if (isset($item['track_album'])) {
-					$settings['media_source'][$key]['track_album'] = sanitize_xss_input($item['track_album']);
+					$settings['media_source'][$key]['track_album'] = mpafe_sanitize_xss_input($item['track_album']);
 				}
 			}
 		}

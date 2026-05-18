@@ -1003,7 +1003,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "../bpl-tools/Admin/Changelog/style.scss");
+/* harmony import */ var _Components_Button_Button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Components/Button/Button */ "../bpl-tools/Components/Button/Button.js");
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.scss */ "../bpl-tools/Admin/Changelog/style.scss");
+
 
 
 
@@ -1017,11 +1019,14 @@ __webpack_require__.r(__webpack_exports__);
  */
 const Changelog = props => {
   const {
-    changelogs
+    slug,
+    changelogs,
+    limit = 5,
+    loadMoreLabel
   } = props;
   return changelogs?.length && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "bPlDashboardChangelog bPlDashboardCard"
-  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, "Release Notes(Changelog)..."), changelogs?.slice(0, 5)?.map((changelog, index) => {
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h3", null, "Release Notes(Changelog)..."), changelogs?.slice(0, limit)?.map((changelog, index) => {
     const {
       type,
       version,
@@ -1037,7 +1042,12 @@ const Changelog = props => {
     }, item))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", {
       className: "time"
     }, version));
-  }));
+  }), loadMoreLabel && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("br", null), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Components_Button_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    className: "mt20",
+    target: "_blank",
+    rel: "noopener noreferrer",
+    href: `https://wordpress.org/plugins/${slug}/#developers`
+  }, loadMoreLabel)));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Changelog);
 
@@ -2420,6 +2430,18 @@ const Overview = props => {
     description: 'Our Expert Support Team is always ready to help you out promptly.',
     link: 'https://bplugins.com/support',
     linkText: 'Contact Support'
+  }, {
+    titleIcon: (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 292 512",
+      fill: "#1877F2"
+    }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+      d: "m66 299.3v212.7h116v-212.7h86.5l18-97.8h-104.5v-34.6c0-51.7 20.3-71.5 72.7-71.5 16.3 0 29.4 0.4 37 1.2v-88.7c-14.3-3.9-49.3-7.9-69.5-7.9-106.9 0-156.2 50.5-156.2 159.4v42.1h-66v97.8z"
+    })),
+    title: 'Join Our Community',
+    description: 'Get tutorials, plugin updates, feature announcements, and support from other WordPress users.',
+    link: 'https://facebook.com/groups/1828495198556137',
+    linkText: 'Join Now →'
   }];
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "bPlDashboardOverview"
@@ -2466,6 +2488,7 @@ const Overview = props => {
   }, helpInfo?.map((item, index) => {
     const {
       image,
+      titleIcon,
       title,
       description,
       link,
@@ -2477,7 +2500,7 @@ const Overview = props => {
     }, image && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("figure", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
       src: image,
       alt: "Support Thumb"
-    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h4", null, title), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, description), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Components_Button_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("h4", null, title, " ", titleIcon), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, description), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_Components_Button_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
       href: link,
       target: "_blank",
       rel: "noopener noreferrer"
@@ -3547,9 +3570,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   circleCheckIcon: () => (/* binding */ circleCheckIcon),
 /* harmony export */   closeIcon: () => (/* binding */ closeIcon),
 /* harmony export */   copyIcon: () => (/* binding */ copyIcon),
+/* harmony export */   crownIcon: () => (/* binding */ crownIcon),
 /* harmony export */   demoIcon: () => (/* binding */ demoIcon),
 /* harmony export */   desktopIcon: () => (/* binding */ desktopIcon),
 /* harmony export */   docsIcon: () => (/* binding */ docsIcon),
+/* harmony export */   externalIcon: () => (/* binding */ externalIcon),
 /* harmony export */   gearIcon: () => (/* binding */ gearIcon),
 /* harmony export */   gripIcon: () => (/* binding */ gripIcon),
 /* harmony export */   headsetIcon: () => (/* binding */ headsetIcon),
@@ -3788,6 +3813,18 @@ const linkIcon = (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
   viewBox: "0 0 640 640"
 }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
   d: "M451.5 160C434.9 160 418.8 164.5 404.7 172.7C388.9 156.7 370.5 143.3 350.2 133.2C378.4 109.2 414.3 96 451.5 96C537.9 96 608 166 608 252.5C608 294 591.5 333.8 562.2 363.1L491.1 434.2C461.8 463.5 422 480 380.5 480C294.1 480 224 410 224 323.5C224 322 224 320.5 224.1 319C224.6 301.3 239.3 287.4 257 287.9C274.7 288.4 288.6 303.1 288.1 320.8C288.1 321.7 288.1 322.6 288.1 323.4C288.1 374.5 329.5 415.9 380.6 415.9C405.1 415.9 428.6 406.2 446 388.8L517.1 317.7C534.4 300.4 544.2 276.8 544.2 252.3C544.2 201.2 502.8 159.8 451.7 159.8zM307.2 237.3C305.3 236.5 303.4 235.4 301.7 234.2C289.1 227.7 274.7 224 259.6 224C235.1 224 211.6 233.7 194.2 251.1L123.1 322.2C105.8 339.5 96 363.1 96 387.6C96 438.7 137.4 480.1 188.5 480.1C205 480.1 221.1 475.7 235.2 467.5C251 483.5 269.4 496.9 289.8 507C261.6 530.9 225.8 544.2 188.5 544.2C102.1 544.2 32 474.2 32 387.7C32 346.2 48.5 306.4 77.8 277.1L148.9 206C178.2 176.7 218 160.2 259.5 160.2C346.1 160.2 416 230.8 416 317.1C416 318.4 416 319.7 416 321C415.6 338.7 400.9 352.6 383.2 352.2C365.5 351.8 351.6 337.1 352 319.4C352 318.6 352 317.9 352 317.1C352 283.4 334 253.8 307.2 237.5z"
+}));
+const crownIcon = (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 544 432"
+}, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "m297 71.2c9.2-7.3 15-18.6 15-31.2 0-22.1-17.9-40-40-40-22.1 0-40 17.9-40 40 0 12.6 5.9 23.9 15 31.2l-68.4 107.6c-10 15.7-31.3 19.6-46.2 8.4l-59.5-44.5c4.5-6.4 7.1-14.3 7.1-22.7 0-22.1-17.9-40-40-40-22.1 0-40 17.9-40 40 0 21.8 17.5 39.6 39.2 40l32.6 217.5c4.7 31.3 31.6 54.5 63.3 54.5h273.8c31.7 0 58.6-23.2 63.3-54.5l32.6-217.5c21.7-0.4 39.2-18.2 39.2-40 0-22.1-17.9-40-40-40-22.1 0-40 17.9-40 40 0 8.4 2.6 16.3 7.1 22.7l-59.4 44.6c-14.9 11.2-36.2 7.3-46.2-8.4z"
+}));
+const externalIcon = (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 512 512"
+}, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("path", {
+  d: "m290.4 19.8c5-12 16.7-19.8 29.6-19.8h160c17.7 0 32 14.3 32 32v160c0 12.9-7.8 24.6-19.8 29.6-12 5-25.7 2.2-34.9-6.9l-57.3-57.4-153.4 153.3c-12.5 12.5-32.8 12.5-45.3 0-12.5-12.5-12.5-32.8 0-45.3l153.4-153.3-57.3-57.4c-9.2-9.2-11.9-22.9-6.9-34.9zm-290.4 156.2c0-44.2 35.8-80 80-80h80c17.7 0 32 14.3 32 32 0 17.7-14.3 32-32 32h-80c-8.8 0-16 7.2-16 16v256c0 8.8 7.2 16 16 16h256c8.8 0 16-7.2 16-16v-80c0-17.7 14.3-32 32-32 17.7 0 32 14.3 32 32v80c0 44.2-35.8 80-80 80h-256c-44.2 0-80-35.8-80-80z"
 }));
 
 /***/ }),
@@ -14368,94 +14405,94 @@ const siteURL = 'https://elementor.bplugins.com';
 const demoLink = `${siteURL}/demo`;
 const docsURL = `https://bplugins.com/docs/media-player-addons-for-elementor/widget-guides/`;
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ([{
-  name: `bmp_youtube_video_player`,
+  name: `mpafe_youtube_video_player`,
   title: 'YouTube Video Player',
   icon: _blocksIcon__WEBPACK_IMPORTED_MODULE_0__.youTubeIcon,
   demo: `${demoLink}/youtube-video-player/`,
   docs: `${docsURL}`
 }, {
-  name: `bmp_vimeo_video_player`,
+  name: `mpafe_vimeo_video_player`,
   title: 'Vimeo Video Player',
   icon: _blocksIcon__WEBPACK_IMPORTED_MODULE_0__.VimeoIcon,
   demo: `${demoLink}/vimeo-video-player/`,
   docs: `${docsURL}`
 }, {
-  name: `bmp_html5_audio_player`,
+  name: `mpafe_html5_audio_player`,
   title: 'HTML5 Audio Player',
   icon: _blocksIcon__WEBPACK_IMPORTED_MODULE_0__.html5AudioIcon,
   demo: `${demoLink}/html5-audio-player/`,
   docs: `${docsURL}`
 }, {
-  name: `bmp_html5_video_player`,
+  name: `mpafe_html5_video_player`,
   title: 'HTML5 Video Player',
   icon: _blocksIcon__WEBPACK_IMPORTED_MODULE_0__.html5videoIcon,
   demo: `${demoLink}/html5-video-player/`,
   docs: `${docsURL}`
 }, {
-  name: `bmp_art_video_player`,
+  name: `mpafe_art_video_player`,
   title: 'Art Player',
   icon: _blocksIcon__WEBPACK_IMPORTED_MODULE_0__.artPlayerIcon,
   demo: `${demoLink}/art-player-video-player/`,
   docs: `${docsURL}`
 }, {
-  name: `bmp_advance_audio_player`,
+  name: `mpafe_advance_audio_player`,
   title: 'Advance Audio Player',
   icon: _blocksIcon__WEBPACK_IMPORTED_MODULE_0__.advanceAudioPlayerIcon,
   demo: `${demoLink}/advance-audio-player/`,
   docs: `${docsURL}`
 }, {
-  name: `bmp_advance_video_player`,
+  name: `mpafe_advance_video_player`,
   title: 'Advance Video Player',
   icon: _blocksIcon__WEBPACK_IMPORTED_MODULE_0__.advanceVideoPlayerIcon,
   demo: `${demoLink}/advance-video-player/`,
   docs: `${docsURL}`
 }, {
-  name: `bmp_dplayer_video_player`,
+  name: `mpafe_dplayer_video_player`,
   title: 'dPlayer',
   icon: _blocksIcon__WEBPACK_IMPORTED_MODULE_0__.dPlayerIcon,
   demo: `${demoLink}/dplayer-video-player/`,
   docs: `${docsURL}`
 }, {
-  name: `bmp_audio_player_playlist`,
+  name: `mpafe_audio_player_playlist`,
   title: 'Audio Player Playlist',
   icon: _blocksIcon__WEBPACK_IMPORTED_MODULE_0__.audioPlaylistIcon,
   demo: `${demoLink}/audio-player-playlist/`,
   docs: `${docsURL}`
 }, {
-  name: `bmp_video_player_playlist`,
+  name: `mpafe_video_player_playlist`,
   title: 'Video Player Playlist',
   icon: _blocksIcon__WEBPACK_IMPORTED_MODULE_0__.videoPlaylistIcon,
   demo: `${demoLink}/advance-video-player-playlist/`,
   docs: `${docsURL}`
 }, {
-  name: `bmp_advance_audio_player_playlist`,
+  name: `mpafe_advance_audio_player_playlist`,
   title: 'Advance Audio Playlist',
   icon: _blocksIcon__WEBPACK_IMPORTED_MODULE_0__.advanceAudioPlaylistIcon,
   demo: `${demoLink}/advance-audio-playlist/`,
   docs: `${docsURL}`
 }, {
-  name: `bmp_classic_audio_player_playlist`,
+  name: `mpafe_classic_audio_player_playlist`,
   title: 'Classic Audio Playlist',
   icon: _blocksIcon__WEBPACK_IMPORTED_MODULE_0__.classicAudioPlaylistIcon,
   demo: `${demoLink}/classic-audio-playlist-light/`,
   docs: `${docsURL}`,
   isPremium: true
 }, {
-  name: `bmp_classic_video_player_playlist`,
+  name: `mpafe_classic_video_player_playlist`,
   title: 'Classic Video Playlist',
   icon: _blocksIcon__WEBPACK_IMPORTED_MODULE_0__.classicVideoPlaylistIcon,
   demo: `${demoLink}/classic-video-player-playlist/`,
   docs: `${docsURL}`,
   isPremium: true
 }, {
-  name: `bmp_card_audio_playlist`,
+  name: `mpafe_card_audio_playlist`,
   title: 'Card Audio Playlist',
   icon: _blocksIcon__WEBPACK_IMPORTED_MODULE_0__.cardAudioPlaylistIcon,
   demo: `${demoLink}/card-audio-playlist/`,
   docs: `${docsURL}`,
   isPremium: true
 }, {
-  name: `bmp_modern_audio_playlist`,
+  name: `mpafe_modern_audio_playlist`,
   title: 'Modern Audio Playlist',
   icon: _blocksIcon__WEBPACK_IMPORTED_MODULE_0__.modernAudioPlaylistIcon,
   demo: `${demoLink}/modern-audio-playlist/`,
@@ -14768,6 +14805,10 @@ const dashboardInfo = info => {
     },
     proFeatures: ['Full markup, style, and behavior control.', 'Toggle fullscreen, PiP, and settings.', 'Custom player colors to match your brand.', 'Build and embed playlists with Elementor.', 'Support for HLS and DASH streaming.', 'Add captions and subtitles to your videos.', 'Picture-in-Picture (PiP) support.', 'Classic Audio Playlist – Traditional playlist layout for audio files with familiar browser-style controls.', 'Classic Video Playlist – Traditional playlist layout for video files with familiar browser-style controls.', 'Regular updates with new features and improvements.'],
     changelogs: [{
+      version: '1.1.6  - 18 May, 2026',
+      type: 'update',
+      list: ['Release: New Version v1.1.6', 'Update: Fix External Services Section', 'Update: Remove all unused code', 'Fix: Fix all naming conflict']
+    }, {
       version: '1.1.5  - 15 Apr, 2026',
       type: 'new',
       list: ['Release: New Widget Modern Audio Player Playlist']

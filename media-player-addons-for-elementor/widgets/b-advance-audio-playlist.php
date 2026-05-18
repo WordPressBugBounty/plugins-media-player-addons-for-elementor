@@ -1,6 +1,6 @@
 <?php
 
-namespace BMianAddon\Widgets;
+namespace MPAFE\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -14,7 +14,7 @@ if (! defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class Advance_Audio_Playlist extends Widget_Base
+class mpafe_Advance_Audio_Playlist extends Widget_Base
 {
 
 	/**
@@ -91,7 +91,7 @@ class Advance_Audio_Playlist extends Widget_Base
 	 */
 	public function get_script_depends()
 	{
-		return ['audio-playlist-player', 'elementor-frontend', 'swiper-js'];
+		return ['mpafe-audio-playlist-player', 'elementor-frontend', 'mpafe-swiper-js'];
 	}
 
 	/**
@@ -244,59 +244,7 @@ class Advance_Audio_Playlist extends Widget_Base
 				'separator' 	=> 'after',
 			]
 		);
-
-        $this->add_responsive_control(
-			'container_width',
-			[
-				'label'      => __( 'Container Width', 'media-player-addons-for-elementor' ),
-				'type'       => \Elementor\Controls_Manager::SLIDER,
-				'size_units' => [ '%', 'px', 'vw' ],
-				'range'      => [
-					'%'  => [ 'min' => 10, 'max' => 100 ],
-					'px' => [ 'min' => 100, 'max' => 2000 ],
-					'vw' => [ 'min' => 10, 'max' => 100 ],
-				],
-				'default'    => [
-					'size' => 90,
-					'unit' => '%',
-				],
-				'selectors'  => [
-					'{{WRAPPER}} .playlist-wrapper .playlist-container' => 'width: {{SIZE}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'player_width',
-			[
-				'label'      => __( 'Player Width', 'media-player-addons-for-elementor' ),
-				'type'       => \Elementor\Controls_Manager::SLIDER,
-				'size_units' => [ '%', 'px', 'vw' ],
-				'range'      => [
-					'%'  => [ 'min' => 10, 'max' => 100 ],
-					'px' => [ 'min' => 100, 'max' => 2000 ],
-					'vw' => [ 'min' => 10, 'max' => 100 ],
-				],
-				'default'    => [
-					'size' => 100,
-					'unit' => '%',
-				],
-				'selectors'  => [
-					'{{WRAPPER}} .playlist-wrapper .content' => 'width: {{SIZE}}{{UNIT}};',
-				],
-			]
-		);
-        $this->add_control(
-            'show_play_timer',
-            [
-                'label' => __('Show Play Timer', 'media-player-addons-for-elementor'),
-                'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => __( 'on', 'media-player-addons-for-elementor' ),
-                'label_off' => __( 'off', 'media-player-addons-for-elementor' ),
-                'return_value' => 'yes',
-                'default' => 'yes',
-            ]
-        );
+       
 		$this->end_controls_section();
         $this->start_controls_section(
             'style_control_tab',
@@ -305,160 +253,9 @@ class Advance_Audio_Playlist extends Widget_Base
 				'tab' 		=> \Elementor\Controls_Manager::TAB_STYLE,
 			]
         );
-        $this->add_control(
-            'container_bg_img',
-            [
-                'label' => __('Container Backgroud Image', 'media-player-addons-for-elementor'),
-                'type' => \Elementor\Controls_Manager::MEDIA,
-                'default' => [
-                    'url' => 'http://demo.bplugins.com/wp-content/uploads/2025/10/banner.png',
-                ]
-            ]
-        );
-        $this->add_control(
-            'container_bg_color',
-            [
-                'label' => __('Container Backgroud Color', 'media-player-addons-for-elementor'),
-                'type' => \Elementor\Controls_Manager::COLOR,
-                'default' => '#001124',
-            ]
-        );
-        $this->add_group__control(
-            \Elementor\Group_Control_Box_Shadow::get_type(),
-            [
-                'name' => 'container_box_shadow',
-                'label'=> __('Container Box Shadow','media-player-addons-for-elementor'),
-                'selector' => '{{WRAPPER}} .playlist-wrapper .playlist-container',
-            ]
-        );
-        $this->add_group__control(
-            \Elementor\Group_Control_Border::get_type(),
-            [
-                'name' => 'content_border',
-                'selector' => '{{WRAPPER}} .playlist-wrapper .content',
-            ]
-        );
-
-        $this->add_responsive_control(
-            'content_border_radius',
-            [
-                'label' => __('Border Radius', 'media-player-addons-for-elementor'),
-                'type' => \Elementor\Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .playlist-wrapper .content' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'content_padding',
-            [
-                'label' => __('Padding', 'media-player-addons-for-elementor'),
-                'type' => \Elementor\Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', 'em', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .playlist-wrapper .content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_responsive_control(
-            'content_margin',
-            [
-                'label' => __('Margin', 'media-player-addons-for-elementor'),
-                'type' => \Elementor\Controls_Manager::DIMENSIONS,
-                'size_units' => ['px', 'em', '%'],
-                'selectors' => [
-                    '{{WRAPPER}} .playlist-wrapper .content' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-                ],
-            ]
-        );
-
-        $this->add_control(
-            'content_background_color',
-            [
-                'label' => __('Background Color', 'media-player-addons-for-elementor'),
-                'type' => \Elementor\Controls_Manager::COLOR,
-                'selectors' => [
-                    '{{WRAPPER}} .playlist-wrapper .content' => 'background-color: {{VALUE}};',
-                ],
-            ]
-        );
-
-        $this->add_group__control(
-            \Elementor\Group_Control_Box_Shadow::get_type(),
-            [
-                'name' => 'content_box_shadow',
-                'selector' => '{{WRAPPER}} .playlist-wrapper .content',
-            ]
-        );
         $this->end_controls_section();
 	}
 
-
-    public function is_premium() 
-    {
-        return function_exists('mpafe_fs') && mpafe_fs()->can_use_premium_code();
-    }
-
-    public function add_control($name, $args = [], $options = [])
-    {
-        // Check if this is a premium control and user doesn't have premium access
-        if (!$this->is_premium() && in_array($name, $this->premium_controls())) {
-            // Append _locked to control name
-            $name = $name . '_locked';
-
-            // Add Pro label and locked class
-            $args['label'] = $args['label'] . " <span class='fs_pro_control_label'>Pro</span>";
-            $args['classes'] = isset($args['classes']) ? $args['classes'] . ' fs-locked' : 'fs-locked';
-        }
-
-        parent::add_control($name, $args, $options);
-    }
-
-    public function add_group__control($group_name, $args = [], $options = [])
-    {
-        // Check if this is a premium control and user doesn't have premium access
-        if (!$this->is_premium() && in_array($args['name'], $this->premium_controls())) {
-            // Append _locked to control name
-            $args['name'] = $args['name'] . '_locked';
-
-            // Ensure 'label' exists before modifying
-            $label = isset($args['label']) ? $args['label'] : ucfirst(str_replace('_', ' ', $args['name']));
-            $args['label'] = $label . " <span class='fs_pro_control_label'>Pro</span>";
-
-            // Add locked class
-            $args['classes'] = isset($args['classes']) ? $args['classes'] . ' fs-locked' : 'fs-locked';
-
-            // Change control type to RAW_HTML and set display icon
-            $args['type'] = Controls_Manager::RAW_HTML;
-            $args['raw']  = '<i class="eicon-edit" aria-hidden="true" style="font-family: eicons, Bangla1046, sans-serif;"></i>';
-
-            parent::add_control($args['name'], $args, $options);
-        } else {
-            parent::add_group_control($group_name, $args, $options);
-        }
-    }
-
-
-    public function premium_controls()
-    {
-        return [
-           'content_background_color',
-           'container_width',
-           'player_width',
-           'show_play_timer',
-           'container_bg_color',
-           'container_bg_img',
-           'content_margin',
-           'content_padding',
-           'content_border_radius',
-           'container_box_shadow',
-           'content_border',
-           'content_box_shadow',
-        ];
-    }
 	/**
 	 * Render the widget output on the frontend.
 	 *

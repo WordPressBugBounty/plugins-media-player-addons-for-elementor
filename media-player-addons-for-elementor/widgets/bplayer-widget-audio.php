@@ -1,6 +1,6 @@
 <?php
 
-namespace BMianAddon\Widgets;
+namespace MPAFE\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -14,7 +14,7 @@ if (! defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class Bplayer extends Widget_Base
+class mpafe_Bplayer extends Widget_Base
 {
 
 	/**
@@ -91,7 +91,7 @@ class Bplayer extends Widget_Base
 	 */
 	public function get_script_depends()
 	{
-		return ['bplayer-script', 'bplayer-main', 'elementor-frontend'];
+		return ['mpafe-bplayer-script', 'mpafe-bplayer-main', 'elementor-frontend'];
 	}
 
 	/**
@@ -220,7 +220,7 @@ class Bplayer extends Widget_Base
 		$this->add_responsive_control(
 			'player_width',
 			[
-				'label'      => __( 'Width', 'your-plugin-textdomain' ),
+				'label'      => __( 'Width', 'media-player-addons-for-elementor' ),
 				'type'       => \Elementor\Controls_Manager::SLIDER,
 				'size_units' => [ '%', 'px', 'vw' ],
 				'range'      => [
@@ -267,11 +267,11 @@ class Bplayer extends Widget_Base
 			$bplayer_opt['dark_mode'] = false;
 		}
 
-		$bplayer_opt['track_title'] 		= sanitize_xss_input($settings['track_title']);
+		$bplayer_opt['track_title'] 		= mpafe_sanitize_xss_input($settings['track_title']);
 		$bplayer_opt['track_source'] 		= $settings['track_source'];
 		$bplayer_opt['track_poster'] 		= $settings['track_poster'];
-		$bplayer_opt['track_artist_name'] 	= sanitize_xss_input($settings['track_artist_name']);
-		$bplayer_opt['track_album'] 		= sanitize_xss_input($settings['track_album']);
+		$bplayer_opt['track_artist_name'] 	= mpafe_sanitize_xss_input($settings['track_artist_name']);
+		$bplayer_opt['track_album'] 		= mpafe_sanitize_xss_input($settings['track_album']);
 
 ?>
 	<div class="bplayer-widget-wrapper">

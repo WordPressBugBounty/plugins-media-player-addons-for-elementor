@@ -1,5 +1,5 @@
 <?php
-namespace BMianAddon\Widgets;
+namespace MPAFE\Widgets;
 
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class b_vemio_vedio extends Widget_Base {
+class mpafe_vemio_vedio extends Widget_Base {
 
 	/**
 	 * Retrieve the widget name.
@@ -73,7 +73,7 @@ class b_vemio_vedio extends Widget_Base {
 	}
 
     public function get_script_depends() {
-		return [ 'plyr-js', 'main-js', 'elementor-frontend'];
+		return [ 'mpafe-plyr-js', 'mpafe-main-js', 'elementor-frontend'];
 	}
 
 	/**
@@ -126,74 +126,6 @@ class b_vemio_vedio extends Widget_Base {
             ]
         );
 
-
-      $this->add_control(
-            'alll_bg_v',
-            [
-                'type' => Controls_Manager::COLOR,
-                'label' =>esc_html__('Total Background Color', 'media-player-addons-for-elementor'),
-                'default'   =>  '#00b3ff',
-            ]
-        );
-
-           $this->add_control(
-            'plrr_range_bggg_v',
-            [
-                'type' => Controls_Manager::COLOR,
-                'label' =>esc_html__('Range Thumb Background', 'media-player-addons-for-elementor'),
-                'default'   =>  '#ffff',
-            ]
-        );
-
-        $this->add_control(
-        'tooltip_teext_v',
-        [
-            'type' => Controls_Manager::COLOR,
-            'label' =>esc_html__('Tooltip Text Color', 'media-player-addons-for-elementor'),
-            'default'   =>  '#000',
-        ]
-    );
-
-        $this->add_control(
-        'tooltip_bgg_v',
-        [
-            'type' => Controls_Manager::COLOR,
-            'label' =>esc_html__('Tooltip Background Color', 'media-player-addons-for-elementor'),
-            'default'   =>  '#ffff',
-        ]
-    );
-
-       $this->add_control(
-        'v_r_t_b_p_v',
-        [
-            'type' => Controls_Manager::COLOR,
-            'label' =>esc_html__('Video Range Track Background', 'media-player-addons-for-elementor'),
-            'default'   =>  '#7A7979',
-        ]
-    );
-
-    $this->add_control( 
-    'v_c_c_h_h_v',
-    [
-        'type' => Controls_Manager::COLOR,
-        'label' =>esc_html__('Video Control Color Hover', 'media-player-addons-for-elementor'),
-        'default'   =>  '#ffff',
-    ]
-    );
-
-
-
-
-  $this->add_control( 
-    'v_c_c_all_v',
-    [
-        'type' => Controls_Manager::COLOR,
-        'label' =>esc_html__('Player All Icon color', 'media-player-addons-for-elementor'),
-        'default'   =>  '#ffff',
-    ]
-    );
-
-
     $this->end_controls_section();
 
         //swicher
@@ -216,29 +148,6 @@ class b_vemio_vedio extends Widget_Base {
 		]
 	);
 
-       $this->add_control(
-		'resv',
-		[
-			'label' => __( 'Restart', 'media-player-addons-for-elementor' ),
-			'type' => Controls_Manager::SWITCHER,
-			'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-			'label_off' => __( 'no', 'media-player-addons-for-elementor' ),
-			'return_value' => 'yes',
-			'default' => 'no'
-		]
-	);
-         $this->add_control(
-		'rewv',
-		[
-			'label' => __( 'Rewind', 'media-player-addons-for-elementor' ),
-			'type' => Controls_Manager::SWITCHER,
-			'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-			'label_off' => __( 'no', 'media-player-addons-for-elementor' ),
-			'return_value' => 'yes',
-			'default' => 'no'
-		]
-	);
-
         $this->add_control(
 		'plav',
 		[
@@ -248,28 +157,6 @@ class b_vemio_vedio extends Widget_Base {
 			'label_off' => __( 'no', 'media-player-addons-for-elementor' ),
 			'return_value' => 'yes',
 			'default' => 'yes'
-		]
-	);
-	$this->add_control(
-		'autoplay_enabled',
-		[
-			'label' => __( 'Autoplay', 'media-player-addons-for-elementor' ),
-			'type' => Controls_Manager::SWITCHER,
-			'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-			'label_off' => __( 'no', 'media-player-addons-for-elementor' ),
-			'return_value' => 'yes',
-			'default' => 'no'
-		]
-	);
-        $this->add_control(
-		'fast-forwarddv',
-		[
-			'label' => __( 'Fast-Forward', 'media-player-addons-for-elementor' ),
-			'type' => Controls_Manager::SWITCHER,
-			'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-			'label_off' => __( 'no', 'media-player-addons-for-elementor' ),
-			'return_value' => 'yes',
-			'default' => 'no'
 		]
 	);
 
@@ -285,78 +172,6 @@ class b_vemio_vedio extends Widget_Base {
 		]
 	);
 
-      $this->add_control(
-		'current-timeev',
-		[
-			'label' => __( 'Current-Time', 'media-player-addons-for-elementor' ),
-			'type' => Controls_Manager::SWITCHER,
-			'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-			'label_off' => __( 'no', 'media-player-addons-for-elementor' ),
-			'return_value' => 'yes',
-			'default' => 'no'
-		]
-	);
-       $this->add_control(
-		'durationnv',
-		[
-			'label' => __( 'Duration', 'media-player-addons-for-elementor' ),
-			'type' => Controls_Manager::SWITCHER,
-			'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-			'label_off' => __( 'no', 'media-player-addons-for-elementor' ),
-			'return_value' => 'yes',
-			'default' => 'no'
-		]
-	);
-       $this->add_control(
-		'muteev',
-		[
-			'label' => __( 'Mute', 'media-player-addons-for-elementor' ),
-			'type' => Controls_Manager::SWITCHER,
-			'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-			'label_off' => __( 'no', 'media-player-addons-for-elementor' ),
-			'return_value' => 'yes',
-			'default' => 'yes'
-		]
-	);
-
-         $this->add_control(
-		'volumeev',
-		[
-			'label' => __( 'Volume', 'media-player-addons-for-elementor' ),
-			'type' => Controls_Manager::SWITCHER,
-			'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-			'label_off' => __( 'no', 'media-player-addons-for-elementor' ),
-			'return_value' => 'yes',
-			'default' => 'yes'
-		]
-	);
-         
-
-
-         $this->add_control(
-		'settingssv',
-		[
-			'label' => __( 'Settings', 'media-player-addons-for-elementor' ),
-			'type' => Controls_Manager::SWITCHER,
-			'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-			'label_off' => __( 'no', 'media-player-addons-for-elementor' ),
-			'return_value' => 'yes',
-			'default' => 'no'
-		]
-	);
-
-      $this->add_control(
-		'fullscreennv',
-		[
-			'label' => __( 'Fullscreen', 'media-player-addons-for-elementor' ),
-			'type' => Controls_Manager::SWITCHER,
-			'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-			'label_off' => __( 'no', 'media-player-addons-for-elementor' ),
-			'return_value' => 'yes',
-			'default' => 'no'
-		]
-	);
-
 
     $this->end_controls_section();
 
@@ -367,96 +182,9 @@ class b_vemio_vedio extends Widget_Base {
 		]
     );
 
-    	$this->add_control(
-			'p_c_i_s_azim_v',
-			[
-				'label' 		=> esc_html__( 'Player Control Icon Size', 'media-player-addons-for-elementor' ),
-				'type' 			=> Controls_Manager::SLIDER,
-				'size_units' 	=>['px'],
-				'range' 		=> 
-				[
-					'px' => [
-						'min' 	=> 0,
-						'max' 	=> 20,
-						'step' 	=> 1,
-					],
-				
-				],
-				'default' => [
-					'unit' => 'px',
-					'size' => 18,
-				],
-			]
-		);
-         $this->add_control(
-			'p_r_t_h_az_v',
-			[
-				'label' 		=> esc_html__( 'Player Range Thumb Size', 'media-player-addons-for-elementor' ),
-				'type' 			=> Controls_Manager::SLIDER,
-				'size_units' 	=>['px'],
-				'range' 		=> 
-				[
-					'px' => [
-						'min' 	=> 0,
-						'max' 	=> 15,
-						'step' 	=> 1,
-					],
-				
-				],
-				'default' => [
-					'unit' => 'px',
-					'size' => 15,
-				],
-			]
-		);
-
-
-        $this->end_controls_section();
+    $this->end_controls_section();
 	}
 
-	public function is_premium() 
-    {
-        return function_exists('mpafe_fs') && mpafe_fs()->can_use_premium_code();
-    }
-
-    public function add_control($name, $args = [], $options = [])
-    {
-        // Check if this is a premium control and user doesn't have premium access
-        if (!$this->is_premium() && in_array($name, $this->premium_controls())) {
-            // Append _locked to control name
-            $name = $name . '_locked';
-
-            // Add Pro label and locked class
-            $args['label'] = $args['label'] . " <span class='fs_pro_control_label'>Pro</span>";
-            $args['classes'] = isset($args['classes']) ? $args['classes'] . ' fs-locked' : 'fs-locked';
-        }
-
-        parent::add_control($name, $args, $options);
-    }
-
-    public function premium_controls()
-    {
-        return [
-		   'alll_bg_v',
-		   'plrr_range_bggg_v',
-		   'tooltip_teext_v',
-		   'tooltip_bgg_v',
-		   'v_r_t_b_p_v',
-		   'v_c_c_h_h_v',
-		   'v_c_c_all_v',
-		   'p_c_i_s_azim_v',
-		   'p_r_t_h_az_v',
-		   'rewv',
-		   'resv',
-		   'fast-forwarddv',
-		   'current-timeev',
-		   'durationnv',
-		   'muteev',
-		   'settingssv',
-		   'fullscreennv',
-		   'autoplay_enabled',
-        ];
-    }
 
 	/**
 	 * Render the widget output on the frontend.

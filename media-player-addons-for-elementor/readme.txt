@@ -3,10 +3,10 @@ Plugin Name: Media Player Addons for Elementor
 Author URI: https://bplugins.com
 Contributors: bplugins, shehabulislam, hazrath, freemius
 Tags: Elementor addon, media player, mp3 player, video player, youtube 
-Requires at least: 5.0
-Version: 1.1.5
+Requires at least: 5.3
+Version: 1.1.6
 Tested up to: 6.9
-Stable tag: 1.1.5
+Stable tag: 1.1.6
 Requires PHP: 7.1
 Donate link: https://www.buymeacoffee.com/abuhayat
 License: GPLv2 or later 
@@ -68,6 +68,20 @@ https://www.youtube.com/watch?v=G8w1cCDg-xQ
 === Easy Integration ===
 
 Simply install the plugin, navigate to your Elementor editor, and drag any media player widget to your page. Upload your video or audio file or link to an existing video or audio, customize the settings, and publish. No coding required!
+
+== External services ==
+
+This plugin uses external third-party services to render and display documents inside embedded viewers and iframes.
+
+= WordPress.org API =
+
+This plugin connects to the WordPress.org API (https://api.wordpress.org/plugins/info/1.2/) to retrieve a list of plugins published by the same author.
+
+- **Purpose:** To display other plugins by the author inside the admin dashboard.
+
+- **Data Sent:** No personal user data is sent. Only the author query parameter is used.
+
+**Privacy Policy:** https://wordpress.org/about/privacy/
 
 == Installation ==
 
@@ -168,6 +182,12 @@ Stay connected and get the latest updates:
 9. Classic Audio Playlist
 
 == Changelog ==
+
+= 1.1.6  - 18 May, 2026 =
+* Release: New Version v1.1.6
+* Update: Fix External Services Section
+* Update: Remove all unused code
+* Fix: Fix all naming conflict
 
 = 1.1.5  - 15 Apr, 2026 =
 * Release: New Widget Modern Audio Player Playlist

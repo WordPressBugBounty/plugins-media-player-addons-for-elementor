@@ -1,6 +1,6 @@
 <?php
 
-namespace BMianAddon\Widgets;
+namespace MPAFE\Widgets;
 
 use Elementor\Modules\DynamicTags\Module as TagsModule;
 
@@ -16,7 +16,7 @@ if (! defined('ABSPATH')) exit; // Exit if accessed directly
  *
  * @since 1.0.0
  */
-class b_html5_addon extends Widget_Base
+class mpafe_html5_addon extends Widget_Base
 {
 
     /**
@@ -82,7 +82,7 @@ class b_html5_addon extends Widget_Base
 
     public function get_script_depends()
     {
-        return ['plyr-js', 'html5-player-main', 'hls', 'elementor-frontend'];
+        return ['mpafe-plyr-js', 'mpafe-html5-player-main', 'mpafe-hls', 'elementor-frontend'];
     }
     /**
      * Register the widget controls.
@@ -369,106 +369,6 @@ class b_html5_addon extends Widget_Base
             ]
         );
 
-        $this->add_control(
-            'all_bg',
-            [
-                'type' => Controls_Manager::COLOR,
-                'label' =>esc_html__('Controls Hover Background Color', 'media-player-addons-for-elementor'),
-                'default'   =>  '#00b3ff',
-            ]
-        );
-
-           $this->add_control(
-            'captions_color',
-            [
-                'type' => Controls_Manager::COLOR,
-                'label' =>esc_html__('Video Captions Background Color', 'media-player-addons-for-elementor'),
-                'default'   =>  '#1F2425',
-            ]
-        );
-
-           $this->add_control(
-            'plr_range_bg',
-            [
-                'type' => Controls_Manager::COLOR,
-                'label' =>esc_html__('Progressbar Thumb Color', 'media-player-addons-for-elementor'),
-                'default'   =>  '#ffff',
-            ]
-        );
-
-        $this->add_control(
-        'tooltip_text',
-        [
-            'type' => Controls_Manager::COLOR,
-            'label' =>esc_html__('Tooltip Text Color', 'media-player-addons-for-elementor'),
-            'default'   =>  '#000',
-        ]
-    );
-
-        $this->add_control(
-        'tooltip_bg',
-        [
-            'type' => Controls_Manager::COLOR,
-            'label' =>esc_html__('Tooltip Background Color', 'media-player-addons-for-elementor'),
-            'default'   =>  '#ffff',
-        ]
-    );
-
-       $this->add_control(
-        'v_r_t_b',
-        [
-            'type' => Controls_Manager::COLOR,
-            'label' =>esc_html__('Progressbar Color', 'media-player-addons-for-elementor'),
-            'default'   =>  '#73888A',
-        ]
-    );
-
-        $this->add_control(
-        'p_b_b',
-        [
-            'type' => Controls_Manager::COLOR,
-            'label' =>esc_html__('Badge Background', 'media-player-addons-for-elementor'),
-            'default'   =>  '#4a5464',
-        ]
-    );
-    $this->add_control( 
-    'p_b_t_c',
-    [
-        'type' => Controls_Manager::COLOR,
-        'label' =>esc_html__('Badge Text Color', 'media-player-addons-for-elementor'),
-        'default'   =>  '#fff',
-    ]
-    );
-
-
-    $this->add_control( 
-    'v_c_c_h',
-    [
-        'type' => Controls_Manager::COLOR,
-        'label' =>esc_html__('Controls Hover Color', 'media-player-addons-for-elementor'),
-        'default'   =>  '#fff',
-    ]
-    );
-
-
-  $this->add_control( 
-    'p_c_t_c',
-    [
-        'type' => Controls_Manager::COLOR,
-        'label' =>esc_html__('Captions Text Color', 'media-player-addons-for-elementor'),
-        'default'   =>  '#ffff',
-    ]
-    );
-
-  $this->add_control( 
-    'v_c_c',
-    [
-        'type' => Controls_Manager::COLOR,
-        'label' =>esc_html__('Player All Icon Color', 'media-player-addons-for-elementor'),
-        'default'   =>  '#ffff',
-    ]
-    );
-
         $this->end_controls_section();
 
         //Vedio player Control Settings
@@ -491,44 +391,10 @@ class b_html5_addon extends Widget_Base
 		]
 	);
 
-        $this->add_control(
-		'restart',
-		[
-			'label' => __( 'Restart', 'media-player-addons-for-elementor' ),
-			'type' => Controls_Manager::SWITCHER,
-			'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-			'label_off' => __( 'Hide', 'media-player-addons-for-elementor' ),
-			'return_value' => 'yes',
-			'default' => 'yes',
-		]
-	);
-         $this->add_control(
-		'rewind',
-		[
-			'label' => __( 'Rewind', 'media-player-addons-for-elementor' ),
-			'type' => Controls_Manager::SWITCHER,
-			'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-			'label_off' => __( 'Hide', 'media-player-addons-for-elementor' ),
-			'return_value' => 'yes',
-			'default' => 'yes',
-		]
-	);
-
            $this->add_control(
 		'play',
 		[
 			'label' => __( 'Play', 'media-player-addons-for-elementor' ),
-			'type' => Controls_Manager::SWITCHER,
-			'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-			'label_off' => __( 'Hide', 'media-player-addons-for-elementor' ),
-			'return_value' => 'yes',
-			'default' => 'yes',
-		]
-	);
-        $this->add_control(
-		'fast-forward',
-		[
-			'label' => __( 'Fast-Forward', 'media-player-addons-for-elementor' ),
 			'type' => Controls_Manager::SWITCHER,
 			'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
 			'label_off' => __( 'Hide', 'media-player-addons-for-elementor' ),
@@ -571,100 +437,6 @@ class b_html5_addon extends Widget_Base
 			'default' => 'yes',
 		]
 	);
-       $this->add_control(
-		'mute',
-		[
-			'label' => __( 'Mute', 'media-player-addons-for-elementor' ),
-			'type' => Controls_Manager::SWITCHER,
-			'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-			'label_off' => __( 'Hide', 'media-player-addons-for-elementor' ),
-			'return_value' => 'yes',
-			'default' => 'yes',
-		]
-	);
-
-         $this->add_control(
-		'volume',
-		[
-			'label' => __( 'Volume', 'media-player-addons-for-elementor' ),
-			'type' => Controls_Manager::SWITCHER,
-			'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-			'label_off' => __( 'Hide', 'media-player-addons-for-elementor' ),
-			'return_value' => 'yes',
-			'default' => 'yes',
-		]
-	);
-           $this->add_control(
-		'captions',
-		[
-			'label' => __( 'Captions', 'media-player-addons-for-elementor' ),
-			'type' => Controls_Manager::SWITCHER,
-			'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-			'label_off' => __( 'Hide', 'media-player-addons-for-elementor' ),
-			'return_value' => 'yes',
-			'default' => 'yes',
-		]
-	);
-
-
-         $this->add_control(
-		'settings',
-		[
-			'label' => __( 'Settings', 'media-player-addons-for-elementor' ),
-			'type' => Controls_Manager::SWITCHER,
-			'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-			'label_off' => __( 'Hide', 'media-player-addons-for-elementor' ),
-			'return_value' => 'yes',
-			'default' => 'yes',
-		]
-	);
-
-        $this->add_control(
-		'pip',
-		[
-			'label' => __( 'Pip', 'media-player-addons-for-elementor' ),
-			'type' => Controls_Manager::SWITCHER,
-			'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-			'label_off' => __( 'Hide', 'media-player-addons-for-elementor' ),
-			'return_value' => 'yes',
-			'default' => 'yes',
-		]
-	);
-
-         $this->add_control(
-		'airplay',
-		[
-			'label' => __( 'Airplay', 'media-player-addons-for-elementor' ),
-			'type' => Controls_Manager::SWITCHER,
-			'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-			'label_off' => __( 'Hide', 'media-player-addons-for-elementor' ),
-			'return_value' => 'yes',
-			'default' => 'yes',
-		]
-	);
-
-        $this->add_control(
-		'download',
-		[
-			'label' => __( 'Download', 'media-player-addons-for-elementor' ),
-			'type' => Controls_Manager::SWITCHER,
-			'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-			'label_off' => __( 'Hide', 'media-player-addons-for-elementor' ),
-			'return_value' => 'yes',
-			'default' => 'yes',
-		]
-	);
-            $this->add_control(
-		'fullscreen',
-		[
-			'label' => __( 'Fullscreen', 'media-player-addons-for-elementor' ),
-			'type' => Controls_Manager::SWITCHER,
-			'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-			'label_off' => __( 'Hide', 'media-player-addons-for-elementor' ),
-			'return_value' => 'yes',
-			'default' => 'yes',
-		]
-	);
 
         $this->end_controls_section();
         //Others settings
@@ -676,97 +448,9 @@ class b_html5_addon extends Widget_Base
             ]
         );
 
-        $this->add_control(
-			'p_c_i_s',
-			[
-				'label' 		=> esc_html__( 'Player Control Icon Size', 'media-player-addons-for-elementor' ),
-				'type' 			=> Controls_Manager::SLIDER,
-				'size_units' 	=>['px'],
-				'range' 		=> 
-				[
-					'px' => [
-						'min' 	=> 0,
-						'max' 	=> 20,
-						'step' 	=> 1,
-					],
-				
-				],
-				'default' => [
-					'unit' => 'px',
-					'size' => 18,
-				],
-			]
-		);
-         $this->add_control(
-			'p_r_t_h',
-			[
-				'label' 		=> esc_html__( 'Player Range Thumb Size', 'media-player-addons-for-elementor' ),
-				'type' 			=> Controls_Manager::SLIDER,
-				'size_units' 	=>['px'],
-				'range' 		=> 
-				[
-					'px' => [
-						'min' 	=> 0,
-						'max' 	=> 15,
-						'step' 	=> 1,
-					],
-				
-				],
-				'default' => [
-					'unit' => 'px',
-					'size' => 15,
-				],
-			]
-		);
-
         $this->end_controls_section();
     }
-    public function is_premium() 
-    {
-        return function_exists('mpafe_fs') && mpafe_fs()->can_use_premium_code();
-    }
 
-    public function add_control($name, $args = [], $options = [])
-    {
-        // Check if this is a premium control and user doesn't have premium access
-        if (!$this->is_premium() && in_array($name, $this->premium_controls())) {
-            // Append _locked to control name
-            $name = $name . '_locked';
-
-            // Add Pro label and locked class
-            $args['label'] = $args['label'] . " <span class='fs_pro_control_label'>Pro</span>";
-            $args['classes'] = isset($args['classes']) ? $args['classes'] . ' fs-locked' : 'fs-locked';
-        }
-
-        parent::add_control($name, $args, $options);
-    }
-
-    public function premium_controls()
-    {
-        return [
-           'fast-forward',
-           'volume',
-           'captions',
-           'settings',
-           'pip',
-           'airplay',
-           'download',
-           'fullscreen',
-           'all_bg',
-           'captions_color',
-           'plr_range_bg',
-           'tooltip_text',
-           'tooltip_bg',
-           'v_r_t_b',
-           'p_b_b',
-           'p_b_t_c',
-           'v_c_c_h',
-           'p_c_t_c',
-           'v_c_c',
-           'p_r_t_h',
-           'p_c_i_s',
-        ];
-    }
     /**
      * Render the widget output on the frontend.
      *

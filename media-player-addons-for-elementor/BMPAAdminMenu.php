@@ -71,12 +71,12 @@ if(!class_exists("MPAFEAdminMenu")) {
 			<div
 				id='mpafebDashboard'
 				data-info='<?php echo esc_attr( wp_json_encode( [
-					'version' => BMPA_VERSION,
+					'version' => MPAFE_VERSION,
 					'nonce' => wp_create_nonce( 'bptb_admin_nonce' ),
 					'licenseActiveNonce' => wp_create_nonce( 'bPlLicenseActivation' ),
 					'action' => 'bptbGetBlocks',
-					'isPremium' => mpafeIsPremium(),
-					'hasPro' => MPAFE_HAS_PRO,
+					'isPremium' => false,
+					'hasPro' => false,
 					'pricingUrl' => admin_url('admin.php?page=media-player-addons-for-elementor#/pricing'),
 				] ) ); ?>'
 			></div>
@@ -84,9 +84,9 @@ if(!class_exists("MPAFEAdminMenu")) {
 	
 		function mpafeAdminEnqueueScripts( $hook ) {
 			if( strpos( $hook, 'media-player-addons-for-elementor' ) ){
-				wp_enqueue_style( 'mpafe-admin-dashboard', BMPA_DIR_URL . 'build/admin/dashboard.css', [], BMPA_VERSION );
-				wp_enqueue_script( 'mpafe-admin-dashboard', BMPA_DIR_URL . 'build/admin/dashboard.js', [ 'react', 'react-dom','wp-util' ], BMPA_VERSION, true );
-				wp_set_script_translations( 'mpafe-admin-dashboard', 'media-player-addons-for-elementor', BMPA_DIR_PATH . 'languages' );
+				wp_enqueue_style( 'mpafe-admin-dashboard', MPAFE_DIR_URL . 'build/admin/dashboard.css', [], MPAFE_VERSION );
+				wp_enqueue_script( 'mpafe-admin-dashboard', MPAFE_DIR_URL . 'build/admin/dashboard.js', [ 'react', 'react-dom','wp-util' ], MPAFE_VERSION, true );
+				wp_set_script_translations( 'mpafe-admin-dashboard', 'media-player-addons-for-elementor', MPAFE_DIR_PATH . 'languages' );
 			}
 		}
 	}
