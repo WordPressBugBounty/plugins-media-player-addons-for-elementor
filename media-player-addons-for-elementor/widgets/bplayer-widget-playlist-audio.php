@@ -251,6 +251,18 @@ class mpafe_Bplayer_Playlist extends Widget_Base
 		$this->end_controls_section();
 	}
 
+	protected function get_upsale_data(): array {
+		return [
+			'condition' => ! \Elementor\Utils::has_pro(),
+			'image' => esc_url( ELEMENTOR_ASSETS_URL . 'images/go-pro.svg' ),
+			'image_alt' => esc_attr__( 'Upgrade', 'media-player-addons-for-elementor' ),
+			'title' => esc_html__( 'Media Player Addons for Elementor', 'media-player-addons-for-elementor' ),
+			'description' => esc_html__( 'This audio player has multiple premium controls like border, shadow, etc. To get all the premium controls, please upgrade to the pro version.', 'media-player-addons-for-elementor' ),
+			'upgrade_url' => esc_url( 'https://bplugins.com/products/media-player-addons-for-elementor/pricing/' ),
+			'upgrade_text' => esc_html__( 'Upgrade Now', 'media-player-addons-for-elementor' ),
+		];
+	}
+
 	/**
 	 * Render the widget output on the frontend.
 	 *

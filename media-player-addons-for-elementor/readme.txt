@@ -3,11 +3,11 @@ Plugin Name: Media Player Addons for Elementor
 Author URI: https://bplugins.com
 Contributors: bplugins, shehabulislam, hazrath, freemius
 Tags: Elementor addon, media player, mp3 player, video player, youtube 
-Requires at least: 5.3
-Version: 1.1.6
-Tested up to: 6.9
-Stable tag: 1.1.6
-Requires PHP: 7.1
+Requires at least: 5.5
+Version: 1.1.7
+Tested up to: 7.0
+Stable tag: 1.1.7
+Requires PHP: 7.4
 Donate link: https://www.buymeacoffee.com/abuhayat
 License: GPLv2 or later 
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -182,6 +182,10 @@ Stay connected and get the latest updates:
 9. Classic Audio Playlist
 
 == Changelog ==
+
+= 1.1.7 - 28 June, 2026 =
+* Update: Update Freemius SDK to 2.13.2
+* Update: Remove lock functionality from free version.
 
 = 1.1.6  - 18 May, 2026 =
 * Release: New Version v1.1.6

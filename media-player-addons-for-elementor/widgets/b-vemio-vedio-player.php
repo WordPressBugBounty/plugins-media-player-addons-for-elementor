@@ -89,7 +89,7 @@ class mpafe_vemio_vedio extends Widget_Base {
 	//Vedio player Content Settings
 		$this->start_controls_section(
             'section_b_v', [
-                'label' =>esc_html__( 'Vedio Player Content Settings', 'media-player-addons-for-elementor' ),
+                'label' =>esc_html__( 'Video Player Content Settings', 'media-player-addons-for-elementor' ),
             ]
         );
 
@@ -97,7 +97,7 @@ class mpafe_vemio_vedio extends Widget_Base {
 		$this->add_control(
             'vd_posster_v',
             [
-                'label' => esc_html__( 'Vedio Poster', 'media-player-addons-for-elementor'),
+                'label' => esc_html__( 'Video Poster', 'media-player-addons-for-elementor'),
                 'type' => Controls_Manager::MEDIA,
            
                
@@ -108,7 +108,7 @@ class mpafe_vemio_vedio extends Widget_Base {
         $this->add_control(
             'vd_link_v',
             [
-                'label' => esc_html__( 'Vedio link', 'media-player-addons-for-elementor'),
+                'label' => esc_html__( 'Video Link', 'media-player-addons-for-elementor'),
                 'label_block' => true,
                 'type' => Controls_Manager::TEXT,
                 'placeholder' => esc_html__( 'https://Vimeo Link.com', 'media-player-addons-for-elementor' ),
@@ -121,17 +121,28 @@ class mpafe_vemio_vedio extends Widget_Base {
 
     $this->start_controls_section(
             'seion_t_v', [
-                'label' =>esc_html__( 'Vedio Player Color Settings', 'media-player-addons-for-elementor' ),
+                'label' =>esc_html__( 'Video Player Color Settings', 'media-player-addons-for-elementor' ),
 				'tab'   => \Elementor\Controls_Manager::TAB_STYLE,
             ]
         );
+
+		$this->add_control(
+			'custom_panel_color_notice',
+			[
+				'type' => \Elementor\Controls_Manager::NOTICE,
+				'notice_type' => 'warning',
+				'dismissible' => false,
+				'heading' => esc_html__( 'Video Player Color Settings', 'media-player-addons-for-elementor' ),
+				'content' => esc_html__( 'This video player has multiple premium controls like border, shadow, etc. To get all the premium controls, please upgrade to the pro version.', 'media-player-addons-for-elementor' ),
+			]
+		);
 
     $this->end_controls_section();
 
         //swicher
 		 $this->start_controls_section(
             'section_abv', [
-                'label' =>esc_html__( 'Vedio Player Control Settings', 'media-player-addons-for-elementor' ),
+                'label' =>esc_html__( 'Video Player Control Settings', 'media-player-addons-for-elementor' ),
             ]
         );
 
@@ -172,19 +183,52 @@ class mpafe_vemio_vedio extends Widget_Base {
 		]
 	);
 
+	$this->add_control(
+			'custom_panel_btn_notice',
+			[
+				'type' => \Elementor\Controls_Manager::NOTICE,
+				'notice_type' => 'warning',
+				'dismissible' => false,
+				'heading' => esc_html__( 'Video Player Control Settings', 'media-player-addons-for-elementor' ),
+				'content' => esc_html__( 'This video player has multiple premium controls like border, shadow, etc. To get all the premium controls, please upgrade to the pro version.', 'media-player-addons-for-elementor' ),
+			]
+		);
+
 
     $this->end_controls_section();
 
     //Others settings
 	$this->start_controls_section(
 		'se_v_v_ttabb', [
-			'label' =>esc_html__( 'Vedio Player Other Settings', 'media-player-addons-for-elementor' ),
+			'label' =>esc_html__( 'Video Player Other Settings', 'media-player-addons-for-elementor' ),
 		]
     );
+	$this->add_control(
+			'custom_panel_btn_notice',
+			[
+				'type' => \Elementor\Controls_Manager::NOTICE,
+				'notice_type' => 'warning',
+				'dismissible' => false,
+				'heading' => esc_html__( 'Video Player Control Settings', 'media-player-addons-for-elementor' ),
+				'content' => esc_html__( 'This video player has multiple premium controls like border, shadow, etc. To get all the premium controls, please upgrade to the pro version.', 'media-player-addons-for-elementor' ),
+			]
+		);
 
     $this->end_controls_section();
 	}
 
+
+	protected function get_upsale_data(): array {
+		return [
+			'condition' => ! \Elementor\Utils::has_pro(),
+			'image' => esc_url( ELEMENTOR_ASSETS_URL . 'images/go-pro.svg' ),
+			'image_alt' => esc_attr__( 'Upgrade', 'media-player-addons-for-elementor' ),
+			'title' => esc_html__( 'Media Player Addons for Elementor', 'media-player-addons-for-elementor' ),
+			'description' => esc_html__( 'This video player has multiple premium controls like border, shadow, etc. To get all the premium controls, please upgrade to the pro version.', 'media-player-addons-for-elementor' ),
+			'upgrade_url' => esc_url( 'https://bplugins.com/products/media-player-addons-for-elementor/pricing/' ),
+			'upgrade_text' => esc_html__( 'Upgrade Now', 'media-player-addons-for-elementor' ),
+		];
+	}
 
 	/**
 	 * Render the widget output on the frontend.

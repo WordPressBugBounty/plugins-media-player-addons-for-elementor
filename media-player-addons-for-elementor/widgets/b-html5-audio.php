@@ -147,6 +147,17 @@ class mpafe_html5_audio extends Widget_Base {
             ]
         );
 
+		$this->add_control(
+			'custom_panel_notice',
+			[
+				'type' => \Elementor\Controls_Manager::NOTICE,
+				'notice_type' => 'warning',
+				'dismissible' => true,
+				'heading' => esc_html__( 'Audio Player Color Settings', 'media-player-addons-for-elementor' ),
+				'content' => esc_html__( 'This audio player has multiple premium controls like border, shadow, etc. To get all the premium controls, please upgrade to the pro version.', 'media-player-addons-for-elementor' ),
+			]
+		);
+
         $this->end_controls_section();
         
         //Vedio player Control Settings
@@ -169,43 +180,65 @@ class mpafe_html5_audio extends Widget_Base {
 	);
 
        $this->add_control(
-		'a_progress',
-		[
-			'label' => __( 'Progressbar', 'media-player-addons-for-elementor' ),
-			'type' => Controls_Manager::SWITCHER,
-			'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-			'label_off' => __( 'no', 'media-player-addons-for-elementor' ),
-			'return_value' => 'yes',
-			'default' => 'yes',
-		]
-	);
+			'a_progress',
+			[
+				'label' => __( 'Progressbar', 'media-player-addons-for-elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
+				'label_off' => __( 'no', 'media-player-addons-for-elementor' ),
+				'return_value' => 'yes',
+				'default' => 'yes',
+			]
+		);
 
         $this->add_control(
-		'a_time',
-		[
-			'label' => __( 'Current Time', 'media-player-addons-for-elementor' ),
-			'type' => Controls_Manager::SWITCHER,
-			'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-			'label_off' => __( 'no', 'media-player-addons-for-elementor' ),
-			'return_value' => 'yes',
-			'default' => 'yes',
-		]
-	);
+			'a_time',
+			[
+				'label' => __( 'Current Time', 'media-player-addons-for-elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
+				'label_off' => __( 'no', 'media-player-addons-for-elementor' ),
+				'return_value' => 'yes',
+				'default' => 'yes',
+			]
+		);
 
         $this->add_control(
-		'durationnv_ad',
-		[
-			'label' => __( 'Duration', 'media-player-addons-for-elementor' ),
-			'type' => Controls_Manager::SWITCHER,
-			'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
-			'label_off' => __( 'no', 'media-player-addons-for-elementor' ),
-			'return_value' => 'yes',
-			'default' => 'yes',
-		]
-	);
+			'durationnv_ad',
+			[
+				'label' => __( 'Duration', 'media-player-addons-for-elementor' ),
+				'type' => Controls_Manager::SWITCHER,
+				'label_on' => __( 'yes', 'media-player-addons-for-elementor' ),
+				'label_off' => __( 'no', 'media-player-addons-for-elementor' ),
+				'return_value' => 'yes',
+				'default' => 'yes',
+			]
+		);
 
+		$this->add_control(
+			'custom_panel_notice_2',
+			[
+				'type' => \Elementor\Controls_Manager::NOTICE,
+				'notice_type' => 'warning',
+				'dismissible' => false,
+				'heading' => esc_html__( 'Audio Player Control Settings', 'media-player-addons-for-elementor' ),
+				'content' => esc_html__( 'This audio player has multiple premium controls like border, shadow, etc. To get all the premium controls, please upgrade to the pro version.', 'media-player-addons-for-elementor' ),
+			]
+		);
 
      $this->end_controls_section();
+	}
+
+	protected function get_upsale_data(): array {
+		return [
+			'condition' => ! \Elementor\Utils::has_pro(),
+			'image' => esc_url( ELEMENTOR_ASSETS_URL . 'images/go-pro.svg' ),
+			'image_alt' => esc_attr__( 'Upgrade', 'document-embedder-addons-for-elementor' ),
+			'title' => esc_html__( 'Audio Playlist Player', 'media-player-addons-for-elementor' ),
+			'description' => esc_html__( 'This Audio Player has multiple premium controls like border, shadow, etc. To get all the premium controls, please upgrade to the pro version.', 'media-player-addons-for-elementor' ),
+			'upgrade_url' => esc_url( 'https://bplugins.com/products/media-player-addons-for-elementor/pricing/' ),
+			'upgrade_text' => esc_html__( 'Upgrade Now', 'media-player-addons-for-elementor' ),
+		];
 	}
 
 	/**

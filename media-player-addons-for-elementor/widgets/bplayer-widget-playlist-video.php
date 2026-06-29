@@ -186,8 +186,31 @@ class mpafe_Bplayer_Video_Playlist extends Widget_Base {
 			]
 		);
 
+		$this->add_control(
+			'custom_panel_option_notice',
+			[
+				'type' => \Elementor\Controls_Manager::NOTICE,
+				'notice_type' => 'warning',
+				'dismissible' => false,
+				'heading' => esc_html__( 'Video Player Option Settings', 'media-player-addons-for-elementor' ),
+				'content' => esc_html__( 'This video player has multiple premium controls like border, shadow, etc. To get all the premium controls, please upgrade to the pro version.', 'media-player-addons-for-elementor' ),
+			]
+		);
+
 		$this->end_controls_section();
 
+	}
+
+	protected function get_upsale_data(): array {
+		return [
+			'condition' => ! \Elementor\Utils::has_pro(),
+			'image' => esc_url( ELEMENTOR_ASSETS_URL . 'images/go-pro.svg' ),
+			'image_alt' => esc_attr__( 'Upgrade', 'media-player-addons-for-elementor' ),
+			'title' => esc_html__( 'Media Player Addons for Elementor', 'media-player-addons-for-elementor' ),
+			'description' => esc_html__( 'This video player has multiple premium controls like border, shadow, etc. To get all the premium controls, please upgrade to the pro version.', 'media-player-addons-for-elementor' ),
+			'upgrade_url' => esc_url( 'https://bplugins.com/products/media-player-addons-for-elementor/pricing/' ),
+			'upgrade_text' => esc_html__( 'Upgrade Now', 'media-player-addons-for-elementor' ),
+		];
 	}
 
 

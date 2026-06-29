@@ -75,7 +75,7 @@ class mpafe_Addon {
 		wp_register_script( 'mpafe-bplayer-script', plugins_url( '/assets/js/bplayer.min.js', __FILE__ ), [ 'jquery', 'elementor-frontend'], MPAFE_VERSION, true );
 
 		wp_register_script( 'mpafe-main-js', plugins_url( '/assets/js/main.js', __FILE__ ), ['jquery', 'elementor-frontend', 'mpafe-hls'], MPAFE_VERSION, true );
-		wp_register_script( 'mpafe-art-main-js', plugins_url( '/assets/js/art-player-main.js', __FILE__ ), ['jquery', 'elementor-frontend', 'artplayer-js'], MPAFE_VERSION, true );
+		wp_register_script( 'mpafe-art-main-js', plugins_url( '/assets/js/art-player-main.js', __FILE__ ), ['jquery', 'elementor-frontend', 'mpafe-artplayer-js'], MPAFE_VERSION, true );
 		wp_register_script( 'mpafe-d-player-main-js', plugins_url( '/assets/js/d-player-main.js', __FILE__ ), ['jquery', 'elementor-frontend', 'mpafe-dplayermin-js'], MPAFE_VERSION, true );
 		wp_register_script( 'mpafe-html5-player-main', plugins_url( '/assets/js/html5-player-main.js', __FILE__ ), ['jquery', 'elementor-frontend', 'mpafe-hls'], MPAFE_VERSION, true );
 		wp_register_script( 'mpafe-html5-audio-player', plugins_url( '/assets/js/html5-audio-player.js', __FILE__ ), ['jquery', 'elementor-frontend', 'mpafe-hls', 'mpafe-plyr-js'], MPAFE_VERSION, true );

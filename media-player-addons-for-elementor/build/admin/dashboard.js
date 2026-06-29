@@ -14805,6 +14805,10 @@ const dashboardInfo = info => {
     },
     proFeatures: ['Full markup, style, and behavior control.', 'Toggle fullscreen, PiP, and settings.', 'Custom player colors to match your brand.', 'Build and embed playlists with Elementor.', 'Support for HLS and DASH streaming.', 'Add captions and subtitles to your videos.', 'Picture-in-Picture (PiP) support.', 'Classic Audio Playlist – Traditional playlist layout for audio files with familiar browser-style controls.', 'Classic Video Playlist – Traditional playlist layout for video files with familiar browser-style controls.', 'Regular updates with new features and improvements.'],
     changelogs: [{
+      version: '1.1.7  - 28 June, 2026',
+      type: 'update',
+      list: ['Update Freemius SDK to 2.13.2', 'Remove lock functionality from free version.']
+    }, {
       version: '1.1.6  - 18 May, 2026',
       type: 'update',
       list: ['Release: New Version v1.1.6', 'Update: Fix External Services Section', 'Update: Remove all unused code', 'Fix: Fix all naming conflict']

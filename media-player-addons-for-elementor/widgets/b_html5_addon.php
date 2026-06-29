@@ -369,13 +369,24 @@ class mpafe_html5_addon extends Widget_Base
             ]
         );
 
+        $this->add_control(
+			'custom_panel_notice',
+			[
+				'type' => \Elementor\Controls_Manager::NOTICE,
+				'notice_type' => 'warning',
+				'dismissible' => true,
+				'heading' => esc_html__( 'Video Player Color Settings', 'media-player-addons-for-elementor' ),
+				'content' => esc_html__( 'This video player has multiple premium controls like border, shadow, etc. To get all the premium controls, please upgrade to the pro version.', 'media-player-addons-for-elementor' ),
+			]
+		);
+
         $this->end_controls_section();
 
         //Vedio player Control Settings
         $this->start_controls_section(
             'section_tabb',
             [
-                'label' => esc_html__('Vedio Player Control Settings', 'media-player-addons-for-elementor'),
+                'label' => esc_html__('Video Player Control Settings', 'media-player-addons-for-elementor'),
             ]
         );
 
@@ -437,6 +448,16 @@ class mpafe_html5_addon extends Widget_Base
 			'default' => 'yes',
 		]
 	);
+    $this->add_control(
+			'custom_panel_notice',
+			[
+				'type' => \Elementor\Controls_Manager::NOTICE,
+				'notice_type' => 'warning',
+				'dismissible' => true,
+				'heading' => esc_html__( 'Video Player Control Settings', 'media-player-addons-for-elementor' ),
+				'content' => esc_html__( 'This video player has multiple premium controls like border, shadow, etc. To get all the premium controls, please upgrade to the pro version.', 'media-player-addons-for-elementor' ),
+			]
+		);
 
         $this->end_controls_section();
         //Others settings
@@ -444,12 +465,35 @@ class mpafe_html5_addon extends Widget_Base
         $this->start_controls_section(
             'se_ttabb',
             [
-                'label' => esc_html__('Vedio Player Other Settings', 'media-player-addons-for-elementor'),
+                'label' => esc_html__('Video Player Other Settings', 'media-player-addons-for-elementor'),
             ]
         );
 
+        $this->add_control(
+			'custom_panel_notice',
+			[
+				'type' => \Elementor\Controls_Manager::NOTICE,
+				'notice_type' => 'warning',
+				'dismissible' => true,
+				'heading' => esc_html__( 'Video Player Control Settings', 'media-player-addons-for-elementor' ),
+				'content' => esc_html__( 'This video player has multiple premium controls like border, shadow, etc. To get all the premium controls, please upgrade to the pro version.', 'media-player-addons-for-elementor' ),
+			]
+		);
+
         $this->end_controls_section();
     }
+
+    protected function get_upsale_data(): array {
+		return [
+			'condition' => ! \Elementor\Utils::has_pro(),
+			'image' => esc_url( ELEMENTOR_ASSETS_URL . 'images/go-pro.svg' ),
+			'image_alt' => esc_attr__( 'Upgrade', 'media-player-addons-for-elementor' ),
+			'title' => esc_html__( 'Video Player Addons', 'media-player-addons-for-elementor' ),
+			'description' => esc_html__( 'This video player has multiple premium controls like border, shadow, etc. To get all the premium controls, please upgrade to the pro version.', 'media-player-addons-for-elementor' ),
+			'upgrade_url' => esc_url( 'https://bplugins.com/products/media-player-addons-for-elementor/pricing/' ),
+			'upgrade_text' => esc_html__( 'Upgrade Now', 'media-player-addons-for-elementor' ),
+		];
+	}
 
     /**
      * Render the widget output on the frontend.
