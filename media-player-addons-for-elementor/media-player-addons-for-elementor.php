@@ -4,12 +4,13 @@
  * Plugin Name: Media Player Addons for Elementor – Audio and Video Widgets for Elementor
  * Plugin URI:  https://elementoraddons.org/media-player-addons/
  * Description: Collection of media players to plaback of various media files such as .mp3, .mp4, .flv, .m3u8, .ogg, YouTube, Vimeo and moe....
- * Version:     1.1.7
+ * Version:     1.1.8
  * Author:      bPlugins LLC
  * Author URI:  https://bPlugins.com
  * License: GPLv2 or later
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: media-player-addons-for-elementor
+ * Required: elementor
 */
 
 if (! defined('ABSPATH')) exit; // Exit if accessed directly
@@ -17,7 +18,7 @@ if (! defined('ABSPATH')) exit; // Exit if accessed directly
 if ( function_exists( 'mpafe_fs' ) ) {
         mpafe_fs()->set_basename( true, __FILE__ );
 } else {
-	define('MPAFE_VERSION', isset($_SERVER['HTTP_HOST']) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.1.7');
+	define('MPAFE_VERSION', isset($_SERVER['HTTP_HOST']) && 'localhost' === $_SERVER['HTTP_HOST'] ? time() : '1.1.8');
 	define('MPAFE_DIR_URL', plugin_dir_url(__FILE__));
 	define('MPAFE_DIR_PATH', plugin_dir_path(__FILE__));
 
