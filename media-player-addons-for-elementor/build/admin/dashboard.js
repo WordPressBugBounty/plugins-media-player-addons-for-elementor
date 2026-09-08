@@ -15463,6 +15463,10 @@ const welcomeInfo = adminUrl => ({
     }]
   },
   changelogs: [{
+    version: '1.1.9 - 07 September, 2026',
+    type: 'new',
+    list: ['<strong>New:</strong> Added YouTube Video Gallery widget.', '<strong>New:</strong> Added playlist position options (Right, Left, Bottom) for Classic Video Playlist.', '<strong>New:</strong> Added fullscreen mode support for Advanced Video Playlist Player.', '<strong>Fix:</strong> Resolved video playback issue where clicking playlist items did not play in Classic Video Playlist.', '<strong>Fix:</strong> Added HLS.js streaming support for .m3u8 video sources in Classic Video Playlist.', '<strong>Update:</strong> Improved UI styling, poster thumbnails, and responsive behavior for video playlists.']
+  }, {
     version: '1.1.8  - 11 July, 2026',
     type: 'update',
     list: ['<strong>Update:</strong> Freemius SDK to 2.13.4', '<strong>Update:</strong> Admin Dashboard: Improved UI with better feature organization.']

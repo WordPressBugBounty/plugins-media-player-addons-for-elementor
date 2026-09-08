@@ -1,12 +1,12 @@
 === Media Player Addons for Elementor – Audio and Video Widgets for Elementor ===
 Plugin Name: Media Player Addons for Elementor
 Author URI: https://bplugins.com
-Contributors: bplugins, shehabulislam, hazrath, freemius
+Contributors: bplugins, hazrath, freemius
 Tags: Elementor addon, media player, mp3 player, video player, youtube 
-Requires at least: 5.5
-Version: 1.1.8
-Tested up to: 7.0
-Stable tag: 1.1.8
+Requires at least: 5.7
+Version: 1.1.9
+Tested up to: 7.1
+Stable tag: 1.1.9
 Requires PHP: 7.4
 Donate link: https://www.buymeacoffee.com/abuhayat
 License: GPLv2 or later 
@@ -182,6 +182,14 @@ Stay connected and get the latest updates:
 9. Classic Audio Playlist
 
 == Changelog ==
+
+= 1.1.9 - 07 September, 2026 =
+* New: Added YouTube Video Gallery widget.
+* New: Added playlist position options (Right, Left, Bottom) for Classic Video Playlist.
+* New: Added fullscreen mode support for Advanced Video Playlist Player.
+* Fix: Resolved video playback issue where clicking playlist items did not play in Classic Video Playlist.
+* Fix: Added HLS.js streaming support for .m3u8 video sources in Classic Video Playlist.
+* Update: Improved UI styling, poster thumbnails, and responsive behavior for video playlists.
 
 = 1.1.8 - 11 July, 2026 =
 * Release: New Version v1.1.8
