@@ -262,7 +262,7 @@ class mpafe_Bplayer_Video_Playlist extends Widget_Base {
 	
 		?>
 
-		<div id="video-play-list-app" data-settings='<?php echo wp_json_encode( $bplayer_opt ); ?>'></div>
+		<div id="video-play-list-app" data-settings='<?php echo esc_attr( wp_json_encode( $bplayer_opt ) ); ?>'></div>
 		
 		<?php
 	}

@@ -315,7 +315,7 @@ class mpafe_Bplayer_Playlist extends Widget_Base
 		$bplayer_opt['media_source'] = $settings['media_source'];
 
 ?>
-		<div id="app" data-settings='<?php echo wp_json_encode($bplayer_opt); ?>'></div>
+		<div id="app" data-settings='<?php echo esc_attr( wp_json_encode($bplayer_opt) ); ?>'></div>
 
 <?php
 	}

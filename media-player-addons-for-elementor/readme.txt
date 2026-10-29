@@ -4,9 +4,9 @@ Author URI: https://bplugins.com
 Contributors: bplugins, hazrath, freemius
 Tags: Elementor addon, media player, mp3 player, video player, youtube 
 Requires at least: 5.7
-Version: 1.1.10
+Version: 1.1.11
 Tested up to: 7.1
-Stable tag: 1.1.10
+Stable tag: 1.1.11
 Requires PHP: 7.4
 Donate link: https://www.buymeacoffee.com/abuhayat
 License: GPLv2 or later 
@@ -182,6 +182,9 @@ Stay connected and get the latest updates:
 9. Classic Audio Playlist
 
 == Changelog ==
+
+= 1.1.11 - 28 Oct, 2026 =
+* Fix: Fixed Stored Cross-Site Scripting (XSS) vulnerability.
 
 = 1.1.10 - 19 October, 2026 =
 * Update: Update Freemius SDK to 2.13.5

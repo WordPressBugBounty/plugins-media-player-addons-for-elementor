@@ -474,7 +474,7 @@ class mpafe_art_addon extends Widget_Base {
 
 
 	?>
-    <div class="artplayer-app" id='aaa<?php echo esc_attr(uniqid());?>' data-controls ='<?php echo wp_json_encode($controls);?>'data-settings='<?php echo wp_json_encode($settings) ?>'>
+    <div class="artplayer-app" id='aaa<?php echo esc_attr(uniqid());?>' data-controls ='<?php echo esc_attr( wp_json_encode($controls) ); ?>' data-settings='<?php echo esc_attr( wp_json_encode($settings) ); ?>'>
      </div>
 	<?php
 	}

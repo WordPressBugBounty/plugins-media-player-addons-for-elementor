@@ -287,7 +287,7 @@ class mpafe_Bplayer extends Widget_Base
 
 ?>
 	<div class="bplayer-widget-wrapper">
-		<div class="advance-audio-app" data-settings='<?php echo wp_json_encode($bplayer_opt); ?>'></div>
+		<div class="advance-audio-app" data-settings='<?php echo esc_attr( wp_json_encode($bplayer_opt) ); ?>'></div>
 	</div>
 <?php
 	}

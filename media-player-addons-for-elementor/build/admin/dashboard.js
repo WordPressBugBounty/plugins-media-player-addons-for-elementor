@@ -15463,6 +15463,10 @@ const welcomeInfo = adminUrl => ({
     }]
   },
   changelogs: [{
+    version: '1.1.11 - 28 October, 2026',
+    type: 'fixed',
+    list: ['<strong>Fixed:</strong> Fixed Stored Cross-Site Scripting (XSS) vulnerability.']
+  }, {
     version: '1.1.10 - 19 October, 2026',
     type: 'update',
     list: ['<strong>Update:</strong> Update Freemius SDK to 2.13.5']

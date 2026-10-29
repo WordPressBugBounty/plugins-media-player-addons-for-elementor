@@ -289,7 +289,7 @@ class mpafe_Bplayer_Video extends Widget_Base
 
 ?>
 
-		<div id="bplayer-app" data-settings='<?php echo wp_json_encode($bplayer_opt); ?>'></div>
+		<div id="bplayer-app" data-settings='<?php echo esc_attr( wp_json_encode($bplayer_opt) ); ?>'></div>
 
 <?php
 	}

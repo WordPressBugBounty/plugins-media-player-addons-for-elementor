@@ -337,7 +337,7 @@ class mpafe_d_player extends Widget_Base {
 		    $options['dplayer_upload'] = $settings['dplayer_upload'];  
   
 ?>
-   <div id="dplayer"  class ="dplayer" data-settings='<?php echo wp_json_encode($options) ?>'></div>
+   <div id="dplayer"  class ="dplayer" data-settings='<?php echo esc_attr( wp_json_encode($options) ); ?>'></div>
 	<?php
 	}
 	/**

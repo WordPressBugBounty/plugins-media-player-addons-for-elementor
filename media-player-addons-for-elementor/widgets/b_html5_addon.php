@@ -588,7 +588,7 @@ class mpafe_html5_addon extends Widget_Base
           $extensionn = $ext = pathinfo($videoos_link, PATHINFO_EXTENSION);   
        ?>
 
-    <video src="<?php echo esc_url($videoos_link); ?>" class="b_addon_player" data-settings='<?php echo wp_json_encode($controls) ?>' style="--plyr-color-main:<?php echo esc_attr($all_bg);?>;--plyr-control-icon-size:<?php echo esc_attr($p_c_i_s['size']).'px' ?>;--plyr-range-thumb-background:<?php echo esc_attr($plr_range_bg); ?>;--plyr-range-thumb-height:<?php echo esc_attr($thumb_height).'px' ?>;--plyr-tooltip-color:<?php echo esc_attr($tooltip_text); ?>;--plyr-tooltip-background:<?php echo esc_attr($tooltip_bg); ?>;--plyr-video-range-track-background:<?php echo esc_attr($v_r_t_b); ?>;--plyr-badge-background:<?php echo esc_attr($p_b_b); ?>;--plyr-badge-text-color:<?php echo esc_attr($p_b_t_c); ?>;--plyr-video-control-color-hover:<?php echo esc_attr($v_c_c_h); ?>;--plyr-video-control-color:<?php echo esc_attr($v_c_c); ?>;--plyr-captions-background:<?php echo esc_attr($captions_color); ?>;--plyr-captions-text-color:<?php echo esc_attr($p_c_t_c); ?>;" playsinline controls data-poster="<?php echo esc_url($poster['url']); ?>">
+    <video src="<?php echo esc_url($videoos_link); ?>" class="b_addon_player" data-settings='<?php echo esc_attr( wp_json_encode($controls) ); ?>' style="--plyr-color-main:<?php echo esc_attr($all_bg);?>;--plyr-control-icon-size:<?php echo esc_attr($p_c_i_s['size']).'px' ?>;--plyr-range-thumb-background:<?php echo esc_attr($plr_range_bg); ?>;--plyr-range-thumb-height:<?php echo esc_attr($thumb_height).'px' ?>;--plyr-tooltip-color:<?php echo esc_attr($tooltip_text); ?>;--plyr-tooltip-background:<?php echo esc_attr($tooltip_bg); ?>;--plyr-video-range-track-background:<?php echo esc_attr($v_r_t_b); ?>;--plyr-badge-background:<?php echo esc_attr($p_b_b); ?>;--plyr-badge-text-color:<?php echo esc_attr($p_b_t_c); ?>;--plyr-video-control-color-hover:<?php echo esc_attr($v_c_c_h); ?>;--plyr-video-control-color:<?php echo esc_attr($v_c_c); ?>;--plyr-captions-background:<?php echo esc_attr($captions_color); ?>;--plyr-captions-text-color:<?php echo esc_attr($p_c_t_c); ?>;" playsinline controls data-poster="<?php echo esc_url($poster['url']); ?>">
 
         <?php if($multiple_quality !== 'yes'): ?>
         <source src="<?php echo esc_url($videoos_link); ?>" type="video/<?php echo esc_attr($extensionn); ?>"/>
@@ -612,11 +612,11 @@ class mpafe_html5_addon extends Widget_Base
           if($item['src_typed'] == 'uploadds'){
                     $subtitle_link = $item['subtitle_upload']['url'];
                     $subtitle_link = $subtitle_link;
-                    $subtitle_ssize = $item['subtitle_ssize'];
+                    $subtitle_ssize = isset($item['subtitle_ssize']) ? sanitize_text_field($item['subtitle_ssize']) : '';
                 } else {
                     $subtitle_link = $item['subtitle_link'];
                     $subtitle_link = $subtitle_link;
-                    $subtitle_ssize = $item['subtitle_ssize'];
+                    $subtitle_ssize = isset($item['subtitle_ssize']) ? sanitize_text_field($item['subtitle_ssize']) : '';
                 }
                  $extensionds = $ext = pathinfo($subtitle_link, PATHINFO_EXTENSION);
         ?>
