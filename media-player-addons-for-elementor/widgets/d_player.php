@@ -323,7 +323,7 @@ class mpafe_d_player extends Widget_Base {
 		    $options['choose_v_source'] = $settings['choose_v_source'];
 		    $options['srrc_type'] = $settings['srrc_type'];
 		    $options['videoos_upload'] = $settings['videoos_upload'];
-		    $options['videoos_link'] = $settings['videoos_link'];
+		    $options['videoos_link'] = esc_url_raw( $settings['videoos_link'] ?? '' );
 		    $options['video_d_list'] = $settings['video_d_list'];
 		    $options['custom_logo_d'] = isset($settings['custom_logo_d']) ? $settings['custom_logo_d'] : 'no';
 		    $options['d_logo'] = isset($settings['d_logo']) ? $settings['d_logo'] : 'no';
@@ -331,9 +331,11 @@ class mpafe_d_player extends Widget_Base {
 		    $options['banner'] = isset($settings['banner']) ? $settings['banner'] : 'no';
 		    $options['auto_play'] = isset($settings['auto_play']) ? $settings['auto_play'] : 'no';
 		    $options['video_loop'] = isset($settings['video_loop']) ? $settings['video_loop'] : 'no';
-		    $options['player_theme'] = isset($settings['player_theme']) ? $settings['player_theme'] : '#fff';
-		    $options['p_font'] = isset($settings['p_font']) ? $settings['p_font'] : ['size' => 16];
-		    $options['sub_d_bg'] = $settings['sub_d_bg'];
+		    $raw_theme             = isset( $settings['player_theme'] ) ? $settings['player_theme'] : '#fff';
+		    $options['player_theme'] = sanitize_hex_color( $raw_theme ) ?? '#fff';
+		    $raw_p_font             = isset( $settings['p_font'] ) ? $settings['p_font'] : [ 'size' => 16 ];
+		    $options['p_font']       = [ 'size' => absint( $raw_p_font['size'] ?? 16 ) ];
+		    $options['sub_d_bg']     = sanitize_hex_color( $settings['sub_d_bg'] ) ?? '#ffffff';
 		    $options['dplayer_upload'] = $settings['dplayer_upload'];  
   
 ?>

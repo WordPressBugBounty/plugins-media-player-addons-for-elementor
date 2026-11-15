@@ -50,10 +50,17 @@
             ];
         }
         
+        const hexColorRe = /^#[0-9a-fA-F]{3,6}$/;
+        const safeTheme  = hexColorRe.test(settings.player_theme)  ? settings.player_theme  : '#b7daff';
+        const safeColor  = hexColorRe.test(settings.sub_d_bg)      ? settings.sub_d_bg      : '#ffffff';
+        const safeFontSz = (typeof settings.p_font === 'object' && Number.isInteger(settings.p_font.size))
+            ? settings.p_font.size + 'px'
+            : '16px';
+
         const options = {
     //    container: document.getElementById("dplayer"),
             container:  playerElement[0],
-            theme: settings.player_theme,
+            theme: safeTheme,
             lang: "en",
             screenshot: true,
             hotkey: true,
@@ -67,9 +74,9 @@
             subtitle: {
             url: subtitleUrl,
             type: "webvtt",
-            fontSize: settings.p_font,
+            fontSize: safeFontSz,
             bottom: "10%",
-            color: settings.sub_d_bg,
+            color: safeColor,
             },
         };
 

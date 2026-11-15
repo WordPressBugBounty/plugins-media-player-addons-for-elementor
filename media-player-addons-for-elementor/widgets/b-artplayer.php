@@ -424,7 +424,7 @@ class mpafe_art_addon extends Widget_Base {
 	        $vd_pip = $this->get_settings('vd_pip');
 	        $vd_muted = $this->get_settings('vd_muted');
 	        $vd_settings = $this->get_settings('vd_settings');
-	        $vd_color = $this->get_settings('vd_color');
+	        $vd_color = sanitize_hex_color( $this->get_settings('vd_color') );
 	        $vd_camera = $this->get_settings('vd_camera');
 	        $vd_full_screen = $this->get_settings('vd_full_screen');
 	        $vd_full_web = $this->get_settings('vd_full_web');
@@ -439,8 +439,8 @@ class mpafe_art_addon extends Widget_Base {
 
 	      //vedio content settings
           $settings = [];
-          $settings['vxideoos_link'] = $vxideoos_link;
-          $settings['sxubtitle_link'] = $sxubtitle_link;
+          $settings['vxideoos_link'] = esc_url_raw( $vxideoos_link ?? '' );
+          $settings['sxubtitle_link'] = esc_url_raw( $sxubtitle_link ?? '' );
           $settings['sxubtitle_upload'] = $sxubtitle_upload;
           $settings['sub_bg'] = $sub_bg;
           $settings['vxideoos_upload'] = $vxideoos_upload;

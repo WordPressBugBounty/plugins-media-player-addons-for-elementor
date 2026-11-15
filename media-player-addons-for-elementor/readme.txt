@@ -3,10 +3,10 @@ Plugin Name: Media Player Addons for Elementor
 Author URI: https://bplugins.com
 Contributors: bplugins, hazrath, freemius
 Tags: Elementor addon, media player, mp3 player, video player, youtube 
-Requires at least: 5.7
-Version: 1.1.11
+Requires at least: 6.0
+Version: 1.1.12
 Tested up to: 7.1
-Stable tag: 1.1.11
+Stable tag: 1.1.12
 Requires PHP: 7.4
 Donate link: https://www.buymeacoffee.com/abuhayat
 License: GPLv2 or later 
@@ -182,6 +182,16 @@ Stay connected and get the latest updates:
 9. Classic Audio Playlist
 
 == Changelog ==
+
+= 1.1.12 - 15 Nov, 2026 =
+* Security: Fixed Authenticated (Contributor+) Stored XSS via `vd_color` Art Player element setting (CVE — affects <= 1.1.11) — added `sanitize_hex_color()` on PHP side and hex regex allowlist in `art-player-main.js`.
+* Security: Fixed Authenticated (Contributor+) Stored XSS via `player_theme` in dPlayer widget — added `sanitize_hex_color()` on PHP side and hex regex allowlist in `d-player-main.js`.
+* Security: Fixed Authenticated (Contributor+) Stored XSS via `sub_d_bg` (subtitle color) and `p_font` (font size) in dPlayer widget — sanitized with `sanitize_hex_color()` and `absint()` respectively.
+* Security: Fixed missing capability check on `mpafeGetBlocks` AJAX handler — added `current_user_can( 'manage_options' )` check after nonce verification in `BMPAAdminMenu.php`.
+* Security: Fixed URL injection risk on `track_source` and `track_poster` fields in Advanced Audio and Video Player widgets — applied `esc_url_raw()` before JSON encoding.
+* Security: Fixed URL injection risk on `audio_link`, `vxideoos_link`, `sxubtitle_link`, and `videoos_link` URL fields — applied `esc_url_raw()` before frontend output.
+* Fix: Removed stray markdown fragment at end of `b_html5_addon.php` that was being rendered as page output.
+* Fix: Replaced raw `echo` of inline admin CSS with `wp_add_inline_style()` in `BMPAAdminMenu.php`.
 
 = 1.1.11 - 28 Oct, 2026 =
 * Fix: Fixed Stored Cross-Site Scripting (XSS) vulnerability.

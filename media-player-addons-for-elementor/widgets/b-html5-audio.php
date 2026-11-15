@@ -253,9 +253,9 @@ class mpafe_html5_audio extends Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 		   if($settings['src_type'] == 'upload'){
-            $audio_link = $settings['audio_upload']['url'];
+            $audio_link = esc_url_raw( $settings['audio_upload']['url'] ?? '' );
         } else {
-            $audio_link = $settings['audio_link'];
+            $audio_link = esc_url_raw( $settings['audio_link'] ?? '' );
         }
         $a_all_color      = !empty($settings['a_all_color']) ? $settings['a_all_color'] : '#00b3ff';
 		$audio_rang_a     = !empty($settings['audio_rang_a']) ? $settings['audio_rang_a'] : '#cccccc';

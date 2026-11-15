@@ -11,17 +11,14 @@ if(!class_exists("MPAFEAdminMenu")) {
 		}
 
 		public function mpafeIconImgSizeStyle() {
-			$screen = get_current_screen();
-				echo '
-				<style>
-					.fs-submenu-item.media-player-addons-for-elementor.pricing.upgrade-mode {
+			$css = '.fs-submenu-item.media-player-addons-for-elementor.pricing.upgrade-mode {
 						background: #146ef5;
 						border-radius: 3px;
 						color: #fff;
 						display: inline-block;
 						padding: 9px 20px 9px 18px;
-					}
-				</style>';
+					}';
+			wp_add_inline_style( 'mpafe-admin-dashboard', $css );
 		}
 	
 		public function mpafeAdminMenu() {
@@ -53,6 +50,10 @@ if(!class_exists("MPAFEAdminMenu")) {
 
 			if( !wp_verify_nonce( $nonce, 'bptb_admin_nonce' )){
 				wp_send_json_error( 'Invalid Request' );
+			}
+
+			if ( ! current_user_can( 'manage_options' ) ) {
+				wp_send_json_error( 'Insufficient permissions' );
 			}
 
 			$data = json_decode( stripslashes( $_POST['data'] ), true );

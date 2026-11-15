@@ -280,8 +280,8 @@ class mpafe_Bplayer extends Widget_Base
 		}
 
 		$bplayer_opt['track_title'] 		= mpafe_sanitize_xss_input($settings['track_title']);
-		$bplayer_opt['track_source'] 		= $settings['track_source'];
-		$bplayer_opt['track_poster'] 		= $settings['track_poster'];
+		$bplayer_opt['track_source'] 		= esc_url_raw( $settings['track_source']['url'] ?? '' );
+		$bplayer_opt['track_poster'] 		= esc_url_raw( $settings['track_poster']['url'] ?? '' );
 		$bplayer_opt['track_artist_name'] 	= mpafe_sanitize_xss_input($settings['track_artist_name']);
 		$bplayer_opt['track_album'] 		= mpafe_sanitize_xss_input($settings['track_album']);
 

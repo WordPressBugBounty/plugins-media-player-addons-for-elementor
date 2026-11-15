@@ -637,4 +637,3 @@ class mpafe_html5_addon extends Widget_Base
     // protected function _content_template() {}
 
 }
-## How can I report security bugs?

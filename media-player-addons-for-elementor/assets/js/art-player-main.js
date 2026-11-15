@@ -96,7 +96,7 @@
             mutex: true,
             light: true,
             backdrop: true,
-            theme: `${settings.vd_color}`,
+            theme: /^#[0-9a-fA-F]{3,6}$/.test(settings.vd_color) ? settings.vd_color : '#f00',
 
             lang: navigator.language.toLowerCase(),
             moreVideoAttr: {
